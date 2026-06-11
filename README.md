@@ -10,6 +10,7 @@ The app renders a deterministic scripted scene with Three.js:
 - simplified Lanelet2-style road geometry converted from the AV2 vector map into `public/maps/lanelet_demo.json`
 - fixed route and ego trajectory JSON files derived from AV2 map-aligned ego pose
 - a fixed 157-frame perception object sequence derived from AV2 annotations and synchronized to the ego trajectory frames
+- lidar points colored by AV2 `laser_number` rings, plus synchronized downsampled views from nine AV2 cameras
 - RViz-like layer controls, orbit/pan/zoom camera controls, camera presets, and scripted demo states
 - RViz2-style panels and display names such as `PointCloudMap`, `Lanelet2VectorMap`, `PredictedObjects`, `Trajectory`, and `PathWithLaneId`
 - a guided static module walkthrough and topic monitor showing how map, localization, perception, planning, control, and vehicle displays relate during an Autoware-style run
@@ -78,6 +79,8 @@ The right-side panels provide a short deterministic operator flow:
 - **Autonomous Drive**: switches the state panel to autonomous mode, plays the pre-authored ego path, and advances static perception frames in sync with the current ego source frame.
 - **Goal Reached**: stops the vehicle at the final pose and leaves the final route/perception evidence visible.
 
+The central viewer has two tabs: **3D View** for the RViz-style WebGL scene and **Camera Views** for synchronized static AV2 camera images. The Play and Autonomous Drive controls switch the 3D camera into a third-person follow view behind the ego vehicle.
+
 The module flow panel is also static. It highlights which Autoware subsystems are being demonstrated at each scripted step; it does not execute those modules.
 
 The Displays tree supports RViz-style parent toggles for the System, Map, Planning, and Perception groups. These toggles only change Three.js layer visibility; they do not start or stop any ROS nodes.
@@ -93,6 +96,8 @@ public/
     route.json
     ego_path.json
     objects_sequence.json
+    camera_manifest.json
+    cameras/
     objects_frame_000.json
     objects_frame_001.json
     objects_frame_002.json
@@ -117,7 +122,7 @@ The checked-in demo data is derived from this local AV2 log:
 
 The raw AV2 folder is about 1.1 GB and is not committed. GitHub recommends repositories stay near 1 GB, published GitHub Pages sites may be no larger than 1 GB, and normal GitHub files cannot exceed 100 MB. The repository therefore stores deterministic browser-ready chunks instead of the raw sensor log.
 
-The exported ego path and perception sequence use all 157 lidar-synchronized frames from the mounted AV2 sync file. The browser demo plays those frames over a 31.2 second scripted duration so the sequence is easier to inspect while preserving the one-to-one ego/object source frame mapping.
+The exported ego path, perception sequence, and camera thumbnails use all 157 lidar-synchronized frames from the mounted AV2 sync file. The browser demo plays those frames over a 31.2 second scripted duration so the sequence is easier to inspect while preserving the one-to-one ego/object/camera source frame mapping.
 
 Regenerate the static AV2 chunks with:
 
@@ -137,6 +142,7 @@ To replace the demo scene with different preprocessed data:
 4. Replace `route.json` with a fixed route polyline.
 5. Replace `ego_path.json` with fixed timestamped ego poses.
 6. Replace `objects_sequence.json` and the manual object frame JSON files with fixed bounding boxes.
+7. Replace `camera_manifest.json` and `demo/cameras/` with small synchronized camera thumbnails if camera views are needed.
 
 Large maps should not be committed directly. Crop to a short road corridor and downsample aggressively.
 

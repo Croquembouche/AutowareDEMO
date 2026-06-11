@@ -25,6 +25,10 @@ export class Viewer {
     this.layers = {};
     this.objectFrames = [];
     this.objectSequence = [];
+    this.cameraManifest = null;
+    this.activeCameraId = 'ring_front_center';
+    this.activeCameraFrame = -1;
+    this.followEgo = false;
     this.clock = new THREE.Clock();
     this.frameCallbacks = new Set();
     this.currentPerceptionFrame = 0;
@@ -65,13 +69,14 @@ export class Viewer {
     this.setLoading('Loading point cloud, lanelets, route, trajectory, and perception frames...');
 
     try {
-      const [pointCloud, laneletMap, route, egoPath, metadata, objectSequence, ...objectFrames] = await Promise.all([
+      const [pointCloud, laneletMap, route, egoPath, metadata, objectSequence, cameraManifest, ...objectFrames] = await Promise.all([
         loadPointCloud(`${assetBase}maps/pointcloud_map_small.pcd`),
         loadJson(`${assetBase}maps/lanelet_demo.json`),
         loadJson(`${assetBase}demo/route.json`),
         loadJson(`${assetBase}demo/ego_path.json`),
         loadJson(`${assetBase}demo/av2_metadata.json`),
         loadJson(`${assetBase}demo/objects_sequence.json`),
+        loadJson(`${assetBase}demo/camera_manifest.json`),
         loadJson(`${assetBase}demo/objects_frame_000.json`),
         loadJson(`${assetBase}demo/objects_frame_001.json`),
         loadJson(`${assetBase}demo/objects_frame_002.json`)
@@ -79,6 +84,8 @@ export class Viewer {
 
       this.objectFrames = objectFrames;
       this.objectSequence = objectSequence.frames ?? objectFrames;
+      this.cameraManifest = cameraManifest;
+      this.activeCameraId = cameraManifest.cameras?.[0]?.id ?? this.activeCameraId;
       this.registerLayer('pointCloud', pointCloud);
       Object.entries(createLaneletLayers(laneletMap)).forEach(([name, group]) => this.registerLayer(name, group));
       this.registerLayer('route', createRouteLayer(route));
@@ -88,6 +95,9 @@ export class Viewer {
       this.registerLayer('predictedPath', createPredictedPathLayer(egoPath));
       this.registerLayer('perceptionObjects', createObjectsLayer(this.objectSequence[0] ?? objectFrames[0]));
       this.setMetadata(metadata);
+      this.setupViewModeControls();
+      this.setupCameraTabs();
+      this.syncCameraFrame();
 
       this.setLoading(`Loaded ${pointCloud.children[0].geometry.getAttribute('position').count} map points and ${laneletMap.lanelets.length} lanelets.`);
       this.setDetail('Initial Map: static point cloud with simplified Lanelet2-style road geometry.');
@@ -150,10 +160,84 @@ export class Viewer {
     }
   }
 
+  setupViewModeControls() {
+    this.ui.viewModeButtons?.forEach((button) => {
+      button.addEventListener('click', () => this.setViewMode(button.dataset.viewMode));
+    });
+  }
+
+  setViewMode(mode) {
+    const cameraMode = mode === 'cameras';
+    if (this.ui.cameraPanel) {
+      this.ui.cameraPanel.hidden = !cameraMode;
+    }
+    this.ui.viewModeButtons?.forEach((button) => {
+      button.classList.toggle('active', button.dataset.viewMode === mode);
+    });
+    if (cameraMode) {
+      this.syncCameraFrame(true);
+    }
+  }
+
+  setupCameraTabs() {
+    if (!this.ui.cameraTabs || !this.cameraManifest?.cameras?.length) {
+      return;
+    }
+    this.ui.cameraTabs.replaceChildren();
+    this.cameraManifest.cameras.forEach((camera) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = camera.label;
+      button.dataset.cameraId = camera.id;
+      button.classList.toggle('active', camera.id === this.activeCameraId);
+      button.addEventListener('click', () => {
+        this.activeCameraId = camera.id;
+        this.ui.cameraTabs.querySelectorAll('button').forEach((item) => {
+          item.classList.toggle('active', item.dataset.cameraId === this.activeCameraId);
+        });
+        this.syncCameraFrame(true);
+      });
+      this.ui.cameraTabs.appendChild(button);
+    });
+  }
+
+  syncCameraFrame(force = false) {
+    if (!this.cameraManifest?.frames?.length || !this.ego || !this.ui.cameraImage) {
+      return;
+    }
+    const egoSourceFrame = this.ego.currentSourceFrameIndex ?? 0;
+    let frame = this.cameraManifest.frames.find((item) => item.sourceFrameIndex === egoSourceFrame);
+    if (!frame) {
+      frame = this.cameraManifest.frames[Math.min(this.ego.currentFrameIndex ?? 0, this.cameraManifest.frames.length - 1)];
+    }
+    if (!frame) {
+      return;
+    }
+    const imagePath = frame.images?.[this.activeCameraId];
+    if (!imagePath) {
+      return;
+    }
+    if (force || frame.sourceFrameIndex !== this.activeCameraFrame || this.ui.cameraImage.dataset.cameraId !== this.activeCameraId) {
+      this.activeCameraFrame = frame.sourceFrameIndex;
+      this.ui.cameraImage.src = `${assetBase}${imagePath}`;
+      this.ui.cameraImage.dataset.cameraId = this.activeCameraId;
+      const camera = this.cameraManifest.cameras.find((item) => item.id === this.activeCameraId);
+      if (this.ui.activeCameraName) {
+        this.ui.activeCameraName.textContent = camera?.label ?? this.activeCameraId;
+      }
+      if (this.ui.activeCameraFrame) {
+        this.ui.activeCameraFrame.textContent = `${frame.sourceFrameIndex}`;
+      }
+    }
+  }
+
   playEgo() {
     this.perceptionSequenceMode = true;
+    this.followEgo = true;
+    this.setCameraBadge('third-person follow');
     this.ego?.play();
     this.syncPerceptionToPlayback();
+    this.syncCameraFrame(true);
   }
 
   pauseEgo() {
@@ -162,8 +246,11 @@ export class Viewer {
 
   resetEgo() {
     this.perceptionSequenceMode = false;
+    this.followEgo = false;
+    this.setCameraBadge('orbit / pan / zoom');
     this.ego?.reset();
     this.updateScrubber();
+    this.syncCameraFrame(true);
   }
 
   setEgoProgress(value) {
@@ -172,14 +259,22 @@ export class Viewer {
     this.ego?.setNormalizedTime(value);
     this.updateScrubber();
     this.syncPerceptionToPlayback();
+    this.syncCameraFrame(true);
   }
 
   setEgoGoal() {
+    this.followEgo = false;
+    this.setCameraBadge('orbit / pan / zoom');
     this.ego?.setToEnd();
     this.updateScrubber();
+    this.syncCameraFrame(true);
   }
 
   setCameraPreset(name, animated = true) {
+    if (name !== 'drive') {
+      this.followEgo = false;
+      this.setCameraBadge('orbit / pan / zoom');
+    }
     const preset = cameraPresets[name] ?? cameraPresets.initial;
     const position = new THREE.Vector3(...preset.position);
     const target = new THREE.Vector3(...preset.target);
@@ -251,6 +346,9 @@ export class Viewer {
     if (this.ui.objectFrameCount) {
       this.ui.objectFrameCount.textContent = `${metadata.exportedObjectSequenceFrames ?? this.objectSequence.length}`;
     }
+    if (this.ui.cameraCount) {
+      this.ui.cameraCount.textContent = `${metadata.exportedCameras ?? this.cameraManifest?.cameras?.length ?? 0}`;
+    }
   }
 
   setDetail(message) {
@@ -260,6 +358,12 @@ export class Viewer {
   setLoading(message, isError = false) {
     this.ui.loadingStatus.textContent = message;
     this.ui.loadingStatus.classList.toggle('error', isError);
+  }
+
+  setCameraBadge(message) {
+    if (this.ui.cameraBadge) {
+      this.ui.cameraBadge.textContent = message;
+    }
   }
 
   addBaseScene() {
@@ -312,6 +416,19 @@ export class Viewer {
     }
   }
 
+  updateFollowCamera() {
+    if (!this.followEgo || !this.ego?.group) {
+      return;
+    }
+    const vehicle = this.ego.group;
+    const followOffset = new THREE.Vector3(-10.5, 5.0, 0).applyQuaternion(vehicle.quaternion);
+    const targetOffset = new THREE.Vector3(4.0, 1.05, 0).applyQuaternion(vehicle.quaternion);
+    const desiredPosition = vehicle.position.clone().add(followOffset);
+    const desiredTarget = vehicle.position.clone().add(targetOffset);
+    this.camera.position.lerp(desiredPosition, 0.14);
+    this.controls.target.lerp(desiredTarget, 0.18);
+  }
+
   resize() {
     const { clientWidth, clientHeight } = this.container;
     this.camera.aspect = clientWidth / Math.max(clientHeight, 1);
@@ -325,9 +442,11 @@ export class Viewer {
     const delta = Math.min(this.clock.getDelta(), 0.05);
     this.ego?.update(delta);
     this.frameCallbacks.forEach((callback) => callback(delta));
+    this.updateFollowCamera();
     this.controls.update();
     this.updateScrubber();
     this.syncPerceptionToPlayback();
+    this.syncCameraFrame();
     this.updateStatusOverlay();
     this.renderer.render(this.scene, this.camera);
     this.labelRenderer.render(this.scene, this.camera);

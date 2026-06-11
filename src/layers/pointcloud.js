@@ -10,13 +10,15 @@ export function loadPointCloud(url) {
       url,
       (points) => {
         points.name = 'Point Cloud Map';
+        const hasVertexColors = Boolean(points.geometry.getAttribute('color'));
         points.material = new THREE.PointsMaterial({
-          size: 0.16,
+          size: 0.3,
           color: 0xd8eef7,
           transparent: true,
-          opacity: 0.86,
+          opacity: 0.94,
           depthWrite: false,
-          sizeAttenuation: true
+          sizeAttenuation: true,
+          vertexColors: hasVertexColors
         });
 
         const source = points.geometry.getAttribute('position');

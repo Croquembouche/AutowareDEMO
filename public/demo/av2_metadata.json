@@ -6,6 +6,8 @@
   "exportedCrosswalks": 9,
   "exportedPointCount": 18000,
   "exportedObjectSequenceFrames": 157,
+  "exportedCameraFrames": 157,
+  "exportedCameras": 9,
   "lidarFrameStride": 4,
   "egoFrameStride": 1,
   "demoPlaybackTimeScale": 2.0,

@@ -1,0 +1,2397 @@
+{
+  "cameras": [
+    {
+      "id": "ring_front_center",
+      "label": "Front Center"
+    },
+    {
+      "id": "ring_front_left",
+      "label": "Front Left"
+    },
+    {
+      "id": "ring_front_right",
+      "label": "Front Right"
+    },
+    {
+      "id": "ring_side_left",
+      "label": "Side Left"
+    },
+    {
+      "id": "ring_side_right",
+      "label": "Side Right"
+    },
+    {
+      "id": "ring_rear_left",
+      "label": "Rear Left"
+    },
+    {
+      "id": "ring_rear_right",
+      "label": "Rear Right"
+    },
+    {
+      "id": "stereo_front_left",
+      "label": "Stereo Left"
+    },
+    {
+      "id": "stereo_front_right",
+      "label": "Stereo Right"
+    }
+  ],
+  "frames": [
+    {
+      "demoFrame": 0,
+      "sourceFrameIndex": 0,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_000.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_000.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_000.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_000.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_000.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_000.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_000.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_000.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_000.jpg"
+      }
+    },
+    {
+      "demoFrame": 1,
+      "sourceFrameIndex": 1,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_001.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_001.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_001.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_001.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_001.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_001.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_001.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_001.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_001.jpg"
+      }
+    },
+    {
+      "demoFrame": 2,
+      "sourceFrameIndex": 2,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_002.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_002.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_002.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_002.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_002.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_002.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_002.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_002.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_002.jpg"
+      }
+    },
+    {
+      "demoFrame": 3,
+      "sourceFrameIndex": 3,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_003.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_003.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_003.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_003.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_003.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_003.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_003.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_003.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_003.jpg"
+      }
+    },
+    {
+      "demoFrame": 4,
+      "sourceFrameIndex": 4,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_004.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_004.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_004.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_004.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_004.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_004.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_004.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_004.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_004.jpg"
+      }
+    },
+    {
+      "demoFrame": 5,
+      "sourceFrameIndex": 5,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_005.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_005.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_005.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_005.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_005.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_005.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_005.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_005.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_005.jpg"
+      }
+    },
+    {
+      "demoFrame": 6,
+      "sourceFrameIndex": 6,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_006.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_006.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_006.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_006.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_006.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_006.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_006.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_006.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_006.jpg"
+      }
+    },
+    {
+      "demoFrame": 7,
+      "sourceFrameIndex": 7,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_007.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_007.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_007.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_007.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_007.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_007.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_007.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_007.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_007.jpg"
+      }
+    },
+    {
+      "demoFrame": 8,
+      "sourceFrameIndex": 8,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_008.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_008.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_008.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_008.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_008.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_008.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_008.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_008.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_008.jpg"
+      }
+    },
+    {
+      "demoFrame": 9,
+      "sourceFrameIndex": 9,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_009.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_009.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_009.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_009.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_009.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_009.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_009.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_009.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_009.jpg"
+      }
+    },
+    {
+      "demoFrame": 10,
+      "sourceFrameIndex": 10,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_010.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_010.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_010.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_010.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_010.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_010.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_010.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_010.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_010.jpg"
+      }
+    },
+    {
+      "demoFrame": 11,
+      "sourceFrameIndex": 11,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_011.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_011.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_011.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_011.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_011.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_011.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_011.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_011.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_011.jpg"
+      }
+    },
+    {
+      "demoFrame": 12,
+      "sourceFrameIndex": 12,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_012.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_012.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_012.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_012.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_012.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_012.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_012.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_012.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_012.jpg"
+      }
+    },
+    {
+      "demoFrame": 13,
+      "sourceFrameIndex": 13,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_013.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_013.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_013.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_013.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_013.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_013.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_013.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_013.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_013.jpg"
+      }
+    },
+    {
+      "demoFrame": 14,
+      "sourceFrameIndex": 14,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_014.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_014.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_014.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_014.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_014.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_014.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_014.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_014.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_014.jpg"
+      }
+    },
+    {
+      "demoFrame": 15,
+      "sourceFrameIndex": 15,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_015.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_015.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_015.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_015.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_015.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_015.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_015.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_015.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_015.jpg"
+      }
+    },
+    {
+      "demoFrame": 16,
+      "sourceFrameIndex": 16,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_016.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_016.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_016.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_016.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_016.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_016.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_016.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_016.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_016.jpg"
+      }
+    },
+    {
+      "demoFrame": 17,
+      "sourceFrameIndex": 17,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_017.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_017.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_017.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_017.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_017.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_017.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_017.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_017.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_017.jpg"
+      }
+    },
+    {
+      "demoFrame": 18,
+      "sourceFrameIndex": 18,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_018.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_018.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_018.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_018.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_018.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_018.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_018.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_018.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_018.jpg"
+      }
+    },
+    {
+      "demoFrame": 19,
+      "sourceFrameIndex": 19,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_019.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_019.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_019.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_019.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_019.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_019.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_019.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_019.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_019.jpg"
+      }
+    },
+    {
+      "demoFrame": 20,
+      "sourceFrameIndex": 20,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_020.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_020.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_020.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_020.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_020.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_020.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_020.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_020.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_020.jpg"
+      }
+    },
+    {
+      "demoFrame": 21,
+      "sourceFrameIndex": 21,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_021.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_021.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_021.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_021.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_021.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_021.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_021.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_021.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_021.jpg"
+      }
+    },
+    {
+      "demoFrame": 22,
+      "sourceFrameIndex": 22,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_022.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_022.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_022.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_022.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_022.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_022.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_022.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_022.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_022.jpg"
+      }
+    },
+    {
+      "demoFrame": 23,
+      "sourceFrameIndex": 23,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_023.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_023.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_023.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_023.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_023.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_023.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_023.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_023.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_023.jpg"
+      }
+    },
+    {
+      "demoFrame": 24,
+      "sourceFrameIndex": 24,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_024.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_024.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_024.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_024.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_024.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_024.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_024.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_024.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_024.jpg"
+      }
+    },
+    {
+      "demoFrame": 25,
+      "sourceFrameIndex": 25,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_025.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_025.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_025.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_025.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_025.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_025.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_025.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_025.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_025.jpg"
+      }
+    },
+    {
+      "demoFrame": 26,
+      "sourceFrameIndex": 26,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_026.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_026.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_026.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_026.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_026.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_026.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_026.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_026.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_026.jpg"
+      }
+    },
+    {
+      "demoFrame": 27,
+      "sourceFrameIndex": 27,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_027.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_027.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_027.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_027.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_027.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_027.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_027.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_027.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_027.jpg"
+      }
+    },
+    {
+      "demoFrame": 28,
+      "sourceFrameIndex": 28,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_028.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_028.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_028.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_028.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_028.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_028.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_028.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_028.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_028.jpg"
+      }
+    },
+    {
+      "demoFrame": 29,
+      "sourceFrameIndex": 29,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_029.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_029.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_029.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_029.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_029.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_029.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_029.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_029.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_029.jpg"
+      }
+    },
+    {
+      "demoFrame": 30,
+      "sourceFrameIndex": 30,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_030.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_030.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_030.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_030.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_030.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_030.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_030.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_030.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_030.jpg"
+      }
+    },
+    {
+      "demoFrame": 31,
+      "sourceFrameIndex": 31,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_031.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_031.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_031.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_031.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_031.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_031.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_031.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_031.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_031.jpg"
+      }
+    },
+    {
+      "demoFrame": 32,
+      "sourceFrameIndex": 32,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_032.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_032.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_032.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_032.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_032.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_032.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_032.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_032.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_032.jpg"
+      }
+    },
+    {
+      "demoFrame": 33,
+      "sourceFrameIndex": 33,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_033.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_033.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_033.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_033.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_033.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_033.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_033.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_033.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_033.jpg"
+      }
+    },
+    {
+      "demoFrame": 34,
+      "sourceFrameIndex": 34,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_034.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_034.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_034.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_034.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_034.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_034.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_034.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_034.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_034.jpg"
+      }
+    },
+    {
+      "demoFrame": 35,
+      "sourceFrameIndex": 35,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_035.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_035.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_035.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_035.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_035.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_035.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_035.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_035.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_035.jpg"
+      }
+    },
+    {
+      "demoFrame": 36,
+      "sourceFrameIndex": 36,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_036.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_036.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_036.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_036.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_036.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_036.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_036.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_036.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_036.jpg"
+      }
+    },
+    {
+      "demoFrame": 37,
+      "sourceFrameIndex": 37,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_037.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_037.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_037.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_037.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_037.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_037.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_037.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_037.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_037.jpg"
+      }
+    },
+    {
+      "demoFrame": 38,
+      "sourceFrameIndex": 38,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_038.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_038.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_038.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_038.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_038.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_038.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_038.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_038.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_038.jpg"
+      }
+    },
+    {
+      "demoFrame": 39,
+      "sourceFrameIndex": 39,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_039.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_039.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_039.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_039.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_039.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_039.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_039.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_039.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_039.jpg"
+      }
+    },
+    {
+      "demoFrame": 40,
+      "sourceFrameIndex": 40,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_040.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_040.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_040.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_040.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_040.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_040.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_040.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_040.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_040.jpg"
+      }
+    },
+    {
+      "demoFrame": 41,
+      "sourceFrameIndex": 41,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_041.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_041.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_041.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_041.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_041.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_041.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_041.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_041.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_041.jpg"
+      }
+    },
+    {
+      "demoFrame": 42,
+      "sourceFrameIndex": 42,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_042.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_042.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_042.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_042.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_042.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_042.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_042.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_042.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_042.jpg"
+      }
+    },
+    {
+      "demoFrame": 43,
+      "sourceFrameIndex": 43,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_043.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_043.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_043.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_043.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_043.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_043.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_043.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_043.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_043.jpg"
+      }
+    },
+    {
+      "demoFrame": 44,
+      "sourceFrameIndex": 44,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_044.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_044.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_044.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_044.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_044.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_044.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_044.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_044.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_044.jpg"
+      }
+    },
+    {
+      "demoFrame": 45,
+      "sourceFrameIndex": 45,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_045.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_045.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_045.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_045.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_045.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_045.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_045.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_045.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_045.jpg"
+      }
+    },
+    {
+      "demoFrame": 46,
+      "sourceFrameIndex": 46,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_046.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_046.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_046.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_046.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_046.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_046.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_046.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_046.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_046.jpg"
+      }
+    },
+    {
+      "demoFrame": 47,
+      "sourceFrameIndex": 47,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_047.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_047.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_047.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_047.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_047.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_047.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_047.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_047.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_047.jpg"
+      }
+    },
+    {
+      "demoFrame": 48,
+      "sourceFrameIndex": 48,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_048.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_048.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_048.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_048.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_048.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_048.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_048.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_048.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_048.jpg"
+      }
+    },
+    {
+      "demoFrame": 49,
+      "sourceFrameIndex": 49,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_049.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_049.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_049.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_049.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_049.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_049.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_049.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_049.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_049.jpg"
+      }
+    },
+    {
+      "demoFrame": 50,
+      "sourceFrameIndex": 50,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_050.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_050.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_050.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_050.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_050.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_050.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_050.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_050.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_050.jpg"
+      }
+    },
+    {
+      "demoFrame": 51,
+      "sourceFrameIndex": 51,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_051.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_051.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_051.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_051.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_051.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_051.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_051.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_051.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_051.jpg"
+      }
+    },
+    {
+      "demoFrame": 52,
+      "sourceFrameIndex": 52,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_052.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_052.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_052.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_052.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_052.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_052.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_052.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_052.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_052.jpg"
+      }
+    },
+    {
+      "demoFrame": 53,
+      "sourceFrameIndex": 53,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_053.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_053.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_053.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_053.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_053.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_053.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_053.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_053.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_053.jpg"
+      }
+    },
+    {
+      "demoFrame": 54,
+      "sourceFrameIndex": 54,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_054.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_054.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_054.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_054.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_054.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_054.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_054.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_054.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_054.jpg"
+      }
+    },
+    {
+      "demoFrame": 55,
+      "sourceFrameIndex": 55,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_055.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_055.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_055.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_055.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_055.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_055.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_055.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_055.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_055.jpg"
+      }
+    },
+    {
+      "demoFrame": 56,
+      "sourceFrameIndex": 56,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_056.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_056.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_056.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_056.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_056.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_056.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_056.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_056.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_056.jpg"
+      }
+    },
+    {
+      "demoFrame": 57,
+      "sourceFrameIndex": 57,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_057.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_057.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_057.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_057.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_057.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_057.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_057.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_057.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_057.jpg"
+      }
+    },
+    {
+      "demoFrame": 58,
+      "sourceFrameIndex": 58,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_058.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_058.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_058.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_058.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_058.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_058.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_058.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_058.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_058.jpg"
+      }
+    },
+    {
+      "demoFrame": 59,
+      "sourceFrameIndex": 59,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_059.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_059.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_059.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_059.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_059.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_059.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_059.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_059.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_059.jpg"
+      }
+    },
+    {
+      "demoFrame": 60,
+      "sourceFrameIndex": 60,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_060.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_060.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_060.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_060.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_060.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_060.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_060.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_060.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_060.jpg"
+      }
+    },
+    {
+      "demoFrame": 61,
+      "sourceFrameIndex": 61,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_061.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_061.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_061.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_061.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_061.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_061.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_061.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_061.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_061.jpg"
+      }
+    },
+    {
+      "demoFrame": 62,
+      "sourceFrameIndex": 62,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_062.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_062.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_062.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_062.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_062.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_062.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_062.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_062.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_062.jpg"
+      }
+    },
+    {
+      "demoFrame": 63,
+      "sourceFrameIndex": 63,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_063.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_063.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_063.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_063.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_063.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_063.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_063.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_063.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_063.jpg"
+      }
+    },
+    {
+      "demoFrame": 64,
+      "sourceFrameIndex": 64,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_064.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_064.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_064.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_064.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_064.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_064.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_064.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_064.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_064.jpg"
+      }
+    },
+    {
+      "demoFrame": 65,
+      "sourceFrameIndex": 65,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_065.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_065.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_065.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_065.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_065.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_065.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_065.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_065.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_065.jpg"
+      }
+    },
+    {
+      "demoFrame": 66,
+      "sourceFrameIndex": 66,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_066.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_066.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_066.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_066.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_066.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_066.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_066.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_066.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_066.jpg"
+      }
+    },
+    {
+      "demoFrame": 67,
+      "sourceFrameIndex": 67,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_067.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_067.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_067.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_067.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_067.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_067.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_067.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_067.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_067.jpg"
+      }
+    },
+    {
+      "demoFrame": 68,
+      "sourceFrameIndex": 68,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_068.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_068.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_068.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_068.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_068.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_068.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_068.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_068.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_068.jpg"
+      }
+    },
+    {
+      "demoFrame": 69,
+      "sourceFrameIndex": 69,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_069.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_069.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_069.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_069.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_069.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_069.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_069.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_069.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_069.jpg"
+      }
+    },
+    {
+      "demoFrame": 70,
+      "sourceFrameIndex": 70,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_070.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_070.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_070.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_070.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_070.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_070.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_070.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_070.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_070.jpg"
+      }
+    },
+    {
+      "demoFrame": 71,
+      "sourceFrameIndex": 71,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_071.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_071.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_071.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_071.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_071.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_071.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_071.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_071.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_071.jpg"
+      }
+    },
+    {
+      "demoFrame": 72,
+      "sourceFrameIndex": 72,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_072.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_072.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_072.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_072.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_072.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_072.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_072.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_072.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_072.jpg"
+      }
+    },
+    {
+      "demoFrame": 73,
+      "sourceFrameIndex": 73,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_073.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_073.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_073.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_073.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_073.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_073.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_073.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_073.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_073.jpg"
+      }
+    },
+    {
+      "demoFrame": 74,
+      "sourceFrameIndex": 74,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_074.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_074.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_074.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_074.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_074.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_074.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_074.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_074.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_074.jpg"
+      }
+    },
+    {
+      "demoFrame": 75,
+      "sourceFrameIndex": 75,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_075.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_075.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_075.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_075.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_075.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_075.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_075.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_075.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_075.jpg"
+      }
+    },
+    {
+      "demoFrame": 76,
+      "sourceFrameIndex": 76,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_076.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_076.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_076.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_076.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_076.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_076.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_076.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_076.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_076.jpg"
+      }
+    },
+    {
+      "demoFrame": 77,
+      "sourceFrameIndex": 77,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_077.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_077.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_077.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_077.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_077.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_077.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_077.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_077.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_077.jpg"
+      }
+    },
+    {
+      "demoFrame": 78,
+      "sourceFrameIndex": 78,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_078.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_078.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_078.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_078.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_078.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_078.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_078.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_078.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_078.jpg"
+      }
+    },
+    {
+      "demoFrame": 79,
+      "sourceFrameIndex": 79,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_079.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_079.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_079.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_079.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_079.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_079.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_079.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_079.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_079.jpg"
+      }
+    },
+    {
+      "demoFrame": 80,
+      "sourceFrameIndex": 80,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_080.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_080.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_080.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_080.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_080.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_080.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_080.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_080.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_080.jpg"
+      }
+    },
+    {
+      "demoFrame": 81,
+      "sourceFrameIndex": 81,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_081.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_081.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_081.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_081.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_081.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_081.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_081.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_081.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_081.jpg"
+      }
+    },
+    {
+      "demoFrame": 82,
+      "sourceFrameIndex": 82,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_082.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_082.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_082.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_082.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_082.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_082.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_082.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_082.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_082.jpg"
+      }
+    },
+    {
+      "demoFrame": 83,
+      "sourceFrameIndex": 83,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_083.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_083.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_083.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_083.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_083.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_083.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_083.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_083.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_083.jpg"
+      }
+    },
+    {
+      "demoFrame": 84,
+      "sourceFrameIndex": 84,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_084.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_084.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_084.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_084.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_084.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_084.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_084.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_084.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_084.jpg"
+      }
+    },
+    {
+      "demoFrame": 85,
+      "sourceFrameIndex": 85,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_085.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_085.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_085.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_085.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_085.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_085.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_085.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_085.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_085.jpg"
+      }
+    },
+    {
+      "demoFrame": 86,
+      "sourceFrameIndex": 86,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_086.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_086.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_086.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_086.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_086.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_086.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_086.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_086.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_086.jpg"
+      }
+    },
+    {
+      "demoFrame": 87,
+      "sourceFrameIndex": 87,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_087.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_087.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_087.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_087.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_087.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_087.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_087.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_087.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_087.jpg"
+      }
+    },
+    {
+      "demoFrame": 88,
+      "sourceFrameIndex": 88,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_088.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_088.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_088.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_088.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_088.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_088.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_088.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_088.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_088.jpg"
+      }
+    },
+    {
+      "demoFrame": 89,
+      "sourceFrameIndex": 89,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_089.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_089.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_089.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_089.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_089.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_089.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_089.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_089.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_089.jpg"
+      }
+    },
+    {
+      "demoFrame": 90,
+      "sourceFrameIndex": 90,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_090.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_090.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_090.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_090.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_090.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_090.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_090.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_090.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_090.jpg"
+      }
+    },
+    {
+      "demoFrame": 91,
+      "sourceFrameIndex": 91,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_091.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_091.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_091.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_091.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_091.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_091.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_091.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_091.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_091.jpg"
+      }
+    },
+    {
+      "demoFrame": 92,
+      "sourceFrameIndex": 92,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_092.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_092.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_092.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_092.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_092.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_092.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_092.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_092.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_092.jpg"
+      }
+    },
+    {
+      "demoFrame": 93,
+      "sourceFrameIndex": 93,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_093.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_093.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_093.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_093.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_093.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_093.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_093.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_093.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_093.jpg"
+      }
+    },
+    {
+      "demoFrame": 94,
+      "sourceFrameIndex": 94,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_094.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_094.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_094.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_094.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_094.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_094.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_094.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_094.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_094.jpg"
+      }
+    },
+    {
+      "demoFrame": 95,
+      "sourceFrameIndex": 95,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_095.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_095.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_095.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_095.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_095.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_095.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_095.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_095.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_095.jpg"
+      }
+    },
+    {
+      "demoFrame": 96,
+      "sourceFrameIndex": 96,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_096.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_096.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_096.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_096.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_096.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_096.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_096.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_096.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_096.jpg"
+      }
+    },
+    {
+      "demoFrame": 97,
+      "sourceFrameIndex": 97,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_097.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_097.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_097.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_097.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_097.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_097.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_097.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_097.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_097.jpg"
+      }
+    },
+    {
+      "demoFrame": 98,
+      "sourceFrameIndex": 98,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_098.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_098.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_098.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_098.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_098.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_098.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_098.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_098.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_098.jpg"
+      }
+    },
+    {
+      "demoFrame": 99,
+      "sourceFrameIndex": 99,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_099.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_099.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_099.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_099.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_099.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_099.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_099.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_099.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_099.jpg"
+      }
+    },
+    {
+      "demoFrame": 100,
+      "sourceFrameIndex": 100,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_100.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_100.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_100.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_100.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_100.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_100.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_100.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_100.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_100.jpg"
+      }
+    },
+    {
+      "demoFrame": 101,
+      "sourceFrameIndex": 101,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_101.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_101.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_101.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_101.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_101.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_101.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_101.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_101.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_101.jpg"
+      }
+    },
+    {
+      "demoFrame": 102,
+      "sourceFrameIndex": 102,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_102.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_102.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_102.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_102.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_102.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_102.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_102.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_102.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_102.jpg"
+      }
+    },
+    {
+      "demoFrame": 103,
+      "sourceFrameIndex": 103,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_103.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_103.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_103.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_103.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_103.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_103.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_103.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_103.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_103.jpg"
+      }
+    },
+    {
+      "demoFrame": 104,
+      "sourceFrameIndex": 104,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_104.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_104.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_104.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_104.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_104.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_104.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_104.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_104.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_104.jpg"
+      }
+    },
+    {
+      "demoFrame": 105,
+      "sourceFrameIndex": 105,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_105.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_105.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_105.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_105.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_105.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_105.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_105.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_105.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_105.jpg"
+      }
+    },
+    {
+      "demoFrame": 106,
+      "sourceFrameIndex": 106,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_106.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_106.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_106.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_106.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_106.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_106.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_106.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_106.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_106.jpg"
+      }
+    },
+    {
+      "demoFrame": 107,
+      "sourceFrameIndex": 107,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_107.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_107.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_107.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_107.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_107.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_107.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_107.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_107.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_107.jpg"
+      }
+    },
+    {
+      "demoFrame": 108,
+      "sourceFrameIndex": 108,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_108.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_108.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_108.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_108.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_108.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_108.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_108.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_108.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_108.jpg"
+      }
+    },
+    {
+      "demoFrame": 109,
+      "sourceFrameIndex": 109,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_109.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_109.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_109.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_109.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_109.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_109.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_109.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_109.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_109.jpg"
+      }
+    },
+    {
+      "demoFrame": 110,
+      "sourceFrameIndex": 110,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_110.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_110.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_110.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_110.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_110.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_110.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_110.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_110.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_110.jpg"
+      }
+    },
+    {
+      "demoFrame": 111,
+      "sourceFrameIndex": 111,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_111.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_111.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_111.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_111.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_111.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_111.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_111.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_111.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_111.jpg"
+      }
+    },
+    {
+      "demoFrame": 112,
+      "sourceFrameIndex": 112,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_112.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_112.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_112.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_112.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_112.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_112.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_112.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_112.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_112.jpg"
+      }
+    },
+    {
+      "demoFrame": 113,
+      "sourceFrameIndex": 113,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_113.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_113.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_113.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_113.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_113.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_113.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_113.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_113.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_113.jpg"
+      }
+    },
+    {
+      "demoFrame": 114,
+      "sourceFrameIndex": 114,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_114.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_114.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_114.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_114.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_114.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_114.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_114.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_114.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_114.jpg"
+      }
+    },
+    {
+      "demoFrame": 115,
+      "sourceFrameIndex": 115,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_115.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_115.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_115.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_115.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_115.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_115.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_115.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_115.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_115.jpg"
+      }
+    },
+    {
+      "demoFrame": 116,
+      "sourceFrameIndex": 116,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_116.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_116.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_116.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_116.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_116.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_116.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_116.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_116.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_116.jpg"
+      }
+    },
+    {
+      "demoFrame": 117,
+      "sourceFrameIndex": 117,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_117.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_117.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_117.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_117.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_117.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_117.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_117.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_117.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_117.jpg"
+      }
+    },
+    {
+      "demoFrame": 118,
+      "sourceFrameIndex": 118,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_118.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_118.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_118.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_118.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_118.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_118.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_118.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_118.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_118.jpg"
+      }
+    },
+    {
+      "demoFrame": 119,
+      "sourceFrameIndex": 119,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_119.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_119.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_119.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_119.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_119.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_119.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_119.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_119.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_119.jpg"
+      }
+    },
+    {
+      "demoFrame": 120,
+      "sourceFrameIndex": 120,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_120.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_120.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_120.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_120.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_120.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_120.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_120.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_120.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_120.jpg"
+      }
+    },
+    {
+      "demoFrame": 121,
+      "sourceFrameIndex": 121,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_121.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_121.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_121.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_121.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_121.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_121.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_121.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_121.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_121.jpg"
+      }
+    },
+    {
+      "demoFrame": 122,
+      "sourceFrameIndex": 122,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_122.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_122.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_122.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_122.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_122.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_122.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_122.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_122.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_122.jpg"
+      }
+    },
+    {
+      "demoFrame": 123,
+      "sourceFrameIndex": 123,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_123.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_123.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_123.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_123.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_123.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_123.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_123.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_123.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_123.jpg"
+      }
+    },
+    {
+      "demoFrame": 124,
+      "sourceFrameIndex": 124,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_124.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_124.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_124.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_124.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_124.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_124.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_124.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_124.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_124.jpg"
+      }
+    },
+    {
+      "demoFrame": 125,
+      "sourceFrameIndex": 125,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_125.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_125.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_125.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_125.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_125.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_125.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_125.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_125.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_125.jpg"
+      }
+    },
+    {
+      "demoFrame": 126,
+      "sourceFrameIndex": 126,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_126.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_126.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_126.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_126.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_126.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_126.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_126.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_126.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_126.jpg"
+      }
+    },
+    {
+      "demoFrame": 127,
+      "sourceFrameIndex": 127,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_127.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_127.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_127.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_127.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_127.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_127.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_127.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_127.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_127.jpg"
+      }
+    },
+    {
+      "demoFrame": 128,
+      "sourceFrameIndex": 128,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_128.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_128.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_128.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_128.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_128.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_128.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_128.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_128.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_128.jpg"
+      }
+    },
+    {
+      "demoFrame": 129,
+      "sourceFrameIndex": 129,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_129.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_129.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_129.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_129.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_129.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_129.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_129.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_129.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_129.jpg"
+      }
+    },
+    {
+      "demoFrame": 130,
+      "sourceFrameIndex": 130,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_130.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_130.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_130.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_130.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_130.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_130.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_130.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_130.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_130.jpg"
+      }
+    },
+    {
+      "demoFrame": 131,
+      "sourceFrameIndex": 131,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_131.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_131.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_131.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_131.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_131.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_131.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_131.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_131.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_131.jpg"
+      }
+    },
+    {
+      "demoFrame": 132,
+      "sourceFrameIndex": 132,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_132.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_132.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_132.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_132.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_132.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_132.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_132.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_132.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_132.jpg"
+      }
+    },
+    {
+      "demoFrame": 133,
+      "sourceFrameIndex": 133,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_133.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_133.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_133.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_133.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_133.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_133.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_133.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_133.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_133.jpg"
+      }
+    },
+    {
+      "demoFrame": 134,
+      "sourceFrameIndex": 134,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_134.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_134.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_134.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_134.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_134.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_134.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_134.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_134.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_134.jpg"
+      }
+    },
+    {
+      "demoFrame": 135,
+      "sourceFrameIndex": 135,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_135.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_135.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_135.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_135.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_135.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_135.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_135.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_135.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_135.jpg"
+      }
+    },
+    {
+      "demoFrame": 136,
+      "sourceFrameIndex": 136,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_136.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_136.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_136.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_136.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_136.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_136.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_136.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_136.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_136.jpg"
+      }
+    },
+    {
+      "demoFrame": 137,
+      "sourceFrameIndex": 137,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_137.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_137.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_137.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_137.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_137.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_137.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_137.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_137.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_137.jpg"
+      }
+    },
+    {
+      "demoFrame": 138,
+      "sourceFrameIndex": 138,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_138.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_138.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_138.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_138.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_138.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_138.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_138.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_138.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_138.jpg"
+      }
+    },
+    {
+      "demoFrame": 139,
+      "sourceFrameIndex": 139,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_139.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_139.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_139.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_139.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_139.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_139.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_139.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_139.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_139.jpg"
+      }
+    },
+    {
+      "demoFrame": 140,
+      "sourceFrameIndex": 140,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_140.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_140.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_140.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_140.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_140.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_140.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_140.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_140.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_140.jpg"
+      }
+    },
+    {
+      "demoFrame": 141,
+      "sourceFrameIndex": 141,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_141.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_141.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_141.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_141.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_141.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_141.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_141.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_141.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_141.jpg"
+      }
+    },
+    {
+      "demoFrame": 142,
+      "sourceFrameIndex": 142,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_142.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_142.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_142.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_142.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_142.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_142.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_142.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_142.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_142.jpg"
+      }
+    },
+    {
+      "demoFrame": 143,
+      "sourceFrameIndex": 143,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_143.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_143.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_143.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_143.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_143.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_143.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_143.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_143.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_143.jpg"
+      }
+    },
+    {
+      "demoFrame": 144,
+      "sourceFrameIndex": 144,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_144.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_144.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_144.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_144.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_144.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_144.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_144.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_144.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_144.jpg"
+      }
+    },
+    {
+      "demoFrame": 145,
+      "sourceFrameIndex": 145,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_145.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_145.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_145.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_145.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_145.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_145.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_145.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_145.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_145.jpg"
+      }
+    },
+    {
+      "demoFrame": 146,
+      "sourceFrameIndex": 146,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_146.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_146.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_146.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_146.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_146.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_146.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_146.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_146.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_146.jpg"
+      }
+    },
+    {
+      "demoFrame": 147,
+      "sourceFrameIndex": 147,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_147.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_147.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_147.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_147.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_147.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_147.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_147.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_147.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_147.jpg"
+      }
+    },
+    {
+      "demoFrame": 148,
+      "sourceFrameIndex": 148,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_148.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_148.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_148.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_148.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_148.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_148.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_148.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_148.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_148.jpg"
+      }
+    },
+    {
+      "demoFrame": 149,
+      "sourceFrameIndex": 149,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_149.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_149.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_149.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_149.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_149.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_149.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_149.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_149.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_149.jpg"
+      }
+    },
+    {
+      "demoFrame": 150,
+      "sourceFrameIndex": 150,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_150.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_150.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_150.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_150.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_150.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_150.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_150.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_150.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_150.jpg"
+      }
+    },
+    {
+      "demoFrame": 151,
+      "sourceFrameIndex": 151,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_151.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_151.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_151.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_151.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_151.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_151.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_151.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_151.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_151.jpg"
+      }
+    },
+    {
+      "demoFrame": 152,
+      "sourceFrameIndex": 152,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_152.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_152.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_152.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_152.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_152.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_152.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_152.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_152.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_152.jpg"
+      }
+    },
+    {
+      "demoFrame": 153,
+      "sourceFrameIndex": 153,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_153.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_153.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_153.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_153.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_153.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_153.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_153.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_153.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_153.jpg"
+      }
+    },
+    {
+      "demoFrame": 154,
+      "sourceFrameIndex": 154,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_154.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_154.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_154.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_154.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_154.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_154.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_154.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_154.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_154.jpg"
+      }
+    },
+    {
+      "demoFrame": 155,
+      "sourceFrameIndex": 155,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_155.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_155.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_155.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_155.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_155.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_155.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_155.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_155.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_155.jpg"
+      }
+    },
+    {
+      "demoFrame": 156,
+      "sourceFrameIndex": 156,
+      "images": {
+        "ring_front_center": "demo/cameras/ring_front_center/frame_156.jpg",
+        "ring_front_left": "demo/cameras/ring_front_left/frame_156.jpg",
+        "ring_front_right": "demo/cameras/ring_front_right/frame_156.jpg",
+        "ring_side_left": "demo/cameras/ring_side_left/frame_156.jpg",
+        "ring_side_right": "demo/cameras/ring_side_right/frame_156.jpg",
+        "ring_rear_left": "demo/cameras/ring_rear_left/frame_156.jpg",
+        "ring_rear_right": "demo/cameras/ring_rear_right/frame_156.jpg",
+        "stereo_front_left": "demo/cameras/stereo_front_left/frame_156.jpg",
+        "stereo_front_right": "demo/cameras/stereo_front_right/frame_156.jpg"
+      }
+    }
+  ]
+}

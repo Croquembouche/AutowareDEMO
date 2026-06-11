@@ -2,10 +2,12 @@
 import json
 import math
 import os
+import shutil
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from PIL import Image
 
 
 LOG_ID = "02678d04-cc9f-3148-9f95-1ba66347dff9"
@@ -19,6 +21,32 @@ EGO_FRAME_STRIDE = 1
 DEMO_PLAYBACK_TIME_SCALE = 2.0
 LANE_CROP_RADIUS_M = 105.0
 POINT_CROP_RADIUS_M = 95.0
+CAMERA_MAX_WIDTH = 640
+CAMERA_JPEG_QUALITY = 68
+CAMERAS = [
+    ("ring_front_center", "Front Center"),
+    ("ring_front_left", "Front Left"),
+    ("ring_front_right", "Front Right"),
+    ("ring_side_left", "Side Left"),
+    ("ring_side_right", "Side Right"),
+    ("ring_rear_left", "Rear Left"),
+    ("ring_rear_right", "Rear Right"),
+    ("stereo_front_left", "Stereo Left"),
+    ("stereo_front_right", "Stereo Right"),
+]
+LIDAR_RING_COLORS = np.array(
+    [
+        0x66CCFF,
+        0x38BDF8,
+        0x2DD4BF,
+        0x7CFF6B,
+        0xF9E44F,
+        0xFFB454,
+        0xFF6B8A,
+        0xC084FC,
+    ],
+    dtype=np.uint32,
+)
 
 
 def quat_to_matrix(qw, qx, qy, qz):
@@ -134,17 +162,17 @@ def write_pcd(path, points):
     with open(path, "w", encoding="utf-8") as file:
         file.write("# .PCD v0.7 - Point Cloud Data file format\n")
         file.write("VERSION 0.7\n")
-        file.write("FIELDS x y z\n")
-        file.write("SIZE 4 4 4\n")
-        file.write("TYPE F F F\n")
-        file.write("COUNT 1 1 1\n")
+        file.write("FIELDS x y z rgb\n")
+        file.write("SIZE 4 4 4 4\n")
+        file.write("TYPE F F F U\n")
+        file.write("COUNT 1 1 1 1\n")
         file.write(f"WIDTH {len(points)}\n")
         file.write("HEIGHT 1\n")
         file.write("VIEWPOINT 0 0 0 1 0 0 0\n")
         file.write(f"POINTS {len(points)}\n")
         file.write("DATA ascii\n")
         for point in points:
-            file.write(f"{point[0]:.3f} {point[1]:.3f} {point[2]:.3f}\n")
+            file.write(f"{point[0]:.3f} {point[1]:.3f} {point[2]:.3f} {int(point[3])}\n")
 
 
 def build_point_cloud(sync_df, dataset_root, origin, path_xy):
@@ -152,27 +180,35 @@ def build_point_cloud(sync_df, dataset_root, origin, path_xy):
     chosen = sync_df.iloc[::LIDAR_FRAME_STRIDE].copy()
     for row in chosen.itertuples():
         lidar_path = dataset_root / row.lidar_path
-        lidar = pd.read_feather(lidar_path, columns=["x", "y", "z"])
-        points = lidar.to_numpy(dtype=np.float64)
-        points = points[np.isfinite(points).all(axis=1)]
-        points = points[(points[:, 0] > -35) & (points[:, 0] < 70) & (np.abs(points[:, 1]) < 45)]
-        points = points[(points[:, 2] > -3.5) & (points[:, 2] < 5.0)]
+        lidar = pd.read_feather(lidar_path, columns=["x", "y", "z", "laser_number"])
+        points = lidar[["x", "y", "z"]].to_numpy(dtype=np.float64)
+        laser_numbers = lidar["laser_number"].to_numpy(dtype=np.uint8)
+        keep = np.isfinite(points).all(axis=1)
+        keep &= (points[:, 0] > -35) & (points[:, 0] < 70) & (np.abs(points[:, 1]) < 45)
+        keep &= (points[:, 2] > -3.5) & (points[:, 2] < 5.0)
+        points = points[keep]
+        laser_numbers = laser_numbers[keep]
         if len(points) == 0:
             continue
-        points = points[:: max(1, len(points) // 1200)]
+        stride = max(1, len(points) // 1200)
+        points = points[::stride]
+        laser_numbers = laser_numbers[::stride]
         rotation, translation = row_pose(row)
         city = (rotation @ points.T).T + translation
         local = city - origin
         xy = city[:, :2]
         distances = np.sqrt(np.min(np.sum((xy[:, None, :] - path_xy[None, :, :]) ** 2, axis=2), axis=1))
-        local = local[distances < POINT_CROP_RADIUS_M]
-        chunks.append(local)
+        keep = distances < POINT_CROP_RADIUS_M
+        local = local[keep]
+        laser_numbers = laser_numbers[keep]
+        colors = LIDAR_RING_COLORS[(laser_numbers // 8) % len(LIDAR_RING_COLORS)].astype(np.float64)
+        chunks.append(np.column_stack([local, colors]))
 
     if not chunks:
         return np.empty((0, 3), dtype=np.float64)
 
     points = np.vstack(chunks)
-    grid = np.round(points / np.array([0.45, 0.45, 0.18])).astype(np.int64)
+    grid = np.round(points[:, :3] / np.array([0.45, 0.45, 0.18])).astype(np.int64)
     _, unique_idx = np.unique(grid, axis=0, return_index=True)
     points = points[np.sort(unique_idx)]
     if len(points) > MAX_POINT_COUNT:
@@ -281,6 +317,41 @@ def write_json(path, data):
         file.write("\n")
 
 
+def export_camera_frames(sync_df, dataset_root, output_root, selected_indices):
+    camera_root = output_root / "public" / "demo" / "cameras"
+    if camera_root.exists():
+        shutil.rmtree(camera_root)
+    camera_root.mkdir(parents=True, exist_ok=True)
+
+    manifest = {"cameras": [], "frames": []}
+    for camera_id, label in CAMERAS:
+      manifest["cameras"].append({"id": camera_id, "label": label})
+      (camera_root / camera_id).mkdir(parents=True, exist_ok=True)
+
+    for demo_frame, sync_index in enumerate(selected_indices):
+        row = sync_df.iloc[sync_index]
+        frame_entry = {
+            "demoFrame": demo_frame,
+            "sourceFrameIndex": int(sync_index),
+            "images": {},
+        }
+        for camera_id, _label in CAMERAS:
+            source_path = dataset_root / row[f"{camera_id}_path"]
+            output_rel = Path("demo") / "cameras" / camera_id / f"frame_{sync_index:03d}.jpg"
+            output_path = output_root / "public" / output_rel
+            with Image.open(source_path) as image:
+                image = image.convert("RGB")
+                if image.width > CAMERA_MAX_WIDTH:
+                    next_height = round(image.height * CAMERA_MAX_WIDTH / image.width)
+                    image = image.resize((CAMERA_MAX_WIDTH, next_height), Image.Resampling.LANCZOS)
+                image.save(output_path, format="JPEG", quality=CAMERA_JPEG_QUALITY, optimize=True)
+            frame_entry["images"][camera_id] = str(output_rel).replace(os.sep, "/")
+        manifest["frames"].append(frame_entry)
+
+    write_json(output_root / "public" / "demo" / "camera_manifest.json", manifest)
+    return manifest
+
+
 def main():
     repo_root = Path(__file__).resolve().parents[1]
     av2_root = Path(os.environ.get("AV2_ROOT", DEFAULT_AV2_ROOT))
@@ -310,6 +381,7 @@ def main():
     annotations = pd.read_feather(annotations_path)
     object_frames = build_objects(sync_df, annotations, origin, [0, len(sync_df) // 2, len(sync_df) - 1])
     object_sequence = build_objects(sync_df, annotations, origin, ego_indices)
+    camera_manifest = export_camera_frames(sync_df, dataset_root, repo_root, ego_indices)
     points = build_point_cloud(sync_df, dataset_root, origin, path_xy)
 
     write_json(repo_root / "public" / "maps" / "lanelet_demo.json", lanelet_json)
@@ -329,6 +401,8 @@ def main():
             "exportedCrosswalks": len(lanelet_json["crosswalks"]),
             "exportedPointCount": int(len(points)),
             "exportedObjectSequenceFrames": len(object_sequence),
+            "exportedCameraFrames": len(camera_manifest["frames"]),
+            "exportedCameras": len(camera_manifest["cameras"]),
             "lidarFrameStride": LIDAR_FRAME_STRIDE,
             "egoFrameStride": EGO_FRAME_STRIDE,
             "demoPlaybackTimeScale": DEMO_PLAYBACK_TIME_SCALE,

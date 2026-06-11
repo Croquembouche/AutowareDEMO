@@ -281,6 +281,27 @@ input[type="checkbox"] {
   font-size: 0.76rem;
 }
 
+.view-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.view-tab {
+  min-height: 20px;
+  padding: 2px 8px;
+  border-color: transparent;
+  background: transparent;
+  color: #d7dde2;
+  font-size: 0.76rem;
+}
+
+.view-tab.active {
+  border-color: #4c84b8;
+  background: #24394a;
+  color: #ffffff;
+}
+
 #loadingStatus {
   color: #d2d7dc;
 }
@@ -299,6 +320,72 @@ input[type="checkbox"] {
 .viewer {
   position: absolute;
   inset: 0;
+}
+
+.camera-panel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  padding: 10px;
+  background: #0a0d0f;
+  z-index: 3;
+}
+
+.camera-panel[hidden] {
+  display: none;
+}
+
+.camera-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.camera-tabs button {
+  min-height: 24px;
+  padding: 3px 8px;
+  font-size: 0.74rem;
+}
+
+.camera-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #2c3339;
+  background: #050708;
+}
+
+.camera-frame img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.camera-meta {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 7px 9px;
+  border: 1px solid rgba(160, 170, 178, 0.42);
+  border-radius: 2px;
+  background: rgba(18, 21, 24, 0.82);
+  color: #ecf5ff;
+  font-size: 0.76rem;
+}
+
+.camera-meta span {
+  color: #c6d0d7;
 }
 
 .viewer canvas,

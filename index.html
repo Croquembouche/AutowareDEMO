@@ -81,19 +81,32 @@
             <div class="property-heading">PointCloudMap</div>
             <span>Topic</span><strong>/map/pointcloud_map</strong>
             <span>Style</span><strong>Points</strong>
-            <span>Size (m)</span><strong>0.16</strong>
-            <span>Alpha</span><strong>0.86</strong>
-            <span>Color Transformer</span><strong>FlatColor</strong>
+            <span>Size (m)</span><strong>0.30</strong>
+            <span>Alpha</span><strong>0.94</strong>
+            <span>Color Transformer</span><strong>LaserNumber</strong>
           </div>
         </aside>
 
         <main class="render-stack">
           <div class="render-header">
-            <span>3D View</span>
+            <div class="view-tabs" role="tablist" aria-label="Viewer mode">
+              <button class="view-tab active" data-view-mode="scene" type="button">3D View</button>
+              <button class="view-tab" data-view-mode="cameras" type="button">Camera Views</button>
+            </div>
             <span id="loadingStatus">Loading static demo assets...</span>
           </div>
           <section class="viewer-panel">
             <div id="viewer" class="viewer" aria-label="3D Autoware RViz-style scene"></div>
+            <div id="cameraPanel" class="camera-panel" aria-label="Synchronized AV2 camera views" hidden>
+              <div id="cameraTabs" class="camera-tabs" role="tablist" aria-label="Camera selector"></div>
+              <div class="camera-frame">
+                <img id="cameraImage" alt="Synchronized AV2 camera frame" />
+                <div class="camera-meta">
+                  <strong id="activeCameraName">Front Center</strong>
+                  <span>source frame <b id="activeCameraFrame">0</b></span>
+                </div>
+              </div>
+            </div>
             <div class="rviz-overlay speed-overlay" aria-label="Vehicle overlay">
               <div>Velocity</div>
               <strong id="speedValue">0.0 km/h</strong>
@@ -215,6 +228,7 @@
               <span>Lanelets</span><strong id="laneletCount">92</strong>
               <span>Sync frames</span><strong id="syncFrameCount">157</strong>
               <span>Object frames</span><strong id="objectFrameCount">157</strong>
+              <span>Cameras</span><strong id="cameraCount">9</strong>
               <span>Ego source frame</span><strong id="activeEgoFrame">0</strong>
               <span>Active object frame</span><strong id="activeObjectFrame">0</strong>
             </div>

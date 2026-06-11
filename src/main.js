@@ -5,6 +5,7 @@ import { TimelineController } from './timeline.js';
 const viewerElement = document.querySelector('#viewer');
 const viewer = new Viewer(viewerElement, {
   loadingStatus: document.querySelector('#loadingStatus'),
+  cameraBadge: document.querySelector('#cameraBadge'),
   stateStatus: document.querySelector('#stateStatus'),
   detailStatus: document.querySelector('#detailStatus'),
   timelineScrubber: document.querySelector('#timelineScrubber'),
@@ -21,8 +22,15 @@ const viewer = new Viewer(viewerElement, {
   laneletCount: document.querySelector('#laneletCount'),
   syncFrameCount: document.querySelector('#syncFrameCount'),
   objectFrameCount: document.querySelector('#objectFrameCount'),
+  cameraCount: document.querySelector('#cameraCount'),
   activeEgoFrame: document.querySelector('#activeEgoFrame'),
-  activeObjectFrame: document.querySelector('#activeObjectFrame')
+  activeObjectFrame: document.querySelector('#activeObjectFrame'),
+  cameraPanel: document.querySelector('#cameraPanel'),
+  cameraTabs: document.querySelector('#cameraTabs'),
+  cameraImage: document.querySelector('#cameraImage'),
+  activeCameraName: document.querySelector('#activeCameraName'),
+  activeCameraFrame: document.querySelector('#activeCameraFrame'),
+  viewModeButtons: document.querySelectorAll('[data-view-mode]')
 });
 
 const timeline = new TimelineController(viewer, {
