@@ -26,10 +26,17 @@ const viewer = new Viewer(viewerElement, {
   activeEgoFrame: document.querySelector('#activeEgoFrame'),
   activeObjectFrame: document.querySelector('#activeObjectFrame'),
   cameraPanel: document.querySelector('#cameraPanel'),
+  lidarPanel: document.querySelector('#lidarPanel'),
   cameraTabs: document.querySelector('#cameraTabs'),
+  cameraStage: document.querySelector('#cameraStage'),
   cameraImage: document.querySelector('#cameraImage'),
+  cameraOverlay: document.querySelector('#cameraOverlay'),
   activeCameraName: document.querySelector('#activeCameraName'),
   activeCameraFrame: document.querySelector('#activeCameraFrame'),
+  lidarCanvas: document.querySelector('#lidarCanvas'),
+  lidarFrameCount: document.querySelector('#lidarFrameCount'),
+  activeLidarFrame: document.querySelector('#activeLidarFrame'),
+  activeLidarPoints: document.querySelector('#activeLidarPoints'),
   viewModeButtons: document.querySelectorAll('[data-view-mode]')
 });
 

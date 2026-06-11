@@ -19,8 +19,10 @@ MAX_POINT_COUNT = 18000
 LIDAR_FRAME_STRIDE = 4
 EGO_FRAME_STRIDE = 1
 DEMO_PLAYBACK_TIME_SCALE = 2.0
+RIGHT_LANE_VISUAL_OFFSET_M = 1.6
 LANE_CROP_RADIUS_M = 105.0
 POINT_CROP_RADIUS_M = 95.0
+LIDAR_FRAME_MAX_POINTS = 900
 CAMERA_MAX_WIDTH = 640
 CAMERA_JPEG_QUALITY = 68
 CAMERAS = [
@@ -48,6 +50,17 @@ LIDAR_RING_COLORS = np.array(
     dtype=np.uint32,
 )
 
+LABEL_MAP = {
+    "REGULAR_VEHICLE": "vehicle",
+    "VEHICLE": "vehicle",
+    "BOX_TRUCK": "vehicle",
+    "TRUCK": "vehicle",
+    "BUS": "vehicle",
+    "PEDESTRIAN": "pedestrian",
+    "BICYCLIST": "cyclist",
+    "MOTORCYCLIST": "cyclist",
+}
+
 
 def quat_to_matrix(qw, qx, qy, qz):
     return np.array(
@@ -62,6 +75,21 @@ def quat_to_matrix(qw, qx, qy, qz):
 
 def quat_to_yaw(qw, qx, qy, qz):
     return math.atan2(2.0 * (qw * qz + qx * qy), 1.0 - 2.0 * (qy * qy + qz * qz))
+
+
+def normalize_label(category):
+    return LABEL_MAP.get(category, "unknown")
+
+
+def box_corners_ego(ann):
+    length, width, height = ann.length_m, ann.width_m, ann.height_m
+    local = np.array(
+        [[x, y, z] for x in (-length / 2, length / 2) for y in (-width / 2, width / 2) for z in (-height / 2, height / 2)],
+        dtype=np.float64,
+    )
+    rotation = quat_to_matrix(ann.qw, ann.qx, ann.qy, ann.qz)
+    center = np.array([ann.tx_m, ann.ty_m, ann.tz_m], dtype=np.float64)
+    return (rotation @ local.T).T + center
 
 
 def point_to_local(point, origin):
@@ -230,18 +258,26 @@ def build_ego_path(sync_df, origin, selected_indices):
     for demo_frame, sync_index in enumerate(selected_indices):
         row = sync_df.iloc[sync_index]
         source_t = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
+        yaw = quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz)
+        right = np.array([math.sin(yaw), -math.cos(yaw)], dtype=np.float64) * RIGHT_LANE_VISUAL_OFFSET_M
+        source_position = [
+            round(row.pose_tx_m - origin[0], 3),
+            round(row.pose_ty_m - origin[1], 3),
+            round(row.pose_tz_m - origin[2] + 0.34, 3),
+        ]
         frames.append(
             {
                 "demoFrame": demo_frame,
                 "sourceFrameIndex": int(sync_index),
                 "sourceT": round(source_t, 3),
                 "t": round(source_t * DEMO_PLAYBACK_TIME_SCALE, 3),
+                "sourcePosition": source_position,
                 "position": [
-                    round(row.pose_tx_m - origin[0], 3),
-                    round(row.pose_ty_m - origin[1], 3),
-                    round(row.pose_tz_m - origin[2] + 0.34, 3),
+                    round(source_position[0] + right[0], 3),
+                    round(source_position[1] + right[1], 3),
+                    source_position[2],
                 ],
-                "yaw": round(quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz), 5),
+                "yaw": round(yaw, 5),
             }
         )
     return {"frames": frames}
@@ -250,16 +286,6 @@ def build_ego_path(sync_df, origin, selected_indices):
 def build_objects(sync_df, annotations, origin, selected_indices):
     out = []
     first_ts = int(sync_df.iloc[0].lidar_timestamp_ns)
-    label_map = {
-        "REGULAR_VEHICLE": "vehicle",
-        "VEHICLE": "vehicle",
-        "BOX_TRUCK": "vehicle",
-        "TRUCK": "vehicle",
-        "BUS": "vehicle",
-        "PEDESTRIAN": "pedestrian",
-        "BICYCLIST": "cyclist",
-        "MOTORCYCLIST": "cyclist",
-    }
     for frame_no, sync_index in enumerate(selected_indices):
         row = sync_df.iloc[sync_index]
         source_time = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
@@ -285,7 +311,7 @@ def build_objects(sync_df, annotations, origin, selected_indices):
             distance = math.hypot(center_local[0], center_local[1])
             if distance > 80 or ann.num_interior_pts < 1:
                 continue
-            label = label_map.get(ann.category, "unknown")
+            label = normalize_label(ann.category)
             yaw = quat_to_yaw(ann.qw, ann.qx, ann.qy, ann.qz) + quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz)
             confidence = min(0.99, 0.7 + ann.num_interior_pts / 80.0)
             objects.append(
@@ -317,7 +343,43 @@ def write_json(path, data):
         file.write("\n")
 
 
-def export_camera_frames(sync_df, dataset_root, output_root, selected_indices):
+def project_camera_boxes(annotations, camera_id, egovehicle_se3_sensor, intrinsics, scale):
+    calibration = egovehicle_se3_sensor.loc[camera_id]
+    intrinsic = intrinsics.loc[camera_id]
+    rotation = quat_to_matrix(calibration.qw, calibration.qx, calibration.qy, calibration.qz)
+    translation = np.array([calibration.tx_m, calibration.ty_m, calibration.tz_m], dtype=np.float64)
+    boxes = []
+    for ann in annotations.itertuples():
+        if ann.num_interior_pts < 1:
+            continue
+        corners_camera = (rotation.T @ (box_corners_ego(ann) - translation).T).T
+        valid = corners_camera[:, 2] > 0.2
+        if not valid.any():
+            continue
+        projected = corners_camera[valid]
+        u = intrinsic.fx_px * projected[:, 0] / projected[:, 2] + intrinsic.cx_px
+        v = intrinsic.fy_px * projected[:, 1] / projected[:, 2] + intrinsic.cy_px
+        x1, y1, x2, y2 = float(u.min()), float(v.min()), float(u.max()), float(v.max())
+        if x2 < 0 or y2 < 0 or x1 > intrinsic.width_px or y1 > intrinsic.height_px:
+            continue
+        boxes.append(
+            {
+                "id": f"av2_{ann.track_uuid[:8]}",
+                "label": normalize_label(ann.category),
+                "box": [
+                    round(max(0.0, x1 * scale), 1),
+                    round(max(0.0, y1 * scale), 1),
+                    round(min(float(intrinsic.width_px), x2) * scale, 1),
+                    round(min(float(intrinsic.height_px), y2) * scale, 1),
+                ],
+                "confidence": round(min(0.99, 0.7 + ann.num_interior_pts / 80.0), 2),
+            }
+        )
+    boxes.sort(key=lambda item: (item["box"][2] - item["box"][0]) * (item["box"][3] - item["box"][1]), reverse=True)
+    return boxes[:16]
+
+
+def export_camera_frames(sync_df, annotations, dataset_root, output_root, selected_indices, egovehicle_se3_sensor, intrinsics):
     camera_root = output_root / "public" / "demo" / "cameras"
     if camera_root.exists():
         shutil.rmtree(camera_root)
@@ -325,8 +387,8 @@ def export_camera_frames(sync_df, dataset_root, output_root, selected_indices):
 
     manifest = {"cameras": [], "frames": []}
     for camera_id, label in CAMERAS:
-      manifest["cameras"].append({"id": camera_id, "label": label})
-      (camera_root / camera_id).mkdir(parents=True, exist_ok=True)
+        manifest["cameras"].append({"id": camera_id, "label": label})
+        (camera_root / camera_id).mkdir(parents=True, exist_ok=True)
 
     for demo_frame, sync_index in enumerate(selected_indices):
         row = sync_df.iloc[sync_index]
@@ -334,22 +396,93 @@ def export_camera_frames(sync_df, dataset_root, output_root, selected_indices):
             "demoFrame": demo_frame,
             "sourceFrameIndex": int(sync_index),
             "images": {},
+            "sizes": {},
+            "overlays": {},
         }
+        frame_annotations = annotations[annotations["timestamp_ns"] == row.lidar_timestamp_ns].copy()
         for camera_id, _label in CAMERAS:
             source_path = dataset_root / row[f"{camera_id}_path"]
             output_rel = Path("demo") / "cameras" / camera_id / f"frame_{sync_index:03d}.jpg"
             output_path = output_root / "public" / output_rel
             with Image.open(source_path) as image:
                 image = image.convert("RGB")
+                scale = 1.0
                 if image.width > CAMERA_MAX_WIDTH:
+                    scale = CAMERA_MAX_WIDTH / image.width
                     next_height = round(image.height * CAMERA_MAX_WIDTH / image.width)
                     image = image.resize((CAMERA_MAX_WIDTH, next_height), Image.Resampling.LANCZOS)
                 image.save(output_path, format="JPEG", quality=CAMERA_JPEG_QUALITY, optimize=True)
             frame_entry["images"][camera_id] = str(output_rel).replace(os.sep, "/")
+            frame_entry["sizes"][camera_id] = [image.width, image.height]
+            frame_entry["overlays"][camera_id] = project_camera_boxes(
+                frame_annotations, camera_id, egovehicle_se3_sensor, intrinsics, scale
+            )
         manifest["frames"].append(frame_entry)
 
     write_json(output_root / "public" / "demo" / "camera_manifest.json", manifest)
     return manifest
+
+
+def export_lidar_frames(sync_df, annotations, dataset_root, output_root, selected_indices):
+    rng = np.random.default_rng(7)
+    frames = []
+    for demo_frame, sync_index in enumerate(selected_indices):
+        row = sync_df.iloc[sync_index]
+        lidar_path = dataset_root / row.lidar_path
+        lidar = pd.read_feather(lidar_path, columns=["x", "y", "z", "intensity", "laser_number"])
+        points = lidar[["x", "y", "z"]].to_numpy(dtype=np.float64)
+        intensity = lidar["intensity"].to_numpy(dtype=np.float64)
+        laser_numbers = lidar["laser_number"].to_numpy(dtype=np.uint8)
+        keep = np.isfinite(points).all(axis=1)
+        keep &= (points[:, 0] > -35) & (points[:, 0] < 75) & (np.abs(points[:, 1]) < 40)
+        keep &= (points[:, 2] > -3.0) & (points[:, 2] < 5.0)
+        points = points[keep]
+        intensity = intensity[keep]
+        laser_numbers = laser_numbers[keep]
+        if len(points) > LIDAR_FRAME_MAX_POINTS:
+            chosen = np.sort(rng.choice(len(points), LIDAR_FRAME_MAX_POINTS, replace=False))
+            points = points[chosen]
+            intensity = intensity[chosen]
+            laser_numbers = laser_numbers[chosen]
+        colors = LIDAR_RING_COLORS[(laser_numbers // 8) % len(LIDAR_RING_COLORS)]
+        frame_annotations = annotations[annotations["timestamp_ns"] == row.lidar_timestamp_ns].copy()
+        boxes = []
+        for ann in frame_annotations.itertuples():
+            if ann.num_interior_pts < 1 or math.hypot(ann.tx_m, ann.ty_m) > 75:
+                continue
+            corners = box_corners_ego(ann)
+            bottom = corners[np.argsort(corners[:, 2])[:4]][:, :2]
+            center = np.array([ann.tx_m, ann.ty_m], dtype=np.float64)
+            angles = np.arctan2(bottom[:, 1] - center[1], bottom[:, 0] - center[0])
+            bottom = bottom[np.argsort(angles)]
+            boxes.append(
+                {
+                    "id": f"av2_{ann.track_uuid[:8]}",
+                    "label": normalize_label(ann.category),
+                    "corners": [[round(float(x), 2), round(float(y), 2)] for x, y in bottom],
+                    "confidence": round(min(0.99, 0.7 + ann.num_interior_pts / 80.0), 2),
+                }
+            )
+        frames.append(
+            {
+                "demoFrame": demo_frame,
+                "sourceFrameIndex": int(sync_index),
+                "points": [
+                    [
+                        round(float(point[0]), 2),
+                        round(float(point[1]), 2),
+                        round(float(point[2]), 2),
+                        int(color),
+                        round(float(level) / 255.0, 2),
+                    ]
+                    for point, color, level in zip(points, colors, intensity)
+                ],
+                "boxes": boxes[:20],
+            }
+        )
+
+    write_json(output_root / "public" / "demo" / "lidar_frames.json", {"frames": frames})
+    return frames
 
 
 def main():
@@ -379,9 +512,12 @@ def main():
         route["points"].append(ego_path["frames"][-1]["position"])
 
     annotations = pd.read_feather(annotations_path)
+    egovehicle_se3_sensor = pd.read_feather(log_root / "calibration" / "egovehicle_SE3_sensor.feather").set_index("sensor_name")
+    intrinsics = pd.read_feather(log_root / "calibration" / "intrinsics.feather").set_index("sensor_name")
     object_frames = build_objects(sync_df, annotations, origin, [0, len(sync_df) // 2, len(sync_df) - 1])
     object_sequence = build_objects(sync_df, annotations, origin, ego_indices)
-    camera_manifest = export_camera_frames(sync_df, dataset_root, repo_root, ego_indices)
+    camera_manifest = export_camera_frames(sync_df, annotations, dataset_root, repo_root, ego_indices, egovehicle_se3_sensor, intrinsics)
+    lidar_frames = export_lidar_frames(sync_df, annotations, dataset_root, repo_root, ego_indices)
     points = build_point_cloud(sync_df, dataset_root, origin, path_xy)
 
     write_json(repo_root / "public" / "maps" / "lanelet_demo.json", lanelet_json)
@@ -403,6 +539,9 @@ def main():
             "exportedObjectSequenceFrames": len(object_sequence),
             "exportedCameraFrames": len(camera_manifest["frames"]),
             "exportedCameras": len(camera_manifest["cameras"]),
+            "exportedLidarFrames": len(lidar_frames),
+            "lidarFrameMaxPoints": LIDAR_FRAME_MAX_POINTS,
+            "rightLaneVisualOffsetM": RIGHT_LANE_VISUAL_OFFSET_M,
             "lidarFrameStride": LIDAR_FRAME_STRIDE,
             "egoFrameStride": EGO_FRAME_STRIDE,
             "demoPlaybackTimeScale": DEMO_PLAYBACK_TIME_SCALE,
