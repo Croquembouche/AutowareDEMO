@@ -3,9 +3,14 @@
     {
       "id": "av2_cccff98e",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         -7.441,
         1.739,
+        0.651
+      ],
+      "position": [
+        -5.989,
+        2.412,
         0.651
       ],
       "size": [
@@ -19,9 +24,14 @@
     {
       "id": "av2_4e818ab5",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         -9.727,
         6.256,
+        0.851
+      ],
+      "position": [
+        -8.276,
+        6.929,
         0.851
       ],
       "size": [
@@ -35,9 +45,14 @@
     {
       "id": "av2_9e770735",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         2.532,
         -13.157,
+        0.201
+      ],
+      "position": [
+        3.984,
+        -12.484,
         0.201
       ],
       "size": [
@@ -51,9 +66,14 @@
     {
       "id": "av2_13d7f7bf",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         -12.159,
         11.561,
+        1.194
+      ],
+      "position": [
+        -10.707,
+        12.234,
         1.194
       ],
       "size": [
@@ -67,9 +87,14 @@
     {
       "id": "av2_5d57d7a6",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         2.787,
         -20.341,
+        -0.038
+      ],
+      "position": [
+        4.239,
+        -19.668,
         -0.038
       ],
       "size": [
@@ -83,9 +108,14 @@
     {
       "id": "av2_740d54e5",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         5.357,
         -20.001,
+        -0.184
+      ],
+      "position": [
+        6.808,
+        -19.328,
         -0.184
       ],
       "size": [
@@ -99,9 +129,14 @@
     {
       "id": "av2_6633d31b",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         8.37,
         -25.747,
+        -0.068
+      ],
+      "position": [
+        9.821,
+        -25.075,
         -0.068
       ],
       "size": [
@@ -115,9 +150,14 @@
     {
       "id": "av2_aef67319",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         7.471,
         -30.933,
+        -0.24
+      ],
+      "position": [
+        8.923,
+        -30.26,
         -0.24
       ],
       "size": [
@@ -129,27 +169,16 @@
       "confidence": 0.99
     },
     {
-      "id": "av2_d5739055",
-      "label": "vehicle",
-      "position": [
-        20.642,
-        -50.654,
-        -1.408
-      ],
-      "size": [
-        4.03,
-        1.983,
-        1.41
-      ],
-      "yaw": -1.10364,
-      "confidence": 0.99
-    },
-    {
       "id": "av2_924674cf",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         -38.176,
         39.27,
+        2.461
+      ],
+      "position": [
+        -36.725,
+        39.943,
         2.461
       ],
       "size": [
@@ -161,11 +190,37 @@
       "confidence": 0.99
     },
     {
+      "id": "av2_d5739055",
+      "label": "vehicle",
+      "sourcePosition": [
+        20.642,
+        -50.654,
+        -1.408
+      ],
+      "position": [
+        22.094,
+        -49.981,
+        -1.408
+      ],
+      "size": [
+        4.03,
+        1.983,
+        1.41
+      ],
+      "yaw": -1.10364,
+      "confidence": 0.99
+    },
+    {
       "id": "av2_0b686a61",
       "label": "pedestrian",
-      "position": [
+      "sourcePosition": [
         -34.824,
         50.998,
+        2.664
+      ],
+      "position": [
+        -33.372,
+        51.671,
         2.664
       ],
       "size": [
@@ -179,9 +234,14 @@
     {
       "id": "av2_d13812c4",
       "label": "unknown",
-      "position": [
+      "sourcePosition": [
         -34.81,
         51.029,
+        2.425
+      ],
+      "position": [
+        -33.358,
+        51.702,
         2.425
       ],
       "size": [

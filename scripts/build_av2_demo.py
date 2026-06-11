@@ -252,6 +252,11 @@ def build_ego_indices(sync_df):
     return indices
 
 
+def right_lane_offset_from_row(row):
+    yaw = quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz)
+    return np.array([math.sin(yaw), -math.cos(yaw)], dtype=np.float64) * RIGHT_LANE_VISUAL_OFFSET_M
+
+
 def build_ego_path(sync_df, origin, selected_indices):
     first_ts = int(sync_df.iloc[0].lidar_timestamp_ns)
     frames = []
@@ -259,7 +264,7 @@ def build_ego_path(sync_df, origin, selected_indices):
         row = sync_df.iloc[sync_index]
         source_t = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
         yaw = quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz)
-        right = np.array([math.sin(yaw), -math.cos(yaw)], dtype=np.float64) * RIGHT_LANE_VISUAL_OFFSET_M
+        right = right_lane_offset_from_row(row)
         source_position = [
             round(row.pose_tx_m - origin[0], 3),
             round(row.pose_ty_m - origin[1], 3),
@@ -290,6 +295,7 @@ def build_objects(sync_df, annotations, origin, selected_indices):
         row = sync_df.iloc[sync_index]
         source_time = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
         frame_time = source_time * DEMO_PLAYBACK_TIME_SCALE
+        dynamic_offset = right_lane_offset_from_row(row)
         anns = annotations[annotations["timestamp_ns"] == row.lidar_timestamp_ns].copy()
         if anns.empty:
             out.append(
@@ -308,6 +314,8 @@ def build_objects(sync_df, annotations, origin, selected_indices):
             center_ego = np.array([ann.tx_m, ann.ty_m, ann.tz_m], dtype=np.float64)
             center_city = rotation @ center_ego + translation
             center_local = center_city - origin
+            center_visual = center_local.copy()
+            center_visual[:2] += dynamic_offset
             distance = math.hypot(center_local[0], center_local[1])
             if distance > 80 or ann.num_interior_pts < 1:
                 continue
@@ -318,7 +326,8 @@ def build_objects(sync_df, annotations, origin, selected_indices):
                 {
                     "id": f"av2_{ann.track_uuid[:8]}",
                     "label": label,
-                    "position": [round(center_local[0], 3), round(center_local[1], 3), round(center_local[2], 3)],
+                    "sourcePosition": [round(center_local[0], 3), round(center_local[1], 3), round(center_local[2], 3)],
+                    "position": [round(center_visual[0], 3), round(center_visual[1], 3), round(center_visual[2], 3)],
                     "size": [round(ann.length_m, 3), round(ann.width_m, 3), round(ann.height_m, 3)],
                     "yaw": round(yaw, 5),
                     "confidence": round(confidence, 2),

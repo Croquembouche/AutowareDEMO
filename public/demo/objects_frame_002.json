@@ -3,9 +3,14 @@
     {
       "id": "av2_0e470e35",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         -25.558,
         44.156,
+        2.218
+      ],
+      "position": [
+        -24.107,
+        44.829,
         2.218
       ],
       "size": [
@@ -19,9 +24,14 @@
     {
       "id": "av2_0b686a61",
       "label": "pedestrian",
-      "position": [
+      "sourcePosition": [
         -34.789,
         50.847,
+        2.661
+      ],
+      "position": [
+        -33.338,
+        51.521,
         2.661
       ],
       "size": [
@@ -35,9 +45,14 @@
     {
       "id": "av2_d13812c4",
       "label": "unknown",
-      "position": [
+      "sourcePosition": [
         -34.826,
         51.068,
+        2.426
+      ],
+      "position": [
+        -33.375,
+        51.742,
         2.426
       ],
       "size": [
@@ -51,9 +66,14 @@
     {
       "id": "av2_5af65fb4",
       "label": "unknown",
-      "position": [
+      "sourcePosition": [
         -25.389,
         63.894,
+        2.68
+      ],
+      "position": [
+        -23.937,
+        64.567,
         2.68
       ],
       "size": [
@@ -67,9 +87,14 @@
     {
       "id": "av2_4d8b2da8",
       "label": "cyclist",
-      "position": [
+      "sourcePosition": [
         -25.577,
         64.401,
+        3.022
+      ],
+      "position": [
+        -24.126,
+        65.074,
         3.022
       ],
       "size": [
@@ -83,9 +108,14 @@
     {
       "id": "av2_9054f80c",
       "label": "vehicle",
-      "position": [
+      "sourcePosition": [
         -31.524,
         66.63,
+        2.973
+      ],
+      "position": [
+        -30.073,
+        67.303,
         2.973
       ],
       "size": [
