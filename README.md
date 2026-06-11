@@ -12,7 +12,7 @@ The app renders a deterministic scripted scene with Three.js:
 - a fixed time-indexed perception object sequence derived from AV2 annotations
 - RViz-like layer controls, orbit/pan/zoom camera controls, camera presets, and scripted demo states
 - RViz2-style panels and display names such as `PointCloudMap`, `Lanelet2VectorMap`, `PredictedObjects`, `Trajectory`, and `PathWithLaneId`
-- a guided static module walkthrough showing how map, localization, perception, planning, control, and vehicle displays relate during an Autoware-style run
+- a guided static module walkthrough and topic monitor showing how map, localization, perception, planning, control, and vehicle displays relate during an Autoware-style run
 
 ## Run Locally
 
@@ -80,6 +80,8 @@ The right-side panels provide a short deterministic operator flow:
 
 The module flow panel is also static. It highlights which Autoware subsystems are being demonstrated at each scripted step; it does not execute those modules.
 
+The Displays tree supports RViz-style parent toggles for the System, Map, Planning, and Perception groups. These toggles only change Three.js layer visibility; they do not start or stop any ROS nodes.
+
 ## Data Files
 
 ```text
@@ -90,6 +92,7 @@ public/
   demo/
     route.json
     ego_path.json
+    objects_sequence.json
     objects_frame_000.json
     objects_frame_001.json
     objects_frame_002.json
@@ -131,7 +134,7 @@ To replace the demo scene with different preprocessed data:
 3. Preprocess Lanelet2 `.osm` data outside the web app into the simplified JSON shape used by `lanelet_demo.json`.
 4. Replace `route.json` with a fixed route polyline.
 5. Replace `ego_path.json` with fixed timestamped ego poses.
-6. Replace object frame JSON files with fixed bounding boxes.
+6. Replace `objects_sequence.json` and the manual object frame JSON files with fixed bounding boxes.
 
 Large maps should not be committed directly. Crop to a short road corridor and downsample aggressively.
 

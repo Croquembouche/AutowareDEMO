@@ -8,7 +8,7 @@ const stateVisibility = {
     trafficLights: true,
     route: false,
     egoVehicle: true,
-    trajectoryTrail: true,
+    trajectoryTrail: false,
     predictedPath: false,
     perceptionObjects: false
   },
@@ -67,11 +67,11 @@ const stateVisibility = {
 };
 
 const stateCopy = {
-  initial: ['WAITING_FOR_ROUTE', 'PointCloudMap and Lanelet2VectorMap are visible. Static data is rendered with an RViz-like display tree.'],
-  planning: ['PLANNING', 'Route, Trajectory, and PathWithLaneId are visible. No planner is running in the browser.'],
-  perception: ['WAITING_FOR_ENGAGE', 'PredictedObjects are shown from a scripted object frame. No perception node is running.'],
-  drive: ['DRIVING', 'The ego vehicle follows a pre-authored trajectory with deterministic interpolation.'],
-  goal: ['ARRIVED_GOAL', 'The ego vehicle is stopped at the final pre-authored waypoint.']
+  initial: ['WAITING_FOR_ROUTE', 'Map and localization displays are active: PointCloudMap, Lanelet2VectorMap, and the ego pose in the map frame.'],
+  planning: ['PLANNING', 'A fixed goal has been set. Route, Trajectory, and PathWithLaneId represent pre-authored planning outputs.'],
+  perception: ['WAITING_FOR_ENGAGE', 'PredictedObjects are loaded from a static AV2 annotation frame and overlaid near the ego route.'],
+  drive: ['DRIVING', 'The scripted control phase consumes the fixed trajectory while perception frames advance with playback time.'],
+  goal: ['ARRIVED_GOAL', 'The ego vehicle is stopped at the final pre-authored waypoint with final route and object evidence visible.']
 };
 
 const panelStatus = {
@@ -90,6 +90,26 @@ const activeModulesByState = {
   goal: ['map', 'localization', 'perception', 'planning', 'control', 'vehicle']
 };
 
+const layerGroups = {
+  autoware: [
+    'egoVehicle',
+    'pointCloud',
+    'laneBoundaries',
+    'centerlines',
+    'crosswalks',
+    'stopLines',
+    'trafficLights',
+    'route',
+    'trajectoryTrail',
+    'predictedPath',
+    'perceptionObjects'
+  ],
+  system: ['egoVehicle'],
+  map: ['pointCloud', 'laneBoundaries', 'centerlines', 'crosswalks', 'stopLines', 'trafficLights'],
+  planning: ['route', 'trajectoryTrail', 'predictedPath'],
+  perception: ['perceptionObjects']
+};
+
 export class TimelineController {
   constructor(viewer, elements) {
     this.viewer = viewer;
@@ -104,7 +124,13 @@ export class TimelineController {
     this.elements.layerInputs.forEach((input) => {
       input.addEventListener('change', () => {
         this.viewer.setLayerVisible(input.dataset.layer, input.checked);
+        this.updateGroupInputs();
       });
+    });
+
+    this.elements.groupInputs.forEach((input) => {
+      input.addEventListener('click', (event) => event.stopPropagation());
+      input.addEventListener('change', () => this.setLayerGroup(input.dataset.layerGroup, input.checked));
     });
 
     this.elements.actionButtons.forEach((button) => {
@@ -116,6 +142,7 @@ export class TimelineController {
         this.viewer.setLayerVisible('perceptionObjects', true);
         this.setLayerInput('perceptionObjects', true);
         this.viewer.setPerceptionFrame(Number(button.dataset.frame));
+        this.updateGroupInputs();
       });
     });
 
@@ -135,6 +162,7 @@ export class TimelineController {
     this.viewer.pauseEgo();
     this.viewer.setLayers(visibility);
     Object.entries(visibility).forEach(([layer, visible]) => this.setLayerInput(layer, visible));
+    this.updateGroupInputs();
     this.setActiveState(name);
 
     if (name === 'initial') {
@@ -156,6 +184,7 @@ export class TimelineController {
     this.viewer.setStateText(...stateCopy[name]);
     this.viewer.setPanelStatus(panelStatus[name]);
     this.setActiveModules(name);
+    this.setActiveTopics(name);
     this.setActiveWalkthrough(name);
     this.viewer.setCameraPreset(name, moveCamera);
   }
@@ -191,6 +220,28 @@ export class TimelineController {
     }
   }
 
+  setLayerGroup(groupName, visible) {
+    const layers = layerGroups[groupName] ?? [];
+    layers.forEach((layer) => {
+      this.viewer.setLayerVisible(layer, visible);
+      this.setLayerInput(layer, visible);
+    });
+    this.updateGroupInputs();
+  }
+
+  updateGroupInputs() {
+    this.elements.groupInputs.forEach((input) => {
+      const layers = layerGroups[input.dataset.layerGroup] ?? [];
+      const layerInputs = layers
+        .map((layer) => Array.from(this.elements.layerInputs).find((item) => item.dataset.layer === layer))
+        .filter(Boolean);
+
+      const checkedCount = layerInputs.filter((item) => item.checked).length;
+      input.checked = layerInputs.length > 0 && checkedCount === layerInputs.length;
+      input.indeterminate = checkedCount > 0 && checkedCount < layerInputs.length;
+    });
+  }
+
   setActiveState(name) {
     this.elements.stateButtons.forEach((button) => {
       button.classList.toggle('active', button.dataset.state === name);
@@ -201,6 +252,13 @@ export class TimelineController {
     const activeModules = new Set(activeModulesByState[name] ?? []);
     this.elements.moduleNodes.forEach((node) => {
       node.classList.toggle('active', activeModules.has(node.dataset.module));
+    });
+  }
+
+  setActiveTopics(name) {
+    const activeTopics = new Set(activeModulesByState[name] ?? []);
+    this.elements.topicRows.forEach((row) => {
+      row.classList.toggle('active', activeTopics.has(row.dataset.topic));
     });
   }
 

@@ -45,16 +45,16 @@
 
           <div class="property-tree layer-section">
             <details open>
-              <summary><input type="checkbox" checked /> Autoware</summary>
+              <summary><input type="checkbox" data-layer-group="autoware" checked /> Autoware</summary>
               <details open>
-                <summary><input type="checkbox" checked /> System</summary>
+                <summary><input type="checkbox" data-layer-group="system" checked /> System</summary>
                 <label><input type="checkbox" data-layer="egoVehicle" checked /> VehicleModel</label>
                 <label><input type="checkbox" checked disabled /> PolarGridDisplay</label>
                 <label><input type="checkbox" checked disabled /> SignalDisplay</label>
               </details>
 
               <details open>
-                <summary><input type="checkbox" checked /> Map</summary>
+                <summary><input type="checkbox" data-layer-group="map" checked /> Map</summary>
                 <label><input type="checkbox" data-layer="pointCloud" checked /> PointCloudMap</label>
                 <label><input type="checkbox" data-layer="laneBoundaries" checked /> Lanelet2VectorMap / boundaries</label>
                 <label><input type="checkbox" data-layer="centerlines" checked /> Lanelet2VectorMap / centerlines</label>
@@ -64,14 +64,14 @@
               </details>
 
               <details open>
-                <summary><input type="checkbox" checked /> Planning</summary>
+                <summary><input type="checkbox" data-layer-group="planning" /> Planning</summary>
                 <label><input type="checkbox" data-layer="route" /> Route</label>
-                <label><input type="checkbox" data-layer="trajectoryTrail" checked /> Trajectory</label>
+                <label><input type="checkbox" data-layer="trajectoryTrail" /> Trajectory</label>
                 <label><input type="checkbox" data-layer="predictedPath" /> PathWithLaneId</label>
               </details>
 
               <details open>
-                <summary><input type="checkbox" checked /> Perception</summary>
+                <summary><input type="checkbox" data-layer-group="perception" /> Perception</summary>
                 <label><input type="checkbox" data-layer="perceptionObjects" /> PredictedObjects</label>
               </details>
             </details>
@@ -81,7 +81,7 @@
             <div class="property-heading">PointCloudMap</div>
             <span>Topic</span><strong>/map/pointcloud_map</strong>
             <span>Style</span><strong>Points</strong>
-            <span>Size (m)</span><strong>0.02</strong>
+            <span>Size (m)</span><strong>0.16</strong>
             <span>Alpha</span><strong>0.86</strong>
             <span>Color Transformer</span><strong>FlatColor</strong>
           </div>
@@ -172,6 +172,30 @@
           </section>
 
           <section class="dock-panel">
+            <div class="panel-caption">Topic Monitor</div>
+            <div class="topic-monitor" aria-label="Static Autoware topic monitor">
+              <div class="topic-row" data-topic="map">
+                <span>/map/vector_map</span><strong>Lanelet2VectorMap</strong>
+              </div>
+              <div class="topic-row" data-topic="localization">
+                <span>/localization/kinematic_state</span><strong>map -> base_link</strong>
+              </div>
+              <div class="topic-row" data-topic="perception">
+                <span>/perception/object_recognition/objects</span><strong>PredictedObjects</strong>
+              </div>
+              <div class="topic-row" data-topic="planning">
+                <span>/planning/scenario_planning/trajectory</span><strong>Trajectory</strong>
+              </div>
+              <div class="topic-row" data-topic="control">
+                <span>/control/command/control_cmd</span><strong>Control</strong>
+              </div>
+              <div class="topic-row" data-topic="vehicle">
+                <span>/vehicle/status/velocity_status</span><strong>VehicleStatus</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="dock-panel">
             <div class="panel-caption">Operator Walkthrough</div>
             <ol class="walkthrough-list">
               <li data-walkthrough="initial">Load map and confirm localization in `map` frame.</li>
@@ -187,7 +211,7 @@
             <div class="properties-grid compact">
               <span>Dataset</span><strong id="datasetName">Argoverse 2 sensor val</strong>
               <span>Log</span><strong id="datasetLog">02678d04...</strong>
-              <span>Lidar points</span><strong id="pointCount">9000</strong>
+              <span>Lidar points</span><strong id="pointCount">18000</strong>
               <span>Lanelets</span><strong id="laneletCount">92</strong>
               <span>Sync frames</span><strong id="syncFrameCount">157</strong>
               <span>Object frames</span><strong id="objectFrameCount">24</strong>

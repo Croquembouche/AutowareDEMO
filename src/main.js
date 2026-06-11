@@ -27,10 +27,12 @@ const viewer = new Viewer(viewerElement, {
 const timeline = new TimelineController(viewer, {
   stateButtons: document.querySelectorAll('[data-state]'),
   layerInputs: document.querySelectorAll('[data-layer]'),
+  groupInputs: document.querySelectorAll('[data-layer-group]'),
   actionButtons: document.querySelectorAll('[data-action]'),
   frameButtons: document.querySelectorAll('[data-frame]'),
   timelineScrubber: document.querySelector('#timelineScrubber'),
   moduleNodes: document.querySelectorAll('[data-module]'),
+  topicRows: document.querySelectorAll('[data-topic]'),
   walkthroughItems: document.querySelectorAll('[data-walkthrough]')
 });
 
