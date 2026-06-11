@@ -65,6 +65,12 @@ export class Viewer {
     this.controls.maxDistance = 260;
     this.controls.maxPolarAngle = Math.PI * 0.49;
     this.controls.screenSpacePanning = false;
+    this.controls.addEventListener('start', () => {
+      if (this.followEgo) {
+        this.followEgo = false;
+        this.setCameraBadge('orbit / pan / zoom');
+      }
+    });
 
     this.addBaseScene();
     this.setCameraPreset('initial', false);
@@ -312,10 +318,8 @@ export class Viewer {
   }
 
   setCameraPreset(name, animated = true) {
-    if (name !== 'drive') {
-      this.followEgo = false;
-      this.setCameraBadge('orbit / pan / zoom');
-    }
+    this.followEgo = false;
+    this.setCameraBadge('orbit / pan / zoom');
     const preset = cameraPresets[name] ?? cameraPresets.initial;
     const position = new THREE.Vector3(...preset.position);
     const target = new THREE.Vector3(...preset.target);

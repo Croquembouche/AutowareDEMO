@@ -70,7 +70,7 @@ const stateCopy = {
   initial: ['WAITING_FOR_ROUTE', 'Map and localization displays are active: PointCloudMap, Lanelet2VectorMap, and the ego pose in the map frame.'],
   planning: ['PLANNING', 'A fixed goal has been set. Route, Trajectory, and PathWithLaneId represent pre-authored planning outputs.'],
   perception: ['WAITING_FOR_ENGAGE', 'PredictedObjects are loaded from a static AV2 annotation frame and overlaid near the ego route.'],
-  drive: ['DRIVING', 'The scripted control phase consumes the fixed trajectory while perception frames advance with playback time.'],
+  drive: ['DRIVING', 'Autonomous mode is armed with route, trajectory, and perception displays visible. Press Play to advance the scripted trajectory.'],
   goal: ['ARRIVED_GOAL', 'The ego vehicle is stopped at the final pre-authored waypoint with final route and object evidence visible.']
 };
 
@@ -174,7 +174,6 @@ export class TimelineController {
     }
     if (name === 'drive') {
       this.viewer.setPerceptionFrame(1);
-      this.viewer.playEgo();
     }
     if (name === 'goal') {
       this.viewer.setEgoGoal();
@@ -192,6 +191,7 @@ export class TimelineController {
   handleAction(action) {
     if (action === 'play') {
       this.applyState('drive');
+      this.viewer.playEgo();
       return;
     }
     if (action === 'pause') {
