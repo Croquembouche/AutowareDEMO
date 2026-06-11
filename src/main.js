@@ -14,7 +14,12 @@ const viewer = new Viewer(viewerElement, {
   controlMode: document.querySelector('#controlMode'),
   simTime: document.querySelector('#simTime'),
   speedValue: document.querySelector('#speedValue'),
-  steerValue: document.querySelector('#steerValue')
+  steerValue: document.querySelector('#steerValue'),
+  datasetName: document.querySelector('#datasetName'),
+  datasetLog: document.querySelector('#datasetLog'),
+  pointCount: document.querySelector('#pointCount'),
+  laneletCount: document.querySelector('#laneletCount'),
+  syncFrameCount: document.querySelector('#syncFrameCount')
 });
 
 const timeline = new TimelineController(viewer, {
@@ -22,7 +27,9 @@ const timeline = new TimelineController(viewer, {
   layerInputs: document.querySelectorAll('[data-layer]'),
   actionButtons: document.querySelectorAll('[data-action]'),
   frameButtons: document.querySelectorAll('[data-frame]'),
-  timelineScrubber: document.querySelector('#timelineScrubber')
+  timelineScrubber: document.querySelector('#timelineScrubber'),
+  moduleNodes: document.querySelectorAll('[data-module]'),
+  walkthroughItems: document.querySelectorAll('[data-walkthrough]')
 });
 
 viewer.load().then(() => {

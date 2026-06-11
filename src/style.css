@@ -410,6 +410,77 @@ input[type="checkbox"] {
   font-weight: 700;
 }
 
+.module-flow {
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+}
+
+.module-node {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  min-height: 42px;
+  padding: 7px 8px 7px 12px;
+  border: 1px solid #3a4148;
+  border-radius: 3px;
+  background: #2d3338;
+  color: #bfc8cf;
+}
+
+.module-node::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 5px;
+  width: 3px;
+  border-radius: 2px;
+  background: #5e666e;
+}
+
+.module-node.active {
+  border-color: #4c84b8;
+  background: #24394a;
+  color: #eaf5ff;
+}
+
+.module-node.active::before {
+  background: #52a8ff;
+}
+
+.module-node strong {
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+
+.module-node span {
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+
+.walkthrough-list {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 8px 8px 28px;
+  color: #cbd2d8;
+  font-size: 0.76rem;
+  line-height: 1.3;
+}
+
+.walkthrough-list li {
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.walkthrough-list li.active {
+  border-color: #4c84b8;
+  background: #24394a;
+  color: #ffffff;
+}
+
 .state-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

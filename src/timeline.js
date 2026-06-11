@@ -82,6 +82,14 @@ const panelStatus = {
   goal: { operationMode: 'STOP', routeState: 'ARRIVED', controlMode: 'AUTO' }
 };
 
+const activeModulesByState = {
+  initial: ['map', 'localization', 'vehicle'],
+  planning: ['map', 'localization', 'planning', 'vehicle'],
+  perception: ['map', 'localization', 'perception', 'planning', 'vehicle'],
+  drive: ['map', 'localization', 'perception', 'planning', 'control', 'vehicle'],
+  goal: ['map', 'localization', 'perception', 'planning', 'control', 'vehicle']
+};
+
 export class TimelineController {
   constructor(viewer, elements) {
     this.viewer = viewer;
@@ -147,6 +155,8 @@ export class TimelineController {
 
     this.viewer.setStateText(...stateCopy[name]);
     this.viewer.setPanelStatus(panelStatus[name]);
+    this.setActiveModules(name);
+    this.setActiveWalkthrough(name);
     this.viewer.setCameraPreset(name, moveCamera);
   }
 
@@ -184,6 +194,19 @@ export class TimelineController {
   setActiveState(name) {
     this.elements.stateButtons.forEach((button) => {
       button.classList.toggle('active', button.dataset.state === name);
+    });
+  }
+
+  setActiveModules(name) {
+    const activeModules = new Set(activeModulesByState[name] ?? []);
+    this.elements.moduleNodes.forEach((node) => {
+      node.classList.toggle('active', activeModules.has(node.dataset.module));
+    });
+  }
+
+  setActiveWalkthrough(name) {
+    this.elements.walkthroughItems.forEach((item) => {
+      item.classList.toggle('active', item.dataset.walkthrough === name);
     });
   }
 }

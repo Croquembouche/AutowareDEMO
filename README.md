@@ -12,6 +12,7 @@ The app renders a deterministic scripted scene with Three.js:
 - fixed perception object frames derived from AV2 annotations
 - RViz-like layer controls, orbit/pan/zoom camera controls, camera presets, and scripted demo states
 - RViz2-style panels and display names such as `PointCloudMap`, `Lanelet2VectorMap`, `PredictedObjects`, `Trajectory`, and `PathWithLaneId`
+- a guided static module walkthrough showing how map, localization, perception, planning, control, and vehicle displays relate during an Autoware-style run
 
 ## Run Locally
 
@@ -66,6 +67,18 @@ Everything in the viewer is pre-authored static data:
 The browser performs only rendering, UI toggling, loading static files, and simple interpolation along the fixed ego trajectory.
 
 The Autoware/RViz UI elements are visual approximations only. They are not Qt widgets, RViz plugins, ROS panels, or live topic subscribers.
+
+## Guided Autoware Walkthrough
+
+The right-side panels provide a short deterministic operator flow:
+
+- **Initial Map**: loads `PointCloudMap`, `Lanelet2VectorMap`, localization pose, and the ego vehicle.
+- **Planning**: shows a pre-authored route and trajectory, equivalent to inspecting planning output after setting a goal.
+- **Perception**: shows fixed AV2 annotation boxes as `PredictedObjects`.
+- **Autonomous Drive**: switches the state panel to autonomous mode and plays the pre-authored ego path.
+- **Goal Reached**: stops the vehicle at the final pose and leaves the final route/perception evidence visible.
+
+The module flow panel is also static. It highlights which Autoware subsystems are being demonstrated at each scripted step; it does not execute those modules.
 
 ## Data Files
 

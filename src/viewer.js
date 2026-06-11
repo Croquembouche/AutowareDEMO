@@ -62,11 +62,12 @@ export class Viewer {
     this.setLoading('Loading point cloud, lanelets, route, trajectory, and perception frames...');
 
     try {
-      const [pointCloud, laneletMap, route, egoPath, ...objectFrames] = await Promise.all([
+      const [pointCloud, laneletMap, route, egoPath, metadata, ...objectFrames] = await Promise.all([
         loadPointCloud(`${assetBase}maps/pointcloud_map_small.pcd`),
         loadJson(`${assetBase}maps/lanelet_demo.json`),
         loadJson(`${assetBase}demo/route.json`),
         loadJson(`${assetBase}demo/ego_path.json`),
+        loadJson(`${assetBase}demo/av2_metadata.json`),
         loadJson(`${assetBase}demo/objects_frame_000.json`),
         loadJson(`${assetBase}demo/objects_frame_001.json`),
         loadJson(`${assetBase}demo/objects_frame_002.json`)
@@ -81,6 +82,7 @@ export class Viewer {
       this.registerLayer('trajectoryTrail', this.ego.trailGroup);
       this.registerLayer('predictedPath', createPredictedPathLayer(egoPath));
       this.registerLayer('perceptionObjects', createObjectsLayer(objectFrames[0]));
+      this.setMetadata(metadata);
 
       this.setLoading(`Loaded ${pointCloud.children[0].geometry.getAttribute('position').count} map points and ${laneletMap.lanelets.length} lanelets.`);
       this.setDetail('Initial Map: static point cloud with simplified Lanelet2-style road geometry.');
@@ -185,6 +187,28 @@ export class Viewer {
     }
     if (this.ui.localizationState) {
       this.ui.localizationState.textContent = 'INITIALIZED';
+    }
+  }
+
+  setMetadata(metadata) {
+    if (!metadata) {
+      return;
+    }
+    if (this.ui.datasetName) {
+      this.ui.datasetName.textContent = metadata.source ?? 'Static dataset';
+    }
+    if (this.ui.datasetLog) {
+      this.ui.datasetLog.textContent = metadata.logId ? `${metadata.logId.slice(0, 8)}...` : 'n/a';
+      this.ui.datasetLog.title = metadata.logId ?? '';
+    }
+    if (this.ui.pointCount) {
+      this.ui.pointCount.textContent = `${metadata.exportedPointCount ?? 0}`;
+    }
+    if (this.ui.laneletCount) {
+      this.ui.laneletCount.textContent = `${metadata.exportedLanelets ?? 0}`;
+    }
+    if (this.ui.syncFrameCount) {
+      this.ui.syncFrameCount.textContent = `${metadata.syncFrames ?? 0}`;
     }
   }
 

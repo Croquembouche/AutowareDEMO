@@ -142,6 +142,58 @@
           </section>
 
           <section class="dock-panel">
+            <div class="panel-caption">Autoware Module Flow</div>
+            <div class="module-flow" aria-label="Autoware module flow">
+              <div class="module-node active" data-module="map">
+                <strong>Map</strong>
+                <span>PointCloudMap + Lanelet2VectorMap</span>
+              </div>
+              <div class="module-node active" data-module="localization">
+                <strong>Localization</strong>
+                <span>map -> base_link pose</span>
+              </div>
+              <div class="module-node" data-module="perception">
+                <strong>Perception</strong>
+                <span>PredictedObjects</span>
+              </div>
+              <div class="module-node" data-module="planning">
+                <strong>Planning</strong>
+                <span>Route + Trajectory</span>
+              </div>
+              <div class="module-node" data-module="control">
+                <strong>Control</strong>
+                <span>Velocity + steering command</span>
+              </div>
+              <div class="module-node" data-module="vehicle">
+                <strong>Vehicle</strong>
+                <span>VehicleModel playback</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="dock-panel">
+            <div class="panel-caption">Operator Walkthrough</div>
+            <ol class="walkthrough-list">
+              <li data-walkthrough="initial">Load map and confirm localization in `map` frame.</li>
+              <li data-walkthrough="planning">Set a goal and inspect the generated route.</li>
+              <li data-walkthrough="perception">Review tracked objects around the ego vehicle.</li>
+              <li data-walkthrough="drive">Engage autonomous mode and monitor trajectory following.</li>
+              <li data-walkthrough="goal">Confirm arrival and stopped vehicle state.</li>
+            </ol>
+          </section>
+
+          <section class="dock-panel">
+            <div class="panel-caption">Static Evidence</div>
+            <div class="properties-grid compact">
+              <span>Dataset</span><strong id="datasetName">Argoverse 2 sensor val</strong>
+              <span>Log</span><strong id="datasetLog">02678d04...</strong>
+              <span>Lidar points</span><strong id="pointCount">9000</strong>
+              <span>Lanelets</span><strong id="laneletCount">92</strong>
+              <span>Sync frames</span><strong id="syncFrameCount">157</strong>
+            </div>
+          </section>
+
+          <section class="dock-panel">
             <div class="panel-caption">Tool Properties</div>
             <div class="button-row">
               <button data-action="play" type="button">Play</button>
