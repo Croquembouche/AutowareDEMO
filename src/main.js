@@ -21,6 +21,7 @@ const viewer = new Viewer(viewerElement, {
   laneletCount: document.querySelector('#laneletCount'),
   syncFrameCount: document.querySelector('#syncFrameCount'),
   objectFrameCount: document.querySelector('#objectFrameCount'),
+  activeEgoFrame: document.querySelector('#activeEgoFrame'),
   activeObjectFrame: document.querySelector('#activeObjectFrame')
 });
 

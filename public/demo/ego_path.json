@@ -1,6 +1,9 @@
 {
   "frames": [
     {
+      "demoFrame": 0,
+      "sourceFrameIndex": 0,
+      "sourceT": 0.0,
       "t": 0.0,
       "position": [
         0.0,
@@ -10,7 +13,46 @@
       "yaw": 2.00485
     },
     {
-      "t": 0.4,
+      "demoFrame": 1,
+      "sourceFrameIndex": 1,
+      "sourceT": 0.1,
+      "t": 0.2,
+      "position": [
+        -0.467,
+        0.999,
+        0.376
+      ],
+      "yaw": 2.00542
+    },
+    {
+      "demoFrame": 2,
+      "sourceFrameIndex": 2,
+      "sourceT": 0.2,
+      "t": 0.399,
+      "position": [
+        -0.931,
+        1.988,
+        0.41
+      ],
+      "yaw": 2.00594
+    },
+    {
+      "demoFrame": 3,
+      "sourceFrameIndex": 3,
+      "sourceT": 0.3,
+      "t": 0.6,
+      "position": [
+        -1.4,
+        2.985,
+        0.444
+      ],
+      "yaw": 2.00632
+    },
+    {
+      "demoFrame": 4,
+      "sourceFrameIndex": 4,
+      "sourceT": 0.4,
+      "t": 0.8,
       "position": [
         -1.872,
         3.986,
@@ -19,7 +61,46 @@
       "yaw": 2.00688
     },
     {
-      "t": 0.8,
+      "demoFrame": 5,
+      "sourceFrameIndex": 5,
+      "sourceT": 0.5,
+      "t": 0.999,
+      "position": [
+        -2.338,
+        4.975,
+        0.518
+      ],
+      "yaw": 2.00759
+    },
+    {
+      "demoFrame": 6,
+      "sourceFrameIndex": 6,
+      "sourceT": 0.6,
+      "t": 1.2,
+      "position": [
+        -2.803,
+        5.961,
+        0.562
+      ],
+      "yaw": 2.00827
+    },
+    {
+      "demoFrame": 7,
+      "sourceFrameIndex": 7,
+      "sourceT": 0.7,
+      "t": 1.4,
+      "position": [
+        -3.279,
+        6.968,
+        0.596
+      ],
+      "yaw": 2.00915
+    },
+    {
+      "demoFrame": 8,
+      "sourceFrameIndex": 8,
+      "sourceT": 0.8,
+      "t": 1.6,
       "position": [
         -3.747,
         7.958,
@@ -28,7 +109,46 @@
       "yaw": 2.00978
     },
     {
-      "t": 1.2,
+      "demoFrame": 9,
+      "sourceFrameIndex": 9,
+      "sourceT": 0.9,
+      "t": 1.8,
+      "position": [
+        -4.217,
+        8.949,
+        0.675
+      ],
+      "yaw": 2.01055
+    },
+    {
+      "demoFrame": 10,
+      "sourceFrameIndex": 10,
+      "sourceT": 1.0,
+      "t": 2.0,
+      "position": [
+        -4.683,
+        9.931,
+        0.718
+      ],
+      "yaw": 2.01135
+    },
+    {
+      "demoFrame": 11,
+      "sourceFrameIndex": 11,
+      "sourceT": 1.1,
+      "t": 2.2,
+      "position": [
+        -5.162,
+        10.939,
+        0.747
+      ],
+      "yaw": 2.01247
+    },
+    {
+      "demoFrame": 12,
+      "sourceFrameIndex": 12,
+      "sourceT": 1.2,
+      "t": 2.399,
       "position": [
         -5.628,
         11.922,
@@ -37,7 +157,46 @@
       "yaw": 2.01354
     },
     {
-      "t": 1.6,
+      "demoFrame": 13,
+      "sourceFrameIndex": 13,
+      "sourceT": 1.3,
+      "t": 2.6,
+      "position": [
+        -6.101,
+        12.913,
+        0.819
+      ],
+      "yaw": 2.01476
+    },
+    {
+      "demoFrame": 14,
+      "sourceFrameIndex": 14,
+      "sourceT": 1.4,
+      "t": 2.8,
+      "position": [
+        -6.576,
+        13.908,
+        0.852
+      ],
+      "yaw": 2.01577
+    },
+    {
+      "demoFrame": 15,
+      "sourceFrameIndex": 15,
+      "sourceT": 1.5,
+      "t": 2.999,
+      "position": [
+        -7.046,
+        14.887,
+        0.891
+      ],
+      "yaw": 2.01676
+    },
+    {
+      "demoFrame": 16,
+      "sourceFrameIndex": 16,
+      "sourceT": 1.6,
+      "t": 3.2,
       "position": [
         -7.526,
         15.884,
@@ -46,7 +205,46 @@
       "yaw": 2.01807
     },
     {
-      "t": 2.0,
+      "demoFrame": 17,
+      "sourceFrameIndex": 17,
+      "sourceT": 1.7,
+      "t": 3.4,
+      "position": [
+        -8.004,
+        16.878,
+        0.957
+      ],
+      "yaw": 2.01934
+    },
+    {
+      "demoFrame": 18,
+      "sourceFrameIndex": 18,
+      "sourceT": 1.8,
+      "t": 3.6,
+      "position": [
+        -8.482,
+        17.866,
+        0.992
+      ],
+      "yaw": 2.02038
+    },
+    {
+      "demoFrame": 19,
+      "sourceFrameIndex": 19,
+      "sourceT": 1.9,
+      "t": 3.8,
+      "position": [
+        -8.96,
+        18.849,
+        1.026
+      ],
+      "yaw": 2.02147
+    },
+    {
+      "demoFrame": 20,
+      "sourceFrameIndex": 20,
+      "sourceT": 2.0,
+      "t": 4.0,
       "position": [
         -9.444,
         19.844,
@@ -55,7 +253,46 @@
       "yaw": 2.02256
     },
     {
-      "t": 2.4,
+      "demoFrame": 21,
+      "sourceFrameIndex": 21,
+      "sourceT": 2.1,
+      "t": 4.2,
+      "position": [
+        -9.929,
+        20.837,
+        1.095
+      ],
+      "yaw": 2.0233
+    },
+    {
+      "demoFrame": 22,
+      "sourceFrameIndex": 22,
+      "sourceT": 2.2,
+      "t": 4.399,
+      "position": [
+        -10.404,
+        21.806,
+        1.14
+      ],
+      "yaw": 2.02401
+    },
+    {
+      "demoFrame": 23,
+      "sourceFrameIndex": 23,
+      "sourceT": 2.3,
+      "t": 4.6,
+      "position": [
+        -10.893,
+        22.8,
+        1.176
+      ],
+      "yaw": 2.02489
+    },
+    {
+      "demoFrame": 24,
+      "sourceFrameIndex": 24,
+      "sourceT": 2.4,
+      "t": 4.8,
       "position": [
         -11.381,
         23.792,
@@ -64,7 +301,46 @@
       "yaw": 2.02573
     },
     {
-      "t": 2.8,
+      "demoFrame": 25,
+      "sourceFrameIndex": 25,
+      "sourceT": 2.5,
+      "t": 5.001,
+      "position": [
+        -11.867,
+        24.777,
+        1.254
+      ],
+      "yaw": 2.0265
+    },
+    {
+      "demoFrame": 26,
+      "sourceFrameIndex": 26,
+      "sourceT": 2.6,
+      "t": 5.2,
+      "position": [
+        -12.352,
+        25.759,
+        1.292
+      ],
+      "yaw": 2.027
+    },
+    {
+      "demoFrame": 27,
+      "sourceFrameIndex": 27,
+      "sourceT": 2.7,
+      "t": 5.4,
+      "position": [
+        -12.842,
+        26.746,
+        1.33
+      ],
+      "yaw": 2.02709
+    },
+    {
+      "demoFrame": 28,
+      "sourceFrameIndex": 28,
+      "sourceT": 2.8,
+      "t": 5.6,
       "position": [
         -13.327,
         27.726,
@@ -73,7 +349,46 @@
       "yaw": 2.02744
     },
     {
-      "t": 3.2,
+      "demoFrame": 29,
+      "sourceFrameIndex": 29,
+      "sourceT": 2.9,
+      "t": 5.799,
+      "position": [
+        -13.813,
+        28.708,
+        1.401
+      ],
+      "yaw": 2.02765
+    },
+    {
+      "demoFrame": 30,
+      "sourceFrameIndex": 30,
+      "sourceT": 3.0,
+      "t": 6.0,
+      "position": [
+        -14.299,
+        29.69,
+        1.435
+      ],
+      "yaw": 2.02773
+    },
+    {
+      "demoFrame": 31,
+      "sourceFrameIndex": 31,
+      "sourceT": 3.1,
+      "t": 6.2,
+      "position": [
+        -14.785,
+        30.673,
+        1.471
+      ],
+      "yaw": 2.02738
+    },
+    {
+      "demoFrame": 32,
+      "sourceFrameIndex": 32,
+      "sourceT": 3.2,
+      "t": 6.399,
       "position": [
         -15.273,
         31.66,
@@ -82,7 +397,46 @@
       "yaw": 2.02685
     },
     {
-      "t": 3.6,
+      "demoFrame": 33,
+      "sourceFrameIndex": 33,
+      "sourceT": 3.3,
+      "t": 6.6,
+      "position": [
+        -15.752,
+        32.63,
+        1.544
+      ],
+      "yaw": 2.02598
+    },
+    {
+      "demoFrame": 34,
+      "sourceFrameIndex": 34,
+      "sourceT": 3.4,
+      "t": 6.8,
+      "position": [
+        -16.245,
+        33.626,
+        1.574
+      ],
+      "yaw": 2.02502
+    },
+    {
+      "demoFrame": 35,
+      "sourceFrameIndex": 35,
+      "sourceT": 3.5,
+      "t": 6.999,
+      "position": [
+        -16.724,
+        34.603,
+        1.612
+      ],
+      "yaw": 2.02417
+    },
+    {
+      "demoFrame": 36,
+      "sourceFrameIndex": 36,
+      "sourceT": 3.6,
+      "t": 7.2,
       "position": [
         -17.208,
         35.59,
@@ -91,7 +445,46 @@
       "yaw": 2.02322
     },
     {
-      "t": 4.0,
+      "demoFrame": 37,
+      "sourceFrameIndex": 37,
+      "sourceT": 3.7,
+      "t": 7.4,
+      "position": [
+        -17.695,
+        36.585,
+        1.681
+      ],
+      "yaw": 2.02218
+    },
+    {
+      "demoFrame": 38,
+      "sourceFrameIndex": 38,
+      "sourceT": 3.8,
+      "t": 7.6,
+      "position": [
+        -18.172,
+        37.561,
+        1.723
+      ],
+      "yaw": 2.02082
+    },
+    {
+      "demoFrame": 39,
+      "sourceFrameIndex": 39,
+      "sourceT": 3.9,
+      "t": 7.799,
+      "position": [
+        -18.654,
+        38.544,
+        1.757
+      ],
+      "yaw": 2.01946
+    },
+    {
+      "demoFrame": 40,
+      "sourceFrameIndex": 40,
+      "sourceT": 4.0,
+      "t": 8.0,
       "position": [
         -19.129,
         39.522,
@@ -100,7 +493,46 @@
       "yaw": 2.01813
     },
     {
-      "t": 4.4,
+      "demoFrame": 41,
+      "sourceFrameIndex": 41,
+      "sourceT": 4.1,
+      "t": 8.2,
+      "position": [
+        -19.609,
+        40.516,
+        1.831
+      ],
+      "yaw": 2.01703
+    },
+    {
+      "demoFrame": 42,
+      "sourceFrameIndex": 42,
+      "sourceT": 4.2,
+      "t": 8.399,
+      "position": [
+        -20.076,
+        41.488,
+        1.871
+      ],
+      "yaw": 2.01593
+    },
+    {
+      "demoFrame": 43,
+      "sourceFrameIndex": 43,
+      "sourceT": 4.3,
+      "t": 8.6,
+      "position": [
+        -20.56,
+        42.502,
+        1.896
+      ],
+      "yaw": 2.01496
+    },
+    {
+      "demoFrame": 44,
+      "sourceFrameIndex": 44,
+      "sourceT": 4.4,
+      "t": 8.8,
       "position": [
         -21.027,
         43.48,
@@ -109,7 +541,46 @@
       "yaw": 2.01377
     },
     {
-      "t": 4.8,
+      "demoFrame": 45,
+      "sourceFrameIndex": 45,
+      "sourceT": 4.5,
+      "t": 8.999,
+      "position": [
+        -21.508,
+        44.489,
+        1.967
+      ],
+      "yaw": 2.0127
+    },
+    {
+      "demoFrame": 46,
+      "sourceFrameIndex": 46,
+      "sourceT": 4.6,
+      "t": 9.2,
+      "position": [
+        -21.976,
+        45.478,
+        2.008
+      ],
+      "yaw": 2.01147
+    },
+    {
+      "demoFrame": 47,
+      "sourceFrameIndex": 47,
+      "sourceT": 4.7,
+      "t": 9.4,
+      "position": [
+        -22.449,
+        46.472,
+        2.047
+      ],
+      "yaw": 2.01027
+    },
+    {
+      "demoFrame": 48,
+      "sourceFrameIndex": 48,
+      "sourceT": 4.8,
+      "t": 9.6,
       "position": [
         -22.925,
         47.48,
@@ -118,7 +589,46 @@
       "yaw": 2.00911
     },
     {
-      "t": 5.2,
+      "demoFrame": 49,
+      "sourceFrameIndex": 49,
+      "sourceT": 4.9,
+      "t": 9.799,
+      "position": [
+        -23.391,
+        48.472,
+        2.115
+      ],
+      "yaw": 2.0081
+    },
+    {
+      "demoFrame": 50,
+      "sourceFrameIndex": 50,
+      "sourceT": 5.0,
+      "t": 10.0,
+      "position": [
+        -23.87,
+        49.491,
+        2.141
+      ],
+      "yaw": 2.00707
+    },
+    {
+      "demoFrame": 51,
+      "sourceFrameIndex": 51,
+      "sourceT": 5.1,
+      "t": 10.2,
+      "position": [
+        -24.324,
+        50.463,
+        2.193
+      ],
+      "yaw": 2.00623
+    },
+    {
+      "demoFrame": 52,
+      "sourceFrameIndex": 52,
+      "sourceT": 5.2,
+      "t": 10.399,
       "position": [
         -24.796,
         51.471,
@@ -127,7 +637,46 @@
       "yaw": 2.00552
     },
     {
-      "t": 5.6,
+      "demoFrame": 53,
+      "sourceFrameIndex": 53,
+      "sourceT": 5.3,
+      "t": 10.6,
+      "position": [
+        -25.258,
+        52.461,
+        2.266
+      ],
+      "yaw": 2.00485
+    },
+    {
+      "demoFrame": 54,
+      "sourceFrameIndex": 54,
+      "sourceT": 5.4,
+      "t": 10.8,
+      "position": [
+        -25.727,
+        53.47,
+        2.297
+      ],
+      "yaw": 2.00426
+    },
+    {
+      "demoFrame": 55,
+      "sourceFrameIndex": 55,
+      "sourceT": 5.503,
+      "t": 11.006,
+      "position": [
+        -26.207,
+        54.495,
+        2.333
+      ],
+      "yaw": 2.00374
+    },
+    {
+      "demoFrame": 56,
+      "sourceFrameIndex": 56,
+      "sourceT": 5.6,
+      "t": 11.199,
       "position": [
         -26.658,
         55.459,
@@ -136,7 +685,46 @@
       "yaw": 2.00331
     },
     {
-      "t": 6.0,
+      "demoFrame": 57,
+      "sourceFrameIndex": 57,
+      "sourceT": 5.7,
+      "t": 11.4,
+      "position": [
+        -27.122,
+        56.45,
+        2.405
+      ],
+      "yaw": 2.00289
+    },
+    {
+      "demoFrame": 58,
+      "sourceFrameIndex": 58,
+      "sourceT": 5.8,
+      "t": 11.6,
+      "position": [
+        -27.59,
+        57.457,
+        2.435
+      ],
+      "yaw": 2.00257
+    },
+    {
+      "demoFrame": 59,
+      "sourceFrameIndex": 59,
+      "sourceT": 5.9,
+      "t": 11.799,
+      "position": [
+        -28.051,
+        58.448,
+        2.47
+      ],
+      "yaw": 2.0022
+    },
+    {
+      "demoFrame": 60,
+      "sourceFrameIndex": 60,
+      "sourceT": 6.0,
+      "t": 12.0,
       "position": [
         -28.51,
         59.437,
@@ -145,7 +733,46 @@
       "yaw": 2.00187
     },
     {
-      "t": 6.4,
+      "demoFrame": 61,
+      "sourceFrameIndex": 61,
+      "sourceT": 6.1,
+      "t": 12.2,
+      "position": [
+        -28.977,
+        60.444,
+        2.536
+      ],
+      "yaw": 2.00167
+    },
+    {
+      "demoFrame": 62,
+      "sourceFrameIndex": 62,
+      "sourceT": 6.2,
+      "t": 12.401,
+      "position": [
+        -29.433,
+        61.428,
+        2.577
+      ],
+      "yaw": 2.0015
+    },
+    {
+      "demoFrame": 63,
+      "sourceFrameIndex": 63,
+      "sourceT": 6.3,
+      "t": 12.6,
+      "position": [
+        -29.897,
+        62.426,
+        2.605
+      ],
+      "yaw": 2.00126
+    },
+    {
+      "demoFrame": 64,
+      "sourceFrameIndex": 64,
+      "sourceT": 6.4,
+      "t": 12.8,
       "position": [
         -30.344,
         63.391,
@@ -154,7 +781,46 @@
       "yaw": 2.00129
     },
     {
-      "t": 6.8,
+      "demoFrame": 65,
+      "sourceFrameIndex": 65,
+      "sourceT": 6.5,
+      "t": 13.0,
+      "position": [
+        -30.805,
+        64.386,
+        2.686
+      ],
+      "yaw": 2.00162
+    },
+    {
+      "demoFrame": 66,
+      "sourceFrameIndex": 66,
+      "sourceT": 6.603,
+      "t": 13.207,
+      "position": [
+        -31.271,
+        65.391,
+        2.728
+      ],
+      "yaw": 2.00195
+    },
+    {
+      "demoFrame": 67,
+      "sourceFrameIndex": 67,
+      "sourceT": 6.7,
+      "t": 13.4,
+      "position": [
+        -31.71,
+        66.336,
+        2.766
+      ],
+      "yaw": 2.00226
+    },
+    {
+      "demoFrame": 68,
+      "sourceFrameIndex": 68,
+      "sourceT": 6.8,
+      "t": 13.6,
       "position": [
         -32.167,
         67.32,
@@ -163,7 +829,46 @@
       "yaw": 2.00271
     },
     {
-      "t": 7.2,
+      "demoFrame": 69,
+      "sourceFrameIndex": 69,
+      "sourceT": 6.9,
+      "t": 13.799,
+      "position": [
+        -32.624,
+        68.302,
+        2.845
+      ],
+      "yaw": 2.00299
+    },
+    {
+      "demoFrame": 70,
+      "sourceFrameIndex": 70,
+      "sourceT": 7.0,
+      "t": 14.0,
+      "position": [
+        -33.074,
+        69.269,
+        2.894
+      ],
+      "yaw": 2.00327
+    },
+    {
+      "demoFrame": 71,
+      "sourceFrameIndex": 71,
+      "sourceT": 7.1,
+      "t": 14.2,
+      "position": [
+        -33.531,
+        70.251,
+        2.934
+      ],
+      "yaw": 2.00369
+    },
+    {
+      "demoFrame": 72,
+      "sourceFrameIndex": 72,
+      "sourceT": 7.2,
+      "t": 14.4,
       "position": [
         -33.991,
         71.238,
@@ -172,7 +877,46 @@
       "yaw": 2.00397
     },
     {
-      "t": 7.6,
+      "demoFrame": 73,
+      "sourceFrameIndex": 73,
+      "sourceT": 7.3,
+      "t": 14.6,
+      "position": [
+        -34.434,
+        72.193,
+        3.033
+      ],
+      "yaw": 2.00448
+    },
+    {
+      "demoFrame": 74,
+      "sourceFrameIndex": 74,
+      "sourceT": 7.4,
+      "t": 14.8,
+      "position": [
+        -34.887,
+        73.163,
+        3.085
+      ],
+      "yaw": 2.00487
+    },
+    {
+      "demoFrame": 75,
+      "sourceFrameIndex": 75,
+      "sourceT": 7.5,
+      "t": 15.0,
+      "position": [
+        -35.333,
+        74.119,
+        3.144
+      ],
+      "yaw": 2.0054
+    },
+    {
+      "demoFrame": 76,
+      "sourceFrameIndex": 76,
+      "sourceT": 7.6,
+      "t": 15.201,
       "position": [
         -35.789,
         75.094,
@@ -181,7 +925,46 @@
       "yaw": 2.00578
     },
     {
-      "t": 8.0,
+      "demoFrame": 77,
+      "sourceFrameIndex": 77,
+      "sourceT": 7.7,
+      "t": 15.4,
+      "position": [
+        -36.226,
+        76.028,
+        3.249
+      ],
+      "yaw": 2.00612
+    },
+    {
+      "demoFrame": 78,
+      "sourceFrameIndex": 78,
+      "sourceT": 7.8,
+      "t": 15.6,
+      "position": [
+        -36.673,
+        76.983,
+        3.296
+      ],
+      "yaw": 2.007
+    },
+    {
+      "demoFrame": 79,
+      "sourceFrameIndex": 79,
+      "sourceT": 7.9,
+      "t": 15.801,
+      "position": [
+        -37.109,
+        77.915,
+        3.347
+      ],
+      "yaw": 2.00793
+    },
+    {
+      "demoFrame": 80,
+      "sourceFrameIndex": 80,
+      "sourceT": 8.0,
+      "t": 16.0,
       "position": [
         -37.542,
         78.837,
@@ -190,7 +973,46 @@
       "yaw": 2.00861
     },
     {
-      "t": 8.4,
+      "demoFrame": 81,
+      "sourceFrameIndex": 81,
+      "sourceT": 8.1,
+      "t": 16.2,
+      "position": [
+        -37.982,
+        79.766,
+        3.42
+      ],
+      "yaw": 2.00935
+    },
+    {
+      "demoFrame": 82,
+      "sourceFrameIndex": 82,
+      "sourceT": 8.2,
+      "t": 16.4,
+      "position": [
+        -38.412,
+        80.673,
+        3.452
+      ],
+      "yaw": 2.00905
+    },
+    {
+      "demoFrame": 83,
+      "sourceFrameIndex": 83,
+      "sourceT": 8.3,
+      "t": 16.601,
+      "position": [
+        -38.835,
+        81.561,
+        3.48
+      ],
+      "yaw": 2.00731
+    },
+    {
+      "demoFrame": 84,
+      "sourceFrameIndex": 84,
+      "sourceT": 8.4,
+      "t": 16.8,
       "position": [
         -39.259,
         82.459,
@@ -199,7 +1021,46 @@
       "yaw": 2.00616
     },
     {
-      "t": 8.8,
+      "demoFrame": 85,
+      "sourceFrameIndex": 85,
+      "sourceT": 8.5,
+      "t": 17.0,
+      "position": [
+        -39.664,
+        83.324,
+        3.539
+      ],
+      "yaw": 2.00589
+    },
+    {
+      "demoFrame": 86,
+      "sourceFrameIndex": 86,
+      "sourceT": 8.6,
+      "t": 17.201,
+      "position": [
+        -40.058,
+        84.163,
+        3.587
+      ],
+      "yaw": 2.00517
+    },
+    {
+      "demoFrame": 87,
+      "sourceFrameIndex": 87,
+      "sourceT": 8.7,
+      "t": 17.4,
+      "position": [
+        -40.441,
+        84.978,
+        3.624
+      ],
+      "yaw": 2.0043
+    },
+    {
+      "demoFrame": 88,
+      "sourceFrameIndex": 88,
+      "sourceT": 8.8,
+      "t": 17.6,
       "position": [
         -40.82,
         85.786,
@@ -208,7 +1069,46 @@
       "yaw": 2.00349
     },
     {
-      "t": 9.2,
+      "demoFrame": 89,
+      "sourceFrameIndex": 89,
+      "sourceT": 8.9,
+      "t": 17.801,
+      "position": [
+        -41.178,
+        86.555,
+        3.655
+      ],
+      "yaw": 2.00274
+    },
+    {
+      "demoFrame": 90,
+      "sourceFrameIndex": 90,
+      "sourceT": 9.0,
+      "t": 18.0,
+      "position": [
+        -41.528,
+        87.303,
+        3.658
+      ],
+      "yaw": 2.00175
+    },
+    {
+      "demoFrame": 91,
+      "sourceFrameIndex": 91,
+      "sourceT": 9.1,
+      "t": 18.2,
+      "position": [
+        -41.862,
+        88.021,
+        3.667
+      ],
+      "yaw": 2.00089
+    },
+    {
+      "demoFrame": 92,
+      "sourceFrameIndex": 92,
+      "sourceT": 9.2,
+      "t": 18.4,
       "position": [
         -42.186,
         88.721,
@@ -217,7 +1117,46 @@
       "yaw": 2.00043
     },
     {
-      "t": 9.6,
+      "demoFrame": 93,
+      "sourceFrameIndex": 93,
+      "sourceT": 9.3,
+      "t": 18.599,
+      "position": [
+        -42.501,
+        89.398,
+        3.679
+      ],
+      "yaw": 2.0001
+    },
+    {
+      "demoFrame": 94,
+      "sourceFrameIndex": 94,
+      "sourceT": 9.4,
+      "t": 18.8,
+      "position": [
+        -42.797,
+        90.035,
+        3.69
+      ],
+      "yaw": 1.99973
+    },
+    {
+      "demoFrame": 95,
+      "sourceFrameIndex": 95,
+      "sourceT": 9.5,
+      "t": 19.0,
+      "position": [
+        -43.084,
+        90.658,
+        3.695
+      ],
+      "yaw": 1.99952
+    },
+    {
+      "demoFrame": 96,
+      "sourceFrameIndex": 96,
+      "sourceT": 9.6,
+      "t": 19.201,
       "position": [
         -43.36,
         91.252,
@@ -226,7 +1165,46 @@
       "yaw": 1.99948
     },
     {
-      "t": 10.0,
+      "demoFrame": 97,
+      "sourceFrameIndex": 97,
+      "sourceT": 9.7,
+      "t": 19.4,
+      "position": [
+        -43.626,
+        91.827,
+        3.699
+      ],
+      "yaw": 1.99964
+    },
+    {
+      "demoFrame": 98,
+      "sourceFrameIndex": 98,
+      "sourceT": 9.8,
+      "t": 19.6,
+      "position": [
+        -43.876,
+        92.366,
+        3.707
+      ],
+      "yaw": 1.9998
+    },
+    {
+      "demoFrame": 99,
+      "sourceFrameIndex": 99,
+      "sourceT": 9.9,
+      "t": 19.8,
+      "position": [
+        -44.122,
+        92.899,
+        3.705
+      ],
+      "yaw": 1.99993
+    },
+    {
+      "demoFrame": 100,
+      "sourceFrameIndex": 100,
+      "sourceT": 10.0,
+      "t": 20.0,
       "position": [
         -44.356,
         93.407,
@@ -235,7 +1213,46 @@
       "yaw": 1.99997
     },
     {
-      "t": 10.4,
+      "demoFrame": 101,
+      "sourceFrameIndex": 101,
+      "sourceT": 10.1,
+      "t": 20.2,
+      "position": [
+        -44.58,
+        93.893,
+        3.706
+      ],
+      "yaw": 2.00005
+    },
+    {
+      "demoFrame": 102,
+      "sourceFrameIndex": 102,
+      "sourceT": 10.2,
+      "t": 20.4,
+      "position": [
+        -44.8,
+        94.373,
+        3.704
+      ],
+      "yaw": 2.0002
+    },
+    {
+      "demoFrame": 103,
+      "sourceFrameIndex": 103,
+      "sourceT": 10.3,
+      "t": 20.599,
+      "position": [
+        -45.01,
+        94.83,
+        3.703
+      ],
+      "yaw": 2.00038
+    },
+    {
+      "demoFrame": 104,
+      "sourceFrameIndex": 104,
+      "sourceT": 10.4,
+      "t": 20.8,
       "position": [
         -45.218,
         95.278,
@@ -244,7 +1261,46 @@
       "yaw": 2.00058
     },
     {
-      "t": 10.8,
+      "demoFrame": 105,
+      "sourceFrameIndex": 105,
+      "sourceT": 10.5,
+      "t": 21.0,
+      "position": [
+        -45.413,
+        95.699,
+        3.697
+      ],
+      "yaw": 2.00092
+    },
+    {
+      "demoFrame": 106,
+      "sourceFrameIndex": 106,
+      "sourceT": 10.6,
+      "t": 21.201,
+      "position": [
+        -45.601,
+        96.105,
+        3.695
+      ],
+      "yaw": 2.00123
+    },
+    {
+      "demoFrame": 107,
+      "sourceFrameIndex": 107,
+      "sourceT": 10.7,
+      "t": 21.4,
+      "position": [
+        -45.779,
+        96.488,
+        3.695
+      ],
+      "yaw": 2.00144
+    },
+    {
+      "demoFrame": 108,
+      "sourceFrameIndex": 108,
+      "sourceT": 10.8,
+      "t": 21.6,
       "position": [
         -45.951,
         96.858,
@@ -253,7 +1309,46 @@
       "yaw": 2.00173
     },
     {
-      "t": 11.2,
+      "demoFrame": 109,
+      "sourceFrameIndex": 109,
+      "sourceT": 10.9,
+      "t": 21.8,
+      "position": [
+        -46.115,
+        97.21,
+        3.693
+      ],
+      "yaw": 2.00223
+    },
+    {
+      "demoFrame": 110,
+      "sourceFrameIndex": 110,
+      "sourceT": 11.0,
+      "t": 22.0,
+      "position": [
+        -46.275,
+        97.552,
+        3.688
+      ],
+      "yaw": 2.00257
+    },
+    {
+      "demoFrame": 111,
+      "sourceFrameIndex": 111,
+      "sourceT": 11.1,
+      "t": 22.2,
+      "position": [
+        -46.423,
+        97.867,
+        3.689
+      ],
+      "yaw": 2.0028
+    },
+    {
+      "demoFrame": 112,
+      "sourceFrameIndex": 112,
+      "sourceT": 11.2,
+      "t": 22.4,
       "position": [
         -46.564,
         98.169,
@@ -262,7 +1357,46 @@
       "yaw": 2.00325
     },
     {
-      "t": 11.6,
+      "demoFrame": 113,
+      "sourceFrameIndex": 113,
+      "sourceT": 11.3,
+      "t": 22.599,
+      "position": [
+        -46.698,
+        98.455,
+        3.685
+      ],
+      "yaw": 2.00364
+    },
+    {
+      "demoFrame": 114,
+      "sourceFrameIndex": 114,
+      "sourceT": 11.4,
+      "t": 22.8,
+      "position": [
+        -46.823,
+        98.724,
+        3.684
+      ],
+      "yaw": 2.00399
+    },
+    {
+      "demoFrame": 115,
+      "sourceFrameIndex": 115,
+      "sourceT": 11.5,
+      "t": 23.0,
+      "position": [
+        -46.944,
+        98.983,
+        3.68
+      ],
+      "yaw": 2.00435
+    },
+    {
+      "demoFrame": 116,
+      "sourceFrameIndex": 116,
+      "sourceT": 11.6,
+      "t": 23.201,
       "position": [
         -47.055,
         99.223,
@@ -271,7 +1405,46 @@
       "yaw": 2.00474
     },
     {
-      "t": 12.0,
+      "demoFrame": 117,
+      "sourceFrameIndex": 117,
+      "sourceT": 11.7,
+      "t": 23.4,
+      "position": [
+        -47.157,
+        99.444,
+        3.68
+      ],
+      "yaw": 2.0049
+    },
+    {
+      "demoFrame": 118,
+      "sourceFrameIndex": 118,
+      "sourceT": 11.8,
+      "t": 23.6,
+      "position": [
+        -47.254,
+        99.652,
+        3.681
+      ],
+      "yaw": 2.00514
+    },
+    {
+      "demoFrame": 119,
+      "sourceFrameIndex": 119,
+      "sourceT": 11.9,
+      "t": 23.8,
+      "position": [
+        -47.346,
+        99.85,
+        3.678
+      ],
+      "yaw": 2.00547
+    },
+    {
+      "demoFrame": 120,
+      "sourceFrameIndex": 120,
+      "sourceT": 12.0,
+      "t": 23.999,
       "position": [
         -47.427,
         100.022,
@@ -280,7 +1453,46 @@
       "yaw": 2.00556
     },
     {
-      "t": 12.4,
+      "demoFrame": 121,
+      "sourceFrameIndex": 121,
+      "sourceT": 12.1,
+      "t": 24.2,
+      "position": [
+        -47.501,
+        100.181,
+        3.678
+      ],
+      "yaw": 2.00559
+    },
+    {
+      "demoFrame": 122,
+      "sourceFrameIndex": 122,
+      "sourceT": 12.2,
+      "t": 24.4,
+      "position": [
+        -47.57,
+        100.33,
+        3.676
+      ],
+      "yaw": 2.00561
+    },
+    {
+      "demoFrame": 123,
+      "sourceFrameIndex": 123,
+      "sourceT": 12.3,
+      "t": 24.601,
+      "position": [
+        -47.629,
+        100.458,
+        3.677
+      ],
+      "yaw": 2.00565
+    },
+    {
+      "demoFrame": 124,
+      "sourceFrameIndex": 124,
+      "sourceT": 12.4,
+      "t": 24.8,
       "position": [
         -47.681,
         100.569,
@@ -289,7 +1501,46 @@
       "yaw": 2.00579
     },
     {
-      "t": 12.8,
+      "demoFrame": 125,
+      "sourceFrameIndex": 125,
+      "sourceT": 12.5,
+      "t": 25.0,
+      "position": [
+        -47.728,
+        100.668,
+        3.674
+      ],
+      "yaw": 2.00581
+    },
+    {
+      "demoFrame": 126,
+      "sourceFrameIndex": 126,
+      "sourceT": 12.6,
+      "t": 25.2,
+      "position": [
+        -47.766,
+        100.75,
+        3.674
+      ],
+      "yaw": 2.00569
+    },
+    {
+      "demoFrame": 127,
+      "sourceFrameIndex": 127,
+      "sourceT": 12.7,
+      "t": 25.4,
+      "position": [
+        -47.798,
+        100.819,
+        3.674
+      ],
+      "yaw": 2.00569
+    },
+    {
+      "demoFrame": 128,
+      "sourceFrameIndex": 128,
+      "sourceT": 12.8,
+      "t": 25.6,
       "position": [
         -47.823,
         100.873,
@@ -298,7 +1549,46 @@
       "yaw": 2.00573
     },
     {
-      "t": 13.2,
+      "demoFrame": 129,
+      "sourceFrameIndex": 129,
+      "sourceT": 12.9,
+      "t": 25.8,
+      "position": [
+        -47.843,
+        100.917,
+        3.674
+      ],
+      "yaw": 2.00577
+    },
+    {
+      "demoFrame": 130,
+      "sourceFrameIndex": 130,
+      "sourceT": 13.0,
+      "t": 25.999,
+      "position": [
+        -47.856,
+        100.943,
+        3.676
+      ],
+      "yaw": 2.00571
+    },
+    {
+      "demoFrame": 131,
+      "sourceFrameIndex": 131,
+      "sourceT": 13.1,
+      "t": 26.2,
+      "position": [
+        -47.864,
+        100.962,
+        3.676
+      ],
+      "yaw": 2.00571
+    },
+    {
+      "demoFrame": 132,
+      "sourceFrameIndex": 132,
+      "sourceT": 13.2,
+      "t": 26.4,
       "position": [
         -47.862,
         100.959,
@@ -307,7 +1597,46 @@
       "yaw": 2.00572
     },
     {
-      "t": 13.6,
+      "demoFrame": 133,
+      "sourceFrameIndex": 133,
+      "sourceT": 13.3,
+      "t": 26.599,
+      "position": [
+        -47.859,
+        100.955,
+        3.68
+      ],
+      "yaw": 2.00567
+    },
+    {
+      "demoFrame": 134,
+      "sourceFrameIndex": 134,
+      "sourceT": 13.4,
+      "t": 26.8,
+      "position": [
+        -47.863,
+        100.965,
+        3.67
+      ],
+      "yaw": 2.00562
+    },
+    {
+      "demoFrame": 135,
+      "sourceFrameIndex": 135,
+      "sourceT": 13.5,
+      "t": 27.0,
+      "position": [
+        -47.864,
+        100.968,
+        3.668
+      ],
+      "yaw": 2.00552
+    },
+    {
+      "demoFrame": 136,
+      "sourceFrameIndex": 136,
+      "sourceT": 13.6,
+      "t": 27.2,
       "position": [
         -47.864,
         100.974,
@@ -316,7 +1645,46 @@
       "yaw": 2.00562
     },
     {
-      "t": 14.0,
+      "demoFrame": 137,
+      "sourceFrameIndex": 137,
+      "sourceT": 13.7,
+      "t": 27.4,
+      "position": [
+        -47.858,
+        100.969,
+        3.677
+      ],
+      "yaw": 2.00568
+    },
+    {
+      "demoFrame": 138,
+      "sourceFrameIndex": 138,
+      "sourceT": 13.8,
+      "t": 27.6,
+      "position": [
+        -47.857,
+        100.971,
+        3.679
+      ],
+      "yaw": 2.00563
+    },
+    {
+      "demoFrame": 139,
+      "sourceFrameIndex": 139,
+      "sourceT": 13.9,
+      "t": 27.8,
+      "position": [
+        -47.854,
+        100.969,
+        3.683
+      ],
+      "yaw": 2.00566
+    },
+    {
+      "demoFrame": 140,
+      "sourceFrameIndex": 140,
+      "sourceT": 14.0,
+      "t": 27.999,
       "position": [
         -47.853,
         100.972,
@@ -325,7 +1693,46 @@
       "yaw": 2.00574
     },
     {
-      "t": 14.4,
+      "demoFrame": 141,
+      "sourceFrameIndex": 141,
+      "sourceT": 14.1,
+      "t": 28.2,
+      "position": [
+        -47.85,
+        100.971,
+        3.688
+      ],
+      "yaw": 2.00565
+    },
+    {
+      "demoFrame": 142,
+      "sourceFrameIndex": 142,
+      "sourceT": 14.2,
+      "t": 28.4,
+      "position": [
+        -47.849,
+        100.973,
+        3.69
+      ],
+      "yaw": 2.00565
+    },
+    {
+      "demoFrame": 143,
+      "sourceFrameIndex": 143,
+      "sourceT": 14.3,
+      "t": 28.601,
+      "position": [
+        -47.846,
+        100.972,
+        3.695
+      ],
+      "yaw": 2.00572
+    },
+    {
+      "demoFrame": 144,
+      "sourceFrameIndex": 144,
+      "sourceT": 14.4,
+      "t": 28.8,
       "position": [
         -47.845,
         100.974,
@@ -334,7 +1741,46 @@
       "yaw": 2.00567
     },
     {
-      "t": 14.8,
+      "demoFrame": 145,
+      "sourceFrameIndex": 145,
+      "sourceT": 14.5,
+      "t": 29.0,
+      "position": [
+        -47.843,
+        100.972,
+        3.701
+      ],
+      "yaw": 2.00562
+    },
+    {
+      "demoFrame": 146,
+      "sourceFrameIndex": 146,
+      "sourceT": 14.6,
+      "t": 29.2,
+      "position": [
+        -47.843,
+        100.974,
+        3.703
+      ],
+      "yaw": 2.00563
+    },
+    {
+      "demoFrame": 147,
+      "sourceFrameIndex": 147,
+      "sourceT": 14.7,
+      "t": 29.399,
+      "position": [
+        -47.842,
+        100.973,
+        3.707
+      ],
+      "yaw": 2.00559
+    },
+    {
+      "demoFrame": 148,
+      "sourceFrameIndex": 148,
+      "sourceT": 14.8,
+      "t": 29.6,
       "position": [
         -47.842,
         100.975,
@@ -343,7 +1789,46 @@
       "yaw": 2.00554
     },
     {
-      "t": 15.2,
+      "demoFrame": 149,
+      "sourceFrameIndex": 149,
+      "sourceT": 14.9,
+      "t": 29.8,
+      "position": [
+        -47.841,
+        100.973,
+        3.713
+      ],
+      "yaw": 2.00554
+    },
+    {
+      "demoFrame": 150,
+      "sourceFrameIndex": 150,
+      "sourceT": 15.0,
+      "t": 29.999,
+      "position": [
+        -47.842,
+        100.974,
+        3.715
+      ],
+      "yaw": 2.00548
+    },
+    {
+      "demoFrame": 151,
+      "sourceFrameIndex": 151,
+      "sourceT": 15.1,
+      "t": 30.2,
+      "position": [
+        -47.841,
+        100.973,
+        3.72
+      ],
+      "yaw": 2.00549
+    },
+    {
+      "demoFrame": 152,
+      "sourceFrameIndex": 152,
+      "sourceT": 15.2,
+      "t": 30.4,
       "position": [
         -47.842,
         100.974,
@@ -352,16 +1837,46 @@
       "yaw": 2.00551
     },
     {
-      "t": 15.6,
+      "demoFrame": 153,
+      "sourceFrameIndex": 153,
+      "sourceT": 15.3,
+      "t": 30.601,
       "position": [
-        -47.844,
+        -47.842,
+        100.973,
+        3.727
+      ],
+      "yaw": 2.00548
+    },
+    {
+      "demoFrame": 154,
+      "sourceFrameIndex": 154,
+      "sourceT": 15.4,
+      "t": 30.8,
+      "position": [
+        -47.843,
         100.974,
-        3.734
+        3.728
       ],
       "yaw": 2.00545
     },
     {
-      "t": 15.6,
+      "demoFrame": 155,
+      "sourceFrameIndex": 155,
+      "sourceT": 15.5,
+      "t": 31.0,
+      "position": [
+        -47.843,
+        100.973,
+        3.731
+      ],
+      "yaw": 2.00545
+    },
+    {
+      "demoFrame": 156,
+      "sourceFrameIndex": 156,
+      "sourceT": 15.6,
+      "t": 31.2,
       "position": [
         -47.844,
         100.974,

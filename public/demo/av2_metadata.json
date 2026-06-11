@@ -5,8 +5,11 @@
   "exportedLanelets": 92,
   "exportedCrosswalks": 9,
   "exportedPointCount": 18000,
-  "exportedObjectSequenceFrames": 24,
+  "exportedObjectSequenceFrames": 157,
   "lidarFrameStride": 4,
+  "egoFrameStride": 1,
+  "demoPlaybackTimeScale": 2.0,
+  "demoDurationSeconds": 31.2,
   "maxPointCount": 18000,
   "note": "Derived static browser demo assets; raw AV2 files are not committed."
 }

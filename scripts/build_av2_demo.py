@@ -15,7 +15,8 @@ DEFAULT_AV2_ROOT = (
 )
 MAX_POINT_COUNT = 18000
 LIDAR_FRAME_STRIDE = 4
-OBJECT_SEQUENCE_FRAME_COUNT = 24
+EGO_FRAME_STRIDE = 1
+DEMO_PLAYBACK_TIME_SCALE = 2.0
 LANE_CROP_RADIUS_M = 105.0
 POINT_CROP_RADIUS_M = 95.0
 
@@ -180,27 +181,25 @@ def build_point_cloud(sync_df, dataset_root, origin, path_xy):
     return points
 
 
-def build_ego_path(sync_df, origin):
+def build_ego_indices(sync_df):
+    indices = list(range(0, len(sync_df), EGO_FRAME_STRIDE))
+    if indices[-1] != len(sync_df) - 1:
+        indices.append(len(sync_df) - 1)
+    return indices
+
+
+def build_ego_path(sync_df, origin, selected_indices):
     first_ts = int(sync_df.iloc[0].lidar_timestamp_ns)
     frames = []
-    for row in sync_df.iloc[::4].itertuples():
-        t = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
+    for demo_frame, sync_index in enumerate(selected_indices):
+        row = sync_df.iloc[sync_index]
+        source_t = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
         frames.append(
             {
-                "t": round(t, 3),
-                "position": [
-                    round(row.pose_tx_m - origin[0], 3),
-                    round(row.pose_ty_m - origin[1], 3),
-                    round(row.pose_tz_m - origin[2] + 0.34, 3),
-                ],
-                "yaw": round(quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz), 5),
-            }
-        )
-    if frames[-1]["t"] < (int(sync_df.iloc[-1].lidar_timestamp_ns) - first_ts) / 1e9:
-        row = sync_df.iloc[-1]
-        frames.append(
-            {
-                "t": round((int(row.lidar_timestamp_ns) - first_ts) / 1e9, 3),
+                "demoFrame": demo_frame,
+                "sourceFrameIndex": int(sync_index),
+                "sourceT": round(source_t, 3),
+                "t": round(source_t * DEMO_PLAYBACK_TIME_SCALE, 3),
                 "position": [
                     round(row.pose_tx_m - origin[0], 3),
                     round(row.pose_ty_m - origin[1], 3),
@@ -227,10 +226,19 @@ def build_objects(sync_df, annotations, origin, selected_indices):
     }
     for frame_no, sync_index in enumerate(selected_indices):
         row = sync_df.iloc[sync_index]
-        frame_time = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
+        source_time = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
+        frame_time = source_time * DEMO_PLAYBACK_TIME_SCALE
         anns = annotations[annotations["timestamp_ns"] == row.lidar_timestamp_ns].copy()
         if anns.empty:
-            out.append({"objects": [], "sourceFrameIndex": int(sync_index), "demoFrame": frame_no, "t": round(frame_time, 3)})
+            out.append(
+                {
+                    "objects": [],
+                    "sourceFrameIndex": int(sync_index),
+                    "demoFrame": frame_no,
+                    "sourceT": round(source_time, 3),
+                    "t": round(frame_time, 3),
+                }
+            )
             continue
         rotation, translation = row_pose(row)
         objects = []
@@ -255,7 +263,15 @@ def build_objects(sync_df, annotations, origin, selected_indices):
                 }
             )
         objects.sort(key=lambda item: math.hypot(item["position"][0], item["position"][1]))
-        out.append({"objects": objects[:12], "sourceFrameIndex": int(sync_index), "demoFrame": frame_no, "t": round(frame_time, 3)})
+        out.append(
+            {
+                "objects": objects[:12],
+                "sourceFrameIndex": int(sync_index),
+                "demoFrame": frame_no,
+                "sourceT": round(source_time, 3),
+                "t": round(frame_time, 3),
+            }
+        )
     return out
 
 
@@ -285,15 +301,15 @@ def main():
         map_data = json.load(file)
 
     lanelet_json = build_lanelet_json(map_data, origin, path_xy)
-    ego_path = build_ego_path(sync_df, origin)
+    ego_indices = build_ego_indices(sync_df)
+    ego_path = build_ego_path(sync_df, origin, ego_indices)
     route = {"points": [frame["position"] for frame in ego_path["frames"][::3]]}
     if route["points"][-1] != ego_path["frames"][-1]["position"]:
         route["points"].append(ego_path["frames"][-1]["position"])
 
     annotations = pd.read_feather(annotations_path)
     object_frames = build_objects(sync_df, annotations, origin, [0, len(sync_df) // 2, len(sync_df) - 1])
-    sequence_indices = np.linspace(0, len(sync_df) - 1, OBJECT_SEQUENCE_FRAME_COUNT, dtype=int).tolist()
-    object_sequence = build_objects(sync_df, annotations, origin, sequence_indices)
+    object_sequence = build_objects(sync_df, annotations, origin, ego_indices)
     points = build_point_cloud(sync_df, dataset_root, origin, path_xy)
 
     write_json(repo_root / "public" / "maps" / "lanelet_demo.json", lanelet_json)
@@ -314,6 +330,9 @@ def main():
             "exportedPointCount": int(len(points)),
             "exportedObjectSequenceFrames": len(object_sequence),
             "lidarFrameStride": LIDAR_FRAME_STRIDE,
+            "egoFrameStride": EGO_FRAME_STRIDE,
+            "demoPlaybackTimeScale": DEMO_PLAYBACK_TIME_SCALE,
+            "demoDurationSeconds": ego_path["frames"][-1]["t"],
             "maxPointCount": MAX_POINT_COUNT,
             "note": "Derived static browser demo assets; raw AV2 files are not committed.",
         },

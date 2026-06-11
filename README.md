@@ -9,7 +9,7 @@ The app renders a deterministic scripted scene with Three.js:
 - a compact Argoverse 2-derived point cloud loaded from `public/maps/pointcloud_map_small.pcd`
 - simplified Lanelet2-style road geometry converted from the AV2 vector map into `public/maps/lanelet_demo.json`
 - fixed route and ego trajectory JSON files derived from AV2 map-aligned ego pose
-- a fixed time-indexed perception object sequence derived from AV2 annotations
+- a fixed 157-frame perception object sequence derived from AV2 annotations and synchronized to the ego trajectory frames
 - RViz-like layer controls, orbit/pan/zoom camera controls, camera presets, and scripted demo states
 - RViz2-style panels and display names such as `PointCloudMap`, `Lanelet2VectorMap`, `PredictedObjects`, `Trajectory`, and `PathWithLaneId`
 - a guided static module walkthrough and topic monitor showing how map, localization, perception, planning, control, and vehicle displays relate during an Autoware-style run
@@ -75,7 +75,7 @@ The right-side panels provide a short deterministic operator flow:
 - **Initial Map**: loads `PointCloudMap`, `Lanelet2VectorMap`, localization pose, and the ego vehicle.
 - **Planning**: shows a pre-authored route and trajectory, equivalent to inspecting planning output after setting a goal.
 - **Perception**: shows fixed AV2 annotation boxes as `PredictedObjects`.
-- **Autonomous Drive**: switches the state panel to autonomous mode, plays the pre-authored ego path, and advances static perception frames in sync with playback.
+- **Autonomous Drive**: switches the state panel to autonomous mode, plays the pre-authored ego path, and advances static perception frames in sync with the current ego source frame.
 - **Goal Reached**: stops the vehicle at the final pose and leaves the final route/perception evidence visible.
 
 The module flow panel is also static. It highlights which Autoware subsystems are being demonstrated at each scripted step; it does not execute those modules.
@@ -116,6 +116,8 @@ The checked-in demo data is derived from this local AV2 log:
 ```
 
 The raw AV2 folder is about 1.1 GB and is not committed. GitHub recommends repositories stay near 1 GB, published GitHub Pages sites may be no larger than 1 GB, and normal GitHub files cannot exceed 100 MB. The repository therefore stores deterministic browser-ready chunks instead of the raw sensor log.
+
+The exported ego path and perception sequence use all 157 lidar-synchronized frames from the mounted AV2 sync file. The browser demo plays those frames over a 31.2 second scripted duration so the sequence is easier to inspect while preserving the one-to-one ego/object source frame mapping.
 
 Regenerate the static AV2 chunks with:
 

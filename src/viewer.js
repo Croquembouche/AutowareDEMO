@@ -139,15 +139,10 @@ export class Viewer {
     if (!this.perceptionSequenceMode || !this.ego || !this.objectSequence.length || !this.layers.perceptionObjects?.visible) {
       return;
     }
-    const currentTime = this.ego.normalizedTime * this.ego.duration;
-    let nearestIndex = 0;
-    let nearestDistance = Number.POSITIVE_INFINITY;
-    for (let index = 0; index < this.objectSequence.length; index += 1) {
-      const distance = Math.abs((this.objectSequence[index].t ?? 0) - currentTime);
-      if (distance < nearestDistance) {
-        nearestIndex = index;
-        nearestDistance = distance;
-      }
+    const egoSourceFrame = this.ego.currentSourceFrameIndex;
+    let nearestIndex = this.objectSequence.findIndex((frame) => frame.sourceFrameIndex === egoSourceFrame);
+    if (nearestIndex < 0) {
+      nearestIndex = Math.min(this.ego.currentFrameIndex ?? 0, this.objectSequence.length - 1);
     }
     if (nearestIndex !== this.currentSequenceFrame) {
       this.currentSequenceFrame = nearestIndex;
@@ -158,6 +153,7 @@ export class Viewer {
   playEgo() {
     this.perceptionSequenceMode = true;
     this.ego?.play();
+    this.syncPerceptionToPlayback();
   }
 
   pauseEgo() {
@@ -175,6 +171,7 @@ export class Viewer {
     this.ego?.pause();
     this.ego?.setNormalizedTime(value);
     this.updateScrubber();
+    this.syncPerceptionToPlayback();
   }
 
   setEgoGoal() {
@@ -301,6 +298,9 @@ export class Viewer {
     const time = this.ego.normalizedTime * this.ego.duration;
     if (this.ui.simTime) {
       this.ui.simTime.textContent = time.toFixed(2);
+    }
+    if (this.ui.activeEgoFrame) {
+      this.ui.activeEgoFrame.textContent = `${this.ego.currentSourceFrameIndex ?? 0}`;
     }
     if (this.ui.speedValue) {
       const speed = this.ego.playing ? 21.6 : this.ego.normalizedTime >= 1 ? 0 : 0;

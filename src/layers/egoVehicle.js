@@ -10,6 +10,8 @@ export class EgoVehicleLayer {
     this.group = createVehicleModel();
     this.trailGroup = createTrail(pathData);
     this.currentPose = null;
+    this.currentFrameIndex = 0;
+    this.currentSourceFrameIndex = pathData.frames[0]?.sourceFrameIndex ?? 0;
     this.setNormalizedTime(0);
   }
 
@@ -28,6 +30,8 @@ export class EgoVehicleLayer {
 
   setNormalizedTime(value) {
     this.normalizedTime = THREE.MathUtils.clamp(value, 0, 1);
+    this.currentFrameIndex = findNearestFrameIndex(this.pathData.frames, this.normalizedTime);
+    this.currentSourceFrameIndex = this.pathData.frames[this.currentFrameIndex]?.sourceFrameIndex ?? this.currentFrameIndex;
     const pose = interpolatePose(this.pathData.frames, this.normalizedTime);
     if (pose) {
       this.currentPose = pose;
@@ -50,6 +54,25 @@ export class EgoVehicleLayer {
       this.playing = false;
     }
   }
+}
+
+function findNearestFrameIndex(frames, normalizedTime) {
+  if (!frames.length) {
+    return 0;
+  }
+
+  const duration = frames[frames.length - 1].t || 1;
+  const targetTime = THREE.MathUtils.clamp(normalizedTime, 0, 1) * duration;
+  let nearestIndex = 0;
+  let nearestDistance = Number.POSITIVE_INFINITY;
+  frames.forEach((frame, index) => {
+    const distance = Math.abs(frame.t - targetTime);
+    if (distance < nearestDistance) {
+      nearestIndex = index;
+      nearestDistance = distance;
+    }
+  });
+  return nearestIndex;
 }
 
 function createVehicleModel() {
