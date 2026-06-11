@@ -1,0 +1,20 @@
+{
+  "objects": [
+    {
+      "id": "car_1",
+      "label": "vehicle",
+      "position": [22.5, 1.65, 0.85],
+      "size": [4.5, 2.0, 1.6],
+      "yaw": 0.08,
+      "confidence": 0.94
+    },
+    {
+      "id": "ped_1",
+      "label": "pedestrian",
+      "position": [16.2, -4.1, 0.9],
+      "size": [0.6, 0.6, 1.8],
+      "yaw": 0.0,
+      "confidence": 0.88
+    }
+  ]
+}

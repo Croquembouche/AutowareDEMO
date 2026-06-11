@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autoware Mini Demo Viewer</title>
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <aside class="control-panel" aria-label="Demo controls">
+        <header class="panel-header">
+          <span class="product-mark">Autoware Mini</span>
+          <h1>Demo Viewer</h1>
+        </header>
+
+        <section class="panel-section status-section">
+          <div class="section-title">Status</div>
+          <div id="loadingStatus" class="loading-status">Loading static demo assets...</div>
+          <div id="stateStatus" class="state-status">Initial Map</div>
+          <div id="detailStatus" class="detail-status">Static scripted visualization. No ROS 2 runtime.</div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">Scripted States</div>
+          <div class="state-grid" role="group" aria-label="Timeline states">
+            <button class="state-button active" data-state="initial">Initial Map</button>
+            <button class="state-button" data-state="planning">Planning</button>
+            <button class="state-button" data-state="perception">Perception</button>
+            <button class="state-button" data-state="drive">Autonomous Drive</button>
+            <button class="state-button" data-state="goal">Goal Reached</button>
+          </div>
+          <input id="timelineScrubber" class="timeline-scrubber" type="range" min="0" max="100" value="0" aria-label="Ego trajectory timeline" />
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">Playback</div>
+          <div class="button-row">
+            <button data-action="play">Play Ego Vehicle</button>
+            <button data-action="pause">Pause</button>
+            <button data-action="resetPlayback">Reset</button>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">Perception Frames</div>
+          <div class="button-row">
+            <button data-frame="0">Frame 1</button>
+            <button data-frame="1">Frame 2</button>
+            <button data-frame="2">Frame 3</button>
+          </div>
+        </section>
+
+        <section class="panel-section layer-section">
+          <div class="section-title">Layers</div>
+          <label><input type="checkbox" data-layer="pointCloud" checked /> Point Cloud Map</label>
+          <label><input type="checkbox" data-layer="laneBoundaries" checked /> Lanelet Boundaries</label>
+          <label><input type="checkbox" data-layer="centerlines" checked /> Centerlines</label>
+          <label><input type="checkbox" data-layer="crosswalks" checked /> Crosswalks</label>
+          <label><input type="checkbox" data-layer="stopLines" checked /> Stop Lines</label>
+          <label><input type="checkbox" data-layer="trafficLights" checked /> Traffic Lights</label>
+          <label><input type="checkbox" data-layer="route" /> Route</label>
+          <label><input type="checkbox" data-layer="egoVehicle" checked /> Ego Vehicle</label>
+          <label><input type="checkbox" data-layer="trajectoryTrail" checked /> Trajectory Trail</label>
+          <label><input type="checkbox" data-layer="predictedPath" /> Predicted Path</label>
+          <label><input type="checkbox" data-layer="perceptionObjects" /> Perception Objects</label>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">Camera</div>
+          <div class="button-row">
+            <button data-action="resetCamera">Reset Camera</button>
+            <button data-action="topDown">Top Down</button>
+          </div>
+        </section>
+      </aside>
+
+      <main class="viewer-panel">
+        <div id="viewer" class="viewer" aria-label="3D Autoware-style scene"></div>
+        <div class="viewer-hud">
+          <span id="assetBadge">Static assets</span>
+          <span id="cameraBadge">Orbit / pan / zoom enabled</span>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
