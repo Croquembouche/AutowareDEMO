@@ -19,7 +19,9 @@ const viewer = new Viewer(viewerElement, {
   datasetLog: document.querySelector('#datasetLog'),
   pointCount: document.querySelector('#pointCount'),
   laneletCount: document.querySelector('#laneletCount'),
-  syncFrameCount: document.querySelector('#syncFrameCount')
+  syncFrameCount: document.querySelector('#syncFrameCount'),
+  objectFrameCount: document.querySelector('#objectFrameCount'),
+  activeObjectFrame: document.querySelector('#activeObjectFrame')
 });
 
 const timeline = new TimelineController(viewer, {

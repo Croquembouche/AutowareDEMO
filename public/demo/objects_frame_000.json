@@ -159,8 +159,41 @@
       ],
       "yaw": 5.10739,
       "confidence": 0.99
+    },
+    {
+      "id": "av2_0b686a61",
+      "label": "pedestrian",
+      "position": [
+        -34.824,
+        50.998,
+        2.664
+      ],
+      "size": [
+        0.767,
+        0.714,
+        1.503
+      ],
+      "yaw": 0.45641,
+      "confidence": 0.85
+    },
+    {
+      "id": "av2_d13812c4",
+      "label": "unknown",
+      "position": [
+        -34.81,
+        51.029,
+        2.425
+      ],
+      "size": [
+        0.768,
+        0.737,
+        1.025
+      ],
+      "yaw": 0.4595,
+      "confidence": 0.85
     }
   ],
   "sourceFrameIndex": 0,
-  "demoFrame": 0
+  "demoFrame": 0,
+  "t": 0.0
 }

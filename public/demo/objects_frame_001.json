@@ -159,8 +159,25 @@
       ],
       "yaw": 0.45654,
       "confidence": 0.99
+    },
+    {
+      "id": "av2_d5739055",
+      "label": "vehicle",
+      "position": [
+        25.57,
+        -60.261,
+        -1.711
+      ],
+      "size": [
+        4.03,
+        1.983,
+        1.41
+      ],
+      "yaw": -1.10351,
+      "confidence": 0.74
     }
   ],
   "sourceFrameIndex": 78,
-  "demoFrame": 1
+  "demoFrame": 1,
+  "t": 7.8
 }

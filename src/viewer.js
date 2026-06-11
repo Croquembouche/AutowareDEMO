@@ -24,9 +24,12 @@ export class Viewer {
     this.ui = ui;
     this.layers = {};
     this.objectFrames = [];
+    this.objectSequence = [];
     this.clock = new THREE.Clock();
     this.frameCallbacks = new Set();
     this.currentPerceptionFrame = 0;
+    this.currentSequenceFrame = -1;
+    this.perceptionSequenceMode = false;
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x111417);
@@ -62,18 +65,20 @@ export class Viewer {
     this.setLoading('Loading point cloud, lanelets, route, trajectory, and perception frames...');
 
     try {
-      const [pointCloud, laneletMap, route, egoPath, metadata, ...objectFrames] = await Promise.all([
+      const [pointCloud, laneletMap, route, egoPath, metadata, objectSequence, ...objectFrames] = await Promise.all([
         loadPointCloud(`${assetBase}maps/pointcloud_map_small.pcd`),
         loadJson(`${assetBase}maps/lanelet_demo.json`),
         loadJson(`${assetBase}demo/route.json`),
         loadJson(`${assetBase}demo/ego_path.json`),
         loadJson(`${assetBase}demo/av2_metadata.json`),
+        loadJson(`${assetBase}demo/objects_sequence.json`),
         loadJson(`${assetBase}demo/objects_frame_000.json`),
         loadJson(`${assetBase}demo/objects_frame_001.json`),
         loadJson(`${assetBase}demo/objects_frame_002.json`)
       ]);
 
       this.objectFrames = objectFrames;
+      this.objectSequence = objectSequence.frames ?? objectFrames;
       this.registerLayer('pointCloud', pointCloud);
       Object.entries(createLaneletLayers(laneletMap)).forEach(([name, group]) => this.registerLayer(name, group));
       this.registerLayer('route', createRouteLayer(route));
@@ -81,7 +86,7 @@ export class Viewer {
       this.registerLayer('egoVehicle', this.ego.group);
       this.registerLayer('trajectoryTrail', this.ego.trailGroup);
       this.registerLayer('predictedPath', createPredictedPathLayer(egoPath));
-      this.registerLayer('perceptionObjects', createObjectsLayer(objectFrames[0]));
+      this.registerLayer('perceptionObjects', createObjectsLayer(this.objectSequence[0] ?? objectFrames[0]));
       this.setMetadata(metadata);
 
       this.setLoading(`Loaded ${pointCloud.children[0].geometry.getAttribute('position').count} map points and ${laneletMap.lanelets.length} lanelets.`);
@@ -113,11 +118,45 @@ export class Viewer {
       return;
     }
     this.currentPerceptionFrame = index;
-    updateObjectsLayer(this.layers.perceptionObjects, this.objectFrames[index]);
+    this.currentSequenceFrame = -1;
+    this.perceptionSequenceMode = false;
+    this.applyObjectFrame(this.objectFrames[index]);
     this.setDetail(`Perception Frame ${index + 1}: ${this.objectFrames[index].objects.length} scripted object boxes.`);
   }
 
+  applyObjectFrame(frameData) {
+    if (!frameData || !this.layers.perceptionObjects) {
+      return;
+    }
+    updateObjectsLayer(this.layers.perceptionObjects, frameData);
+    if (this.ui.activeObjectFrame) {
+      const frameLabel = frameData.sourceFrameIndex ?? frameData.demoFrame ?? 0;
+      this.ui.activeObjectFrame.textContent = `${frameLabel}`;
+    }
+  }
+
+  syncPerceptionToPlayback() {
+    if (!this.perceptionSequenceMode || !this.ego || !this.objectSequence.length || !this.layers.perceptionObjects?.visible) {
+      return;
+    }
+    const currentTime = this.ego.normalizedTime * this.ego.duration;
+    let nearestIndex = 0;
+    let nearestDistance = Number.POSITIVE_INFINITY;
+    for (let index = 0; index < this.objectSequence.length; index += 1) {
+      const distance = Math.abs((this.objectSequence[index].t ?? 0) - currentTime);
+      if (distance < nearestDistance) {
+        nearestIndex = index;
+        nearestDistance = distance;
+      }
+    }
+    if (nearestIndex !== this.currentSequenceFrame) {
+      this.currentSequenceFrame = nearestIndex;
+      this.applyObjectFrame(this.objectSequence[nearestIndex]);
+    }
+  }
+
   playEgo() {
+    this.perceptionSequenceMode = true;
     this.ego?.play();
   }
 
@@ -126,11 +165,13 @@ export class Viewer {
   }
 
   resetEgo() {
+    this.perceptionSequenceMode = false;
     this.ego?.reset();
     this.updateScrubber();
   }
 
   setEgoProgress(value) {
+    this.perceptionSequenceMode = true;
     this.ego?.pause();
     this.ego?.setNormalizedTime(value);
     this.updateScrubber();
@@ -210,6 +251,9 @@ export class Viewer {
     if (this.ui.syncFrameCount) {
       this.ui.syncFrameCount.textContent = `${metadata.syncFrames ?? 0}`;
     }
+    if (this.ui.objectFrameCount) {
+      this.ui.objectFrameCount.textContent = `${metadata.exportedObjectSequenceFrames ?? this.objectSequence.length}`;
+    }
   }
 
   setDetail(message) {
@@ -283,6 +327,7 @@ export class Viewer {
     this.frameCallbacks.forEach((callback) => callback(delta));
     this.controls.update();
     this.updateScrubber();
+    this.syncPerceptionToPlayback();
     this.updateStatusOverlay();
     this.renderer.render(this.scene, this.camera);
     this.labelRenderer.render(this.scene, this.camera);

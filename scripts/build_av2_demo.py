@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import csv
 import json
 import math
 import os
@@ -14,8 +13,9 @@ DEFAULT_AV2_ROOT = (
     "/run/user/1001/gvfs/smb-share:server=10.2.213.244,"
     "share=homes/publicDataset/Argoverse2"
 )
-MAX_POINT_COUNT = 9000
-LIDAR_FRAME_STRIDE = 6
+MAX_POINT_COUNT = 18000
+LIDAR_FRAME_STRIDE = 4
+OBJECT_SEQUENCE_FRAME_COUNT = 24
 LANE_CROP_RADIUS_M = 105.0
 POINT_CROP_RADIUS_M = 95.0
 
@@ -214,6 +214,7 @@ def build_ego_path(sync_df, origin):
 
 def build_objects(sync_df, annotations, origin, selected_indices):
     out = []
+    first_ts = int(sync_df.iloc[0].lidar_timestamp_ns)
     label_map = {
         "REGULAR_VEHICLE": "vehicle",
         "VEHICLE": "vehicle",
@@ -226,9 +227,10 @@ def build_objects(sync_df, annotations, origin, selected_indices):
     }
     for frame_no, sync_index in enumerate(selected_indices):
         row = sync_df.iloc[sync_index]
+        frame_time = (int(row.lidar_timestamp_ns) - first_ts) / 1e9
         anns = annotations[annotations["timestamp_ns"] == row.lidar_timestamp_ns].copy()
         if anns.empty:
-            out.append({"objects": []})
+            out.append({"objects": [], "sourceFrameIndex": int(sync_index), "demoFrame": frame_no, "t": round(frame_time, 3)})
             continue
         rotation, translation = row_pose(row)
         objects = []
@@ -253,7 +255,7 @@ def build_objects(sync_df, annotations, origin, selected_indices):
                 }
             )
         objects.sort(key=lambda item: math.hypot(item["position"][0], item["position"][1]))
-        out.append({"objects": objects[:10], "sourceFrameIndex": int(sync_index), "demoFrame": frame_no})
+        out.append({"objects": objects[:12], "sourceFrameIndex": int(sync_index), "demoFrame": frame_no, "t": round(frame_time, 3)})
     return out
 
 
@@ -290,6 +292,8 @@ def main():
 
     annotations = pd.read_feather(annotations_path)
     object_frames = build_objects(sync_df, annotations, origin, [0, len(sync_df) // 2, len(sync_df) - 1])
+    sequence_indices = np.linspace(0, len(sync_df) - 1, OBJECT_SEQUENCE_FRAME_COUNT, dtype=int).tolist()
+    object_sequence = build_objects(sync_df, annotations, origin, sequence_indices)
     points = build_point_cloud(sync_df, dataset_root, origin, path_xy)
 
     write_json(repo_root / "public" / "maps" / "lanelet_demo.json", lanelet_json)
@@ -297,6 +301,7 @@ def main():
     write_json(repo_root / "public" / "demo" / "route.json", route)
     for index, frame in enumerate(object_frames):
         write_json(repo_root / "public" / "demo" / f"objects_frame_{index:03d}.json", frame)
+    write_json(repo_root / "public" / "demo" / "objects_sequence.json", {"frames": object_sequence})
     write_pcd(repo_root / "public" / "maps" / "pointcloud_map_small.pcd", points)
     write_json(
         repo_root / "public" / "demo" / "av2_metadata.json",
@@ -307,6 +312,7 @@ def main():
             "exportedLanelets": len(lanelet_json["lanelets"]),
             "exportedCrosswalks": len(lanelet_json["crosswalks"]),
             "exportedPointCount": int(len(points)),
+            "exportedObjectSequenceFrames": len(object_sequence),
             "lidarFrameStride": LIDAR_FRAME_STRIDE,
             "maxPointCount": MAX_POINT_COUNT,
             "note": "Derived static browser demo assets; raw AV2 files are not committed.",

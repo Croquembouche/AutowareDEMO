@@ -145,8 +145,8 @@ export class TimelineController {
       this.viewer.setPerceptionFrame(0);
     }
     if (name === 'drive') {
-      this.viewer.playEgo();
       this.viewer.setPerceptionFrame(1);
+      this.viewer.playEgo();
     }
     if (name === 'goal') {
       this.viewer.setEgoGoal();

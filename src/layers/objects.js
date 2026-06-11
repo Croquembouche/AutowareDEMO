@@ -17,6 +17,17 @@ export function createObjectsLayer(frameData) {
 }
 
 export function updateObjectsLayer(group, frameData) {
+  group.traverse((child) => {
+    if (child.element?.parentNode) {
+      child.element.remove();
+    }
+    child.geometry?.dispose?.();
+    if (Array.isArray(child.material)) {
+      child.material.forEach((material) => material.dispose?.());
+    } else {
+      child.material?.dispose?.();
+    }
+  });
   group.clear();
   frameData.objects.forEach((object) => {
     const color = palette[object.label] ?? palette.unknown;

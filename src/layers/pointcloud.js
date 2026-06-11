@@ -11,11 +11,12 @@ export function loadPointCloud(url) {
       (points) => {
         points.name = 'Point Cloud Map';
         points.material = new THREE.PointsMaterial({
-          size: 0.07,
-          color: 0xd6dde3,
+          size: 0.16,
+          color: 0xd8eef7,
           transparent: true,
-          opacity: 0.42,
-          depthWrite: false
+          opacity: 0.86,
+          depthWrite: false,
+          sizeAttenuation: true
         });
 
         const source = points.geometry.getAttribute('position');

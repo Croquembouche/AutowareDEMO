@@ -4,8 +4,9 @@
   "syncFrames": 157,
   "exportedLanelets": 92,
   "exportedCrosswalks": 9,
-  "exportedPointCount": 9000,
-  "lidarFrameStride": 6,
-  "maxPointCount": 9000,
+  "exportedPointCount": 18000,
+  "exportedObjectSequenceFrames": 24,
+  "lidarFrameStride": 4,
+  "maxPointCount": 18000,
   "note": "Derived static browser demo assets; raw AV2 files are not committed."
 }
