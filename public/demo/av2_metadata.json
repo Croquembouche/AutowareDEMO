@@ -10,7 +10,7 @@
   "exportedCameras": 9,
   "exportedLidarFrames": 157,
   "lidarFrameMaxPoints": 900,
-  "rightLaneVisualOffsetM": 1.6,
+  "rightLaneVisualOffsetM": 0.0,
   "lidarFrameStride": 4,
   "egoFrameStride": 1,
   "demoPlaybackTimeScale": 2.0,

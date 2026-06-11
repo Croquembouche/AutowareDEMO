@@ -10,12 +10,12 @@ import { createObjectsLayer, updateObjectsLayer } from './layers/objects.js';
 const assetBase = import.meta.env.BASE_URL;
 
 const cameraPresets = {
-  initial: { position: [32, 78, 128], target: [-22, 1.4, 54] },
-  planning: { position: [18, 58, 98], target: [-26, 1.6, 66] },
-  perception: { position: [8, 34, 46], target: [-9, 1.1, 20] },
-  drive: { position: [4, 30, 36], target: [-14, 1.2, 32] },
-  goal: { position: [-18, 46, 128], target: [-48, 3.5, 101] },
-  topDown: { position: [-24, 172, 55], target: [-24, 0, 55] }
+  initial: { position: [32, 78, -128], target: [-22, 1.4, -54] },
+  planning: { position: [18, 58, -98], target: [-26, 1.6, -66] },
+  perception: { position: [8, 34, -46], target: [-9, 1.1, -20] },
+  drive: { position: [4, 30, -36], target: [-14, 1.2, -32] },
+  goal: { position: [-18, 46, -128], target: [-48, 3.5, -101] },
+  topDown: { position: [-24, 172, -55], target: [-24, 0, -55] }
 };
 
 const overlayPalette = {
@@ -538,7 +538,7 @@ export class Viewer {
     this.scene.add(ambient, directional);
 
     const grid = new THREE.GridHelper(280, 70, 0x6f7479, 0x2e343a);
-    grid.position.set(-10, -0.02, 55);
+    grid.position.set(-10, -0.02, -55);
     this.scene.add(grid);
 
     const ground = new THREE.Mesh(
@@ -546,7 +546,7 @@ export class Viewer {
       new THREE.MeshBasicMaterial({ color: 0x14191d, transparent: true, opacity: 0.72, side: THREE.DoubleSide })
     );
     ground.rotation.x = -Math.PI / 2;
-    ground.position.set(-10, -0.04, 55);
+    ground.position.set(-10, -0.04, -55);
     this.scene.add(ground);
 
     const axes = new THREE.AxesHelper(2.2);

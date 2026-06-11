@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 export function toWorld(point) {
-  return new THREE.Vector3(point[0], point[2] ?? 0, point[1]);
+  return new THREE.Vector3(point[0], point[2] ?? 0, -point[1]);
 }
 
 export function toWorldArray(points) {
@@ -10,7 +10,7 @@ export function toWorldArray(points) {
 
 export function applyMapPose(object, position, yaw = 0) {
   object.position.copy(toWorld(position));
-  object.rotation.set(0, -yaw, 0);
+  object.rotation.set(0, yaw, 0);
 }
 
 export function makeLineGeometry(points) {

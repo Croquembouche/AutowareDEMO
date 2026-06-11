@@ -19,7 +19,7 @@ MAX_POINT_COUNT = 18000
 LIDAR_FRAME_STRIDE = 4
 EGO_FRAME_STRIDE = 1
 DEMO_PLAYBACK_TIME_SCALE = 2.0
-RIGHT_LANE_VISUAL_OFFSET_M = 1.6
+RIGHT_LANE_VISUAL_OFFSET_M = 0.0
 LANE_CROP_RADIUS_M = 105.0
 POINT_CROP_RADIUS_M = 95.0
 LIDAR_FRAME_MAX_POINTS = 900
@@ -253,8 +253,21 @@ def build_ego_indices(sync_df):
 
 
 def right_lane_offset_from_row(row):
+    if RIGHT_LANE_VISUAL_OFFSET_M == 0.0:
+        return np.zeros(2, dtype=np.float64)
     yaw = quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz)
     return np.array([math.sin(yaw), -math.cos(yaw)], dtype=np.float64) * RIGHT_LANE_VISUAL_OFFSET_M
+
+
+def object_priority(center_ego, label, interior_points):
+    forward = float(center_ego[0])
+    lateral = abs(float(center_ego[1]))
+    distance = math.hypot(float(center_ego[0]), float(center_ego[1]))
+    in_forward_view = 0 if forward >= -8.0 else 1
+    lane_relevance = 0 if lateral <= 14.0 else 1
+    label_bonus = 0 if label == "vehicle" else 0.5
+    confidence_bonus = min(float(interior_points), 80.0) / 160.0
+    return (in_forward_view, lane_relevance, distance + label_bonus - confidence_bonus)
 
 
 def build_ego_path(sync_df, origin, selected_indices):
@@ -316,8 +329,8 @@ def build_objects(sync_df, annotations, origin, selected_indices):
             center_local = center_city - origin
             center_visual = center_local.copy()
             center_visual[:2] += dynamic_offset
-            distance = math.hypot(center_local[0], center_local[1])
-            if distance > 80 or ann.num_interior_pts < 1:
+            ego_distance = math.hypot(center_ego[0], center_ego[1])
+            if ego_distance > 90 or ann.num_interior_pts < 1:
                 continue
             label = normalize_label(ann.category)
             yaw = quat_to_yaw(ann.qw, ann.qx, ann.qy, ann.qz) + quat_to_yaw(row.pose_qw, row.pose_qx, row.pose_qy, row.pose_qz)
@@ -331,12 +344,20 @@ def build_objects(sync_df, annotations, origin, selected_indices):
                     "size": [round(ann.length_m, 3), round(ann.width_m, 3), round(ann.height_m, 3)],
                     "yaw": round(yaw, 5),
                     "confidence": round(confidence, 2),
+                    "egoFramePosition": [
+                        round(float(center_ego[0]), 3),
+                        round(float(center_ego[1]), 3),
+                        round(float(center_ego[2]), 3),
+                    ],
+                    "priority": object_priority(center_ego, label, ann.num_interior_pts),
                 }
             )
-        objects.sort(key=lambda item: math.hypot(item["position"][0], item["position"][1]))
+        objects.sort(key=lambda item: item["priority"])
+        for item in objects:
+            del item["priority"]
         out.append(
             {
-                "objects": objects[:12],
+                "objects": objects[:24],
                 "sourceFrameIndex": int(sync_index),
                 "demoFrame": frame_no,
                 "sourceT": round(source_time, 3),

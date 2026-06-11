@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { makeLineGeometry } from '../utils/coordinates.js';
+import { makeLineGeometry, toWorld } from '../utils/coordinates.js';
 
 export function createRouteLayer(routeData) {
   const group = new THREE.Group();
@@ -19,7 +19,7 @@ export function createRouteLayer(routeData) {
         new THREE.CylinderGeometry(index === 0 ? 0.32 : 0.44, index === 0 ? 0.32 : 0.44, 0.08, 24),
         new THREE.MeshBasicMaterial({ color: index === 0 ? 0x38bdf8 : 0x28ff8a, transparent: true, opacity: 0.92 })
       );
-      marker.position.set(point[0], point[2] + 0.12, point[1]);
+      marker.position.copy(toWorld([point[0], point[1], point[2] + 0.12]));
       marker.name = index === 0 ? 'Start Marker' : 'Goal Marker';
       group.add(marker);
     }
