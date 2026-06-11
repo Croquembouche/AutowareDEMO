@@ -429,6 +429,11 @@ input[type="checkbox"] {
   height: 100%;
 }
 
+.viewer canvas[hidden],
+.label-layer[hidden] {
+  display: none !important;
+}
+
 .label-layer {
   position: absolute;
   inset: 0;

@@ -184,12 +184,18 @@ export class Viewer {
     if (this.ui.cameraPanel) {
       this.ui.cameraPanel.hidden = !cameraMode;
     }
+    this.setSceneDomVisible(!cameraMode);
     this.ui.viewModeButtons?.forEach((button) => {
       button.classList.toggle('active', button.dataset.viewMode === mode);
     });
     if (cameraMode) {
       this.syncCameraFrame(true);
     }
+  }
+
+  setSceneDomVisible(visible) {
+    this.renderer.domElement.hidden = !visible;
+    this.labelRenderer.domElement.hidden = !visible;
   }
 
   setupCameraTabs() {
