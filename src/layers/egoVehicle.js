@@ -9,6 +9,7 @@ export class EgoVehicleLayer {
     this.playing = false;
     this.group = createVehicleModel();
     this.trailGroup = createTrail(pathData);
+    this.currentPose = null;
     this.setNormalizedTime(0);
   }
 
@@ -29,6 +30,7 @@ export class EgoVehicleLayer {
     this.normalizedTime = THREE.MathUtils.clamp(value, 0, 1);
     const pose = interpolatePose(this.pathData.frames, this.normalizedTime);
     if (pose) {
+      this.currentPose = pose;
       applyMapPose(this.group, pose.position, pose.yaw);
     }
   }

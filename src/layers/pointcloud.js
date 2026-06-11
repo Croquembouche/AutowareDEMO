@@ -11,10 +11,10 @@ export function loadPointCloud(url) {
       (points) => {
         points.name = 'Point Cloud Map';
         points.material = new THREE.PointsMaterial({
-          size: 0.09,
-          color: 0x86a8b9,
+          size: 0.07,
+          color: 0xd6dde3,
           transparent: true,
-          opacity: 0.86,
+          opacity: 0.42,
           depthWrite: false
         });
 

@@ -2,6 +2,8 @@
 
 A small static, browser-based Autoware/RViz-style visualization demo. It is designed for GitHub Pages and intentionally does **not** run Autoware, ROS 2, RViz, planning, perception, localization, map services, WebSockets, Docker, or any live backend runtime.
 
+The layout intentionally mimics the recent Autoware Universe RViz launch view: the shell uses RViz-like menu bars, tool buttons, a Displays property tree, `AutowareStatePanel`, `ControlModeDisplay`, `Views`, simulated time, and display names inspired by `autoware_launch/rviz/autoware.rviz`.
+
 The app renders a deterministic scripted scene with Three.js:
 
 - a tiny synthetic point cloud map loaded from `public/maps/pointcloud_map_small.pcd`
@@ -9,6 +11,7 @@ The app renders a deterministic scripted scene with Three.js:
 - fixed route and ego trajectory JSON files
 - fixed perception object frames
 - RViz-like layer controls, orbit/pan/zoom camera controls, camera presets, and scripted demo states
+- RViz2-style panels and display names such as `PointCloudMap`, `Lanelet2VectorMap`, `PredictedObjects`, `Trajectory`, and `PathWithLaneId`
 
 ## Run Locally
 
@@ -61,6 +64,8 @@ Everything in the viewer is pre-authored static data:
 - no backend API
 
 The browser performs only rendering, UI toggling, loading static files, and simple interpolation along the fixed ego trajectory.
+
+The Autoware/RViz UI elements are visual approximations only. They are not Qt widgets, RViz plugins, ROS panels, or live topic subscribers.
 
 ## Data Files
 

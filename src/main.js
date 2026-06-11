@@ -7,7 +7,14 @@ const viewer = new Viewer(viewerElement, {
   loadingStatus: document.querySelector('#loadingStatus'),
   stateStatus: document.querySelector('#stateStatus'),
   detailStatus: document.querySelector('#detailStatus'),
-  timelineScrubber: document.querySelector('#timelineScrubber')
+  timelineScrubber: document.querySelector('#timelineScrubber'),
+  operationMode: document.querySelector('#operationMode'),
+  routeState: document.querySelector('#routeState'),
+  localizationState: document.querySelector('#localizationState'),
+  controlMode: document.querySelector('#controlMode'),
+  simTime: document.querySelector('#simTime'),
+  speedValue: document.querySelector('#speedValue'),
+  steerValue: document.querySelector('#steerValue')
 });
 
 const timeline = new TimelineController(viewer, {

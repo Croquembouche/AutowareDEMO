@@ -29,8 +29,8 @@ export class Viewer {
     this.currentPerceptionFrame = 0;
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x071016);
-    this.scene.fog = new THREE.Fog(0x071016, 65, 130);
+    this.scene.background = new THREE.Color(0x111417);
+    this.scene.fog = new THREE.Fog(0x111417, 70, 140);
 
     this.camera = new THREE.PerspectiveCamera(48, 1, 0.1, 1000);
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -173,6 +173,21 @@ export class Viewer {
     this.setDetail(detail);
   }
 
+  setPanelStatus(status = {}) {
+    if (this.ui.operationMode && status.operationMode) {
+      this.ui.operationMode.textContent = status.operationMode;
+    }
+    if (this.ui.routeState && status.routeState) {
+      this.ui.routeState.textContent = status.routeState;
+    }
+    if (this.ui.controlMode && status.controlMode) {
+      this.ui.controlMode.textContent = status.controlMode;
+    }
+    if (this.ui.localizationState) {
+      this.ui.localizationState.textContent = 'INITIALIZED';
+    }
+  }
+
   setDetail(message) {
     this.ui.detailStatus.textContent = message;
   }
@@ -183,27 +198,49 @@ export class Viewer {
   }
 
   addBaseScene() {
-    const ambient = new THREE.AmbientLight(0x9fb7c5, 1.7);
+    const ambient = new THREE.AmbientLight(0xb9c7d0, 1.45);
     const directional = new THREE.DirectionalLight(0xffffff, 1.8);
     directional.position.set(12, 24, 18);
     this.scene.add(ambient, directional);
 
-    const grid = new THREE.GridHelper(80, 40, 0x24414d, 0x132832);
+    const grid = new THREE.GridHelper(90, 45, 0x6f7479, 0x2e343a);
     grid.position.y = -0.02;
     this.scene.add(grid);
 
     const ground = new THREE.Mesh(
       new THREE.PlaneGeometry(90, 36),
-      new THREE.MeshBasicMaterial({ color: 0x0b1820, transparent: true, opacity: 0.58, side: THREE.DoubleSide })
+      new THREE.MeshBasicMaterial({ color: 0x14191d, transparent: true, opacity: 0.72, side: THREE.DoubleSide })
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.set(25, -0.04, 0);
     this.scene.add(ground);
+
+    const axes = new THREE.AxesHelper(2.2);
+    axes.position.set(0, 0.06, 0);
+    this.scene.add(axes);
   }
 
   updateScrubber() {
     if (this.ui.timelineScrubber && this.ego) {
       this.ui.timelineScrubber.value = Math.round(this.ego.normalizedTime * 100);
+    }
+  }
+
+  updateStatusOverlay() {
+    if (!this.ego) {
+      return;
+    }
+    const time = this.ego.normalizedTime * this.ego.duration;
+    if (this.ui.simTime) {
+      this.ui.simTime.textContent = time.toFixed(2);
+    }
+    if (this.ui.speedValue) {
+      const speed = this.ego.playing ? 21.6 : this.ego.normalizedTime >= 1 ? 0 : 0;
+      this.ui.speedValue.textContent = `${speed.toFixed(1)} km/h`;
+    }
+    if (this.ui.steerValue) {
+      const yaw = this.ego.currentPose?.yaw ?? 0;
+      this.ui.steerValue.textContent = `${yaw.toFixed(2)} rad`;
     }
   }
 
@@ -222,6 +259,7 @@ export class Viewer {
     this.frameCallbacks.forEach((callback) => callback(delta));
     this.controls.update();
     this.updateScrubber();
+    this.updateStatusOverlay();
     this.renderer.render(this.scene, this.camera);
     this.labelRenderer.render(this.scene, this.camera);
   }

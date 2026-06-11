@@ -6,81 +6,176 @@
     <title>Autoware Mini Demo Viewer</title>
   </head>
   <body>
-    <div id="app" class="app-shell">
-      <aside class="control-panel" aria-label="Demo controls">
-        <header class="panel-header">
-          <span class="product-mark">Autoware Mini</span>
-          <h1>Demo Viewer</h1>
-        </header>
-
-        <section class="panel-section status-section">
-          <div class="section-title">Status</div>
-          <div id="loadingStatus" class="loading-status">Loading static demo assets...</div>
-          <div id="stateStatus" class="state-status">Initial Map</div>
-          <div id="detailStatus" class="detail-status">Static scripted visualization. No ROS 2 runtime.</div>
-        </section>
-
-        <section class="panel-section">
-          <div class="section-title">Scripted States</div>
-          <div class="state-grid" role="group" aria-label="Timeline states">
-            <button class="state-button active" data-state="initial">Initial Map</button>
-            <button class="state-button" data-state="planning">Planning</button>
-            <button class="state-button" data-state="perception">Perception</button>
-            <button class="state-button" data-state="drive">Autonomous Drive</button>
-            <button class="state-button" data-state="goal">Goal Reached</button>
-          </div>
-          <input id="timelineScrubber" class="timeline-scrubber" type="range" min="0" max="100" value="0" aria-label="Ego trajectory timeline" />
-        </section>
-
-        <section class="panel-section">
-          <div class="section-title">Playback</div>
-          <div class="button-row">
-            <button data-action="play">Play Ego Vehicle</button>
-            <button data-action="pause">Pause</button>
-            <button data-action="resetPlayback">Reset</button>
-          </div>
-        </section>
-
-        <section class="panel-section">
-          <div class="section-title">Perception Frames</div>
-          <div class="button-row">
-            <button data-frame="0">Frame 1</button>
-            <button data-frame="1">Frame 2</button>
-            <button data-frame="2">Frame 3</button>
-          </div>
-        </section>
-
-        <section class="panel-section layer-section">
-          <div class="section-title">Layers</div>
-          <label><input type="checkbox" data-layer="pointCloud" checked /> Point Cloud Map</label>
-          <label><input type="checkbox" data-layer="laneBoundaries" checked /> Lanelet Boundaries</label>
-          <label><input type="checkbox" data-layer="centerlines" checked /> Centerlines</label>
-          <label><input type="checkbox" data-layer="crosswalks" checked /> Crosswalks</label>
-          <label><input type="checkbox" data-layer="stopLines" checked /> Stop Lines</label>
-          <label><input type="checkbox" data-layer="trafficLights" checked /> Traffic Lights</label>
-          <label><input type="checkbox" data-layer="route" /> Route</label>
-          <label><input type="checkbox" data-layer="egoVehicle" checked /> Ego Vehicle</label>
-          <label><input type="checkbox" data-layer="trajectoryTrail" checked /> Trajectory Trail</label>
-          <label><input type="checkbox" data-layer="predictedPath" /> Predicted Path</label>
-          <label><input type="checkbox" data-layer="perceptionObjects" /> Perception Objects</label>
-        </section>
-
-        <section class="panel-section">
-          <div class="section-title">Camera</div>
-          <div class="button-row">
-            <button data-action="resetCamera">Reset Camera</button>
-            <button data-action="topDown">Top Down</button>
-          </div>
-        </section>
-      </aside>
-
-      <main class="viewer-panel">
-        <div id="viewer" class="viewer" aria-label="3D Autoware-style scene"></div>
-        <div class="viewer-hud">
-          <span id="assetBadge">Static assets</span>
-          <span id="cameraBadge">Orbit / pan / zoom enabled</span>
+    <div id="app" class="rviz-window">
+      <header class="rviz-titlebar">
+        <div class="window-title">autoware.rviz - RViz2</div>
+        <div class="window-controls" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </main>
+      </header>
+
+      <nav class="rviz-menubar" aria-label="RViz menu">
+        <span>File</span>
+        <span>Panels</span>
+        <span>Help</span>
+        <span class="menu-spacer"></span>
+        <span>Fixed Frame: <strong>map</strong></span>
+      </nav>
+
+      <div class="rviz-toolbar" aria-label="RViz tools">
+        <button class="tool-button active" type="button">Interact</button>
+        <button class="tool-button" type="button">Move Camera</button>
+        <button class="tool-button" type="button">Select</button>
+        <button class="tool-button" type="button">2D Pose Estimate</button>
+        <button class="tool-button" type="button">2D Goal Pose</button>
+        <button class="tool-button" type="button">Publish Point</button>
+        <span class="toolbar-note">Static scripted web demo</span>
+      </div>
+
+      <div class="rviz-layout">
+        <aside class="rviz-panel left-panel" aria-label="Displays panel">
+          <div class="panel-caption">Displays</div>
+          <div class="display-actions">
+            <button type="button">Add</button>
+            <button type="button">Duplicate</button>
+            <button type="button">Remove</button>
+          </div>
+
+          <div class="property-tree layer-section">
+            <details open>
+              <summary><input type="checkbox" checked /> Autoware</summary>
+              <details open>
+                <summary><input type="checkbox" checked /> System</summary>
+                <label><input type="checkbox" data-layer="egoVehicle" checked /> VehicleModel</label>
+                <label><input type="checkbox" checked disabled /> PolarGridDisplay</label>
+                <label><input type="checkbox" checked disabled /> SignalDisplay</label>
+              </details>
+
+              <details open>
+                <summary><input type="checkbox" checked /> Map</summary>
+                <label><input type="checkbox" data-layer="pointCloud" checked /> PointCloudMap</label>
+                <label><input type="checkbox" data-layer="laneBoundaries" checked /> Lanelet2VectorMap / boundaries</label>
+                <label><input type="checkbox" data-layer="centerlines" checked /> Lanelet2VectorMap / centerlines</label>
+                <label><input type="checkbox" data-layer="crosswalks" checked /> Crosswalks</label>
+                <label><input type="checkbox" data-layer="stopLines" checked /> StopLines</label>
+                <label><input type="checkbox" data-layer="trafficLights" checked /> TrafficLights</label>
+              </details>
+
+              <details open>
+                <summary><input type="checkbox" checked /> Planning</summary>
+                <label><input type="checkbox" data-layer="route" /> Route</label>
+                <label><input type="checkbox" data-layer="trajectoryTrail" checked /> Trajectory</label>
+                <label><input type="checkbox" data-layer="predictedPath" /> PathWithLaneId</label>
+              </details>
+
+              <details open>
+                <summary><input type="checkbox" checked /> Perception</summary>
+                <label><input type="checkbox" data-layer="perceptionObjects" /> PredictedObjects</label>
+              </details>
+            </details>
+          </div>
+
+          <div class="properties-grid" aria-label="Selected display properties">
+            <div class="property-heading">PointCloudMap</div>
+            <span>Topic</span><strong>/map/pointcloud_map</strong>
+            <span>Style</span><strong>Points</strong>
+            <span>Size (m)</span><strong>0.02</strong>
+            <span>Alpha</span><strong>0.20</strong>
+            <span>Color Transformer</span><strong>FlatColor</strong>
+          </div>
+        </aside>
+
+        <main class="render-stack">
+          <div class="render-header">
+            <span>3D View</span>
+            <span id="loadingStatus">Loading static demo assets...</span>
+          </div>
+          <section class="viewer-panel">
+            <div id="viewer" class="viewer" aria-label="3D Autoware RViz-style scene"></div>
+            <div class="rviz-overlay speed-overlay" aria-label="Vehicle overlay">
+              <div>Velocity</div>
+              <strong id="speedValue">0.0 km/h</strong>
+              <div>Steer</div>
+              <strong id="steerValue">0.00 rad</strong>
+              <div>Speed limit</div>
+              <strong>40 km/h</strong>
+            </div>
+            <div class="viewer-hud">
+              <span id="assetBadge">map</span>
+              <span id="cameraBadge">orbit / pan / zoom</span>
+            </div>
+          </section>
+        </main>
+
+        <aside class="rviz-panel right-panel" aria-label="Autoware panels">
+          <section class="dock-panel">
+            <div class="panel-caption">AutowareStatePanel</div>
+            <div class="state-readout">
+              <span>Operation Mode</span><strong id="operationMode">STOP</strong>
+              <span>Route</span><strong id="routeState">UNSET</strong>
+              <span>Localization</span><strong id="localizationState">INITIALIZED</strong>
+              <span>Autoware State</span><strong id="stateStatus">Initial Map</strong>
+            </div>
+            <div id="detailStatus" class="detail-status">Static scripted visualization. No ROS 2 runtime.</div>
+          </section>
+
+          <section class="dock-panel">
+            <div class="panel-caption">ControlModeDisplay</div>
+            <div class="control-strip">
+              <span id="controlMode">MANUAL</span>
+              <span>Gate: AUTO</span>
+            </div>
+          </section>
+
+          <section class="dock-panel">
+            <div class="panel-caption">Planning / Scenario</div>
+            <div class="state-grid" role="group" aria-label="Timeline states">
+              <button class="state-button active" data-state="initial">Initial Map</button>
+              <button class="state-button" data-state="planning">Planning</button>
+              <button class="state-button" data-state="perception">Perception</button>
+              <button class="state-button" data-state="drive">Autonomous Drive</button>
+              <button class="state-button" data-state="goal">Goal Reached</button>
+            </div>
+            <input id="timelineScrubber" class="timeline-scrubber" type="range" min="0" max="100" value="0" aria-label="Ego trajectory timeline" />
+          </section>
+
+          <section class="dock-panel">
+            <div class="panel-caption">Tool Properties</div>
+            <div class="button-row">
+              <button data-action="play" type="button">Play</button>
+              <button data-action="pause" type="button">Pause</button>
+              <button data-action="resetPlayback" type="button">Reset</button>
+            </div>
+            <div class="button-row">
+              <button data-frame="0" type="button">Frame 1</button>
+              <button data-frame="1" type="button">Frame 2</button>
+              <button data-frame="2" type="button">Frame 3</button>
+            </div>
+          </section>
+
+          <section class="dock-panel">
+            <div class="panel-caption">Views</div>
+            <div class="properties-grid compact">
+              <span>Type</span><strong>Orbit</strong>
+              <span>Target Frame</span><strong>base_link</strong>
+              <span>Distance</span><strong>scripted</strong>
+            </div>
+            <div class="button-row two">
+              <button data-action="resetCamera" type="button">Reset Camera</button>
+              <button data-action="topDown" type="button">Top Down</button>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="rviz-statusbar">
+        <span>Time: <strong id="simTime">0.00</strong></span>
+        <span>ROS time</span>
+        <span>Frame rate: 60 Hz</span>
+        <span class="status-grow">autoware_launch/rviz/autoware.rviz visual mimic, static data</span>
+      </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

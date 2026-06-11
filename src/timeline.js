@@ -67,11 +67,19 @@ const stateVisibility = {
 };
 
 const stateCopy = {
-  initial: ['Initial Map', 'Point Cloud Map and Lanelet Map layers are visible. All data is pre-authored static content.'],
-  planning: ['Planning', 'Fixed route and predicted path are visible. No planner is running in the browser.'],
-  perception: ['Perception', 'Showing predefined detected object boxes from Perception Frame 1.'],
-  drive: ['Autonomous Drive', 'Playing the scripted ego trajectory with deterministic interpolation.'],
-  goal: ['Goal Reached', 'The ego vehicle is parked at the final pre-authored waypoint.']
+  initial: ['WAITING_FOR_ROUTE', 'PointCloudMap and Lanelet2VectorMap are visible. Static data is rendered with an RViz-like display tree.'],
+  planning: ['PLANNING', 'Route, Trajectory, and PathWithLaneId are visible. No planner is running in the browser.'],
+  perception: ['WAITING_FOR_ENGAGE', 'PredictedObjects are shown from a scripted object frame. No perception node is running.'],
+  drive: ['DRIVING', 'The ego vehicle follows a pre-authored trajectory with deterministic interpolation.'],
+  goal: ['ARRIVED_GOAL', 'The ego vehicle is stopped at the final pre-authored waypoint.']
+};
+
+const panelStatus = {
+  initial: { operationMode: 'STOP', routeState: 'UNSET', controlMode: 'MANUAL' },
+  planning: { operationMode: 'STOP', routeState: 'SET', controlMode: 'MANUAL' },
+  perception: { operationMode: 'STOP', routeState: 'SET', controlMode: 'MANUAL' },
+  drive: { operationMode: 'AUTONOMOUS', routeState: 'SET', controlMode: 'AUTO' },
+  goal: { operationMode: 'STOP', routeState: 'ARRIVED', controlMode: 'AUTO' }
 };
 
 export class TimelineController {
@@ -138,6 +146,7 @@ export class TimelineController {
     }
 
     this.viewer.setStateText(...stateCopy[name]);
+    this.viewer.setPanelStatus(panelStatus[name]);
     this.viewer.setCameraPreset(name, moveCamera);
   }
 
