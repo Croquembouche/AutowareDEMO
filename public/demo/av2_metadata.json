@@ -1,0 +1,11 @@
+{
+  "source": "Argoverse 2 sensor val",
+  "logId": "02678d04-cc9f-3148-9f95-1ba66347dff9",
+  "syncFrames": 157,
+  "exportedLanelets": 92,
+  "exportedCrosswalks": 9,
+  "exportedPointCount": 9000,
+  "lidarFrameStride": 6,
+  "maxPointCount": 9000,
+  "note": "Derived static browser demo assets; raw AV2 files are not committed."
+}

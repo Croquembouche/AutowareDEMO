@@ -1,20 +1,102 @@
 {
   "objects": [
     {
-      "id": "car_1",
+      "id": "av2_0e470e35",
       "label": "vehicle",
-      "position": [44.0, 0.9, 0.85],
-      "size": [4.5, 2.0, 1.6],
-      "yaw": -0.08,
-      "confidence": 0.96
+      "position": [
+        -25.558,
+        44.156,
+        2.218
+      ],
+      "size": [
+        4.437,
+        1.923,
+        1.579
+      ],
+      "yaw": 5.13158,
+      "confidence": 0.72
     },
     {
-      "id": "truck_1",
+      "id": "av2_0b686a61",
+      "label": "pedestrian",
+      "position": [
+        -34.789,
+        50.847,
+        2.661
+      ],
+      "size": [
+        0.767,
+        0.714,
+        1.503
+      ],
+      "yaw": 0.45719,
+      "confidence": 0.81
+    },
+    {
+      "id": "av2_d13812c4",
+      "label": "unknown",
+      "position": [
+        -34.826,
+        51.068,
+        2.426
+      ],
+      "size": [
+        0.768,
+        0.737,
+        1.025
+      ],
+      "yaw": 0.46029,
+      "confidence": 0.76
+    },
+    {
+      "id": "av2_5af65fb4",
+      "label": "unknown",
+      "position": [
+        -25.389,
+        63.894,
+        2.68
+      ],
+      "size": [
+        1.66,
+        0.939,
+        1.297
+      ],
+      "yaw": -1.12686,
+      "confidence": 0.8
+    },
+    {
+      "id": "av2_4d8b2da8",
+      "label": "cyclist",
+      "position": [
+        -25.577,
+        64.401,
+        3.022
+      ],
+      "size": [
+        1.032,
+        1.044,
+        1.915
+      ],
+      "yaw": -1.12622,
+      "confidence": 0.81
+    },
+    {
+      "id": "av2_9054f80c",
       "label": "vehicle",
-      "position": [47.8, -5.6, 1.15],
-      "size": [6.2, 2.4, 2.3],
-      "yaw": -0.1,
-      "confidence": 0.91
+      "position": [
+        -31.524,
+        66.63,
+        2.973
+      ],
+      "size": [
+        4.754,
+        2.043,
+        1.663
+      ],
+      "yaw": 2.02881,
+      "confidence": 0.84
     }
-  ]
+  ],
+  "sourceFrameIndex": 156,
+  "demoFrame": 2
 }

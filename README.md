@@ -6,10 +6,10 @@ The layout intentionally mimics the recent Autoware Universe RViz launch view: t
 
 The app renders a deterministic scripted scene with Three.js:
 
-- a tiny synthetic point cloud map loaded from `public/maps/pointcloud_map_small.pcd`
-- simplified Lanelet2-style road geometry loaded from `public/maps/lanelet_demo.json`
-- fixed route and ego trajectory JSON files
-- fixed perception object frames
+- a compact Argoverse 2-derived point cloud loaded from `public/maps/pointcloud_map_small.pcd`
+- simplified Lanelet2-style road geometry converted from the AV2 vector map into `public/maps/lanelet_demo.json`
+- fixed route and ego trajectory JSON files derived from AV2 map-aligned ego pose
+- fixed perception object frames derived from AV2 annotations
 - RViz-like layer controls, orbit/pan/zoom camera controls, camera presets, and scripted demo states
 - RViz2-style panels and display names such as `PointCloudMap`, `Lanelet2VectorMap`, `PredictedObjects`, `Trajectory`, and `PathWithLaneId`
 
@@ -89,11 +89,29 @@ src/
     objects.js
   timeline.js
   viewer.js
+scripts/
+  build_av2_demo.py
 ```
+
+The checked-in demo data is derived from this local AV2 log:
+
+```text
+/run/user/1001/gvfs/smb-share:server=10.2.213.244,share=homes/publicDataset/Argoverse2/sensor/val/02678d04-cc9f-3148-9f95-1ba66347dff9
+```
+
+The raw AV2 folder is about 1.1 GB and is not committed. GitHub recommends repositories stay near 1 GB, published GitHub Pages sites may be no larger than 1 GB, and normal GitHub files cannot exceed 100 MB. The repository therefore stores deterministic browser-ready chunks instead of the raw sensor log.
+
+Regenerate the static AV2 chunks with:
+
+```bash
+python3 scripts/build_av2_demo.py
+```
+
+Set `AV2_ROOT=/path/to/Argoverse2` if the dataset is mounted somewhere else.
 
 ### Replace the Demo Assets
 
-To replace the placeholder scene with real preprocessed demo data:
+To replace the demo scene with different preprocessed data:
 
 1. Crop and downsample the point cloud before committing it. Keep it small enough for GitHub Pages and browser rendering.
 2. Store the point cloud as a compact browser-friendly file. This demo loads ASCII `.pcd` through Three.js `PCDLoader`; for larger demos, convert to a smaller JSON, binary buffer, or compressed representation.

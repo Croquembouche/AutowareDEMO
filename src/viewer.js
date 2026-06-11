@@ -10,12 +10,12 @@ import { createObjectsLayer, updateObjectsLayer } from './layers/objects.js';
 const assetBase = import.meta.env.BASE_URL;
 
 const cameraPresets = {
-  initial: { position: [24, 24, 24], target: [20, 0, 0] },
-  planning: { position: [31, 19, 18], target: [28, 0, 1.5] },
-  perception: { position: [23, 12, 13], target: [24, 0, 1.5] },
-  drive: { position: [14, 9, 9], target: [17, 0, 0.8] },
-  goal: { position: [53, 15, 16], target: [47, 0, 1.2] },
-  topDown: { position: [25, 52, 0.01], target: [25, 0, 0] }
+  initial: { position: [32, 78, 128], target: [-22, 1.4, 54] },
+  planning: { position: [18, 58, 98], target: [-26, 1.6, 66] },
+  perception: { position: [8, 34, 46], target: [-9, 1.1, 20] },
+  drive: { position: [4, 30, 36], target: [-14, 1.2, 32] },
+  goal: { position: [-18, 46, 128], target: [-48, 3.5, 101] },
+  topDown: { position: [-24, 172, 55], target: [-24, 0, 55] }
 };
 
 export class Viewer {
@@ -30,7 +30,7 @@ export class Viewer {
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x111417);
-    this.scene.fog = new THREE.Fog(0x111417, 70, 140);
+    this.scene.fog = new THREE.Fog(0x111417, 150, 320);
 
     this.camera = new THREE.PerspectiveCamera(48, 1, 0.1, 1000);
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -48,7 +48,7 @@ export class Viewer {
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.08;
     this.controls.minDistance = 7;
-    this.controls.maxDistance = 85;
+    this.controls.maxDistance = 260;
     this.controls.maxPolarAngle = Math.PI * 0.49;
     this.controls.screenSpacePanning = false;
 
@@ -203,16 +203,16 @@ export class Viewer {
     directional.position.set(12, 24, 18);
     this.scene.add(ambient, directional);
 
-    const grid = new THREE.GridHelper(90, 45, 0x6f7479, 0x2e343a);
-    grid.position.y = -0.02;
+    const grid = new THREE.GridHelper(280, 70, 0x6f7479, 0x2e343a);
+    grid.position.set(-10, -0.02, 55);
     this.scene.add(grid);
 
     const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(90, 36),
+      new THREE.PlaneGeometry(290, 250),
       new THREE.MeshBasicMaterial({ color: 0x14191d, transparent: true, opacity: 0.72, side: THREE.DoubleSide })
     );
     ground.rotation.x = -Math.PI / 2;
-    ground.position.set(25, -0.04, 0);
+    ground.position.set(-10, -0.04, 55);
     this.scene.add(ground);
 
     const axes = new THREE.AxesHelper(2.2);
@@ -239,8 +239,8 @@ export class Viewer {
       this.ui.speedValue.textContent = `${speed.toFixed(1)} km/h`;
     }
     if (this.ui.steerValue) {
-      const yaw = this.ego.currentPose?.yaw ?? 0;
-      this.ui.steerValue.textContent = `${yaw.toFixed(2)} rad`;
+      const steer = this.ego.playing ? Math.sin(time * 0.8) * 0.08 : 0;
+      this.ui.steerValue.textContent = `${steer.toFixed(2)} rad`;
     }
   }
 
