@@ -12,6 +12,7 @@ export class EgoVehicleLayer {
     this.currentPose = null;
     this.currentFrameIndex = 0;
     this.currentSourceFrameIndex = pathData.frames[0]?.sourceFrameIndex ?? 0;
+    this.currentSpeedKmh = 0;
     this.setNormalizedTime(0);
   }
 
@@ -32,6 +33,7 @@ export class EgoVehicleLayer {
     this.normalizedTime = THREE.MathUtils.clamp(value, 0, 1);
     this.currentFrameIndex = findNearestFrameIndex(this.pathData.frames, this.normalizedTime);
     this.currentSourceFrameIndex = this.pathData.frames[this.currentFrameIndex]?.sourceFrameIndex ?? this.currentFrameIndex;
+    this.currentSpeedKmh = estimateSpeedKmh(this.pathData.frames, this.currentFrameIndex, this.normalizedTime);
     const pose = interpolatePose(this.pathData.frames, this.normalizedTime);
     if (pose) {
       this.currentPose = pose;
@@ -54,6 +56,26 @@ export class EgoVehicleLayer {
       this.playing = false;
     }
   }
+}
+
+function estimateSpeedKmh(frames, frameIndex, normalizedTime) {
+  if (frames.length < 2 || normalizedTime >= 1) {
+    return 0;
+  }
+
+  const previous = frames[Math.max(0, frameIndex - 1)];
+  const next = frames[Math.min(frames.length - 1, frameIndex + 1)];
+  const previousTime = previous.sourceT ?? previous.t;
+  const nextTime = next.sourceT ?? next.t;
+  const dt = nextTime - previousTime;
+  if (dt <= 0) {
+    return 0;
+  }
+
+  const dx = next.position[0] - previous.position[0];
+  const dy = next.position[1] - previous.position[1];
+  const metersPerSecond = Math.hypot(dx, dy) / dt;
+  return metersPerSecond * 3.6;
 }
 
 function findNearestFrameIndex(frames, normalizedTime) {

@@ -22,7 +22,6 @@ DEMO_PLAYBACK_TIME_SCALE = 2.0
 RIGHT_LANE_VISUAL_OFFSET_M = 0.0
 LANE_CROP_RADIUS_M = 105.0
 POINT_CROP_RADIUS_M = 95.0
-LIDAR_FRAME_MAX_POINTS = 900
 CAMERA_MAX_WIDTH = 640
 CAMERA_JPEG_QUALITY = 68
 CAMERAS = [
@@ -453,68 +452,6 @@ def export_camera_frames(sync_df, annotations, dataset_root, output_root, select
     return manifest
 
 
-def export_lidar_frames(sync_df, annotations, dataset_root, output_root, selected_indices):
-    rng = np.random.default_rng(7)
-    frames = []
-    for demo_frame, sync_index in enumerate(selected_indices):
-        row = sync_df.iloc[sync_index]
-        lidar_path = dataset_root / row.lidar_path
-        lidar = pd.read_feather(lidar_path, columns=["x", "y", "z", "intensity", "laser_number"])
-        points = lidar[["x", "y", "z"]].to_numpy(dtype=np.float64)
-        intensity = lidar["intensity"].to_numpy(dtype=np.float64)
-        laser_numbers = lidar["laser_number"].to_numpy(dtype=np.uint8)
-        keep = np.isfinite(points).all(axis=1)
-        keep &= (points[:, 0] > -35) & (points[:, 0] < 75) & (np.abs(points[:, 1]) < 40)
-        keep &= (points[:, 2] > -3.0) & (points[:, 2] < 5.0)
-        points = points[keep]
-        intensity = intensity[keep]
-        laser_numbers = laser_numbers[keep]
-        if len(points) > LIDAR_FRAME_MAX_POINTS:
-            chosen = np.sort(rng.choice(len(points), LIDAR_FRAME_MAX_POINTS, replace=False))
-            points = points[chosen]
-            intensity = intensity[chosen]
-            laser_numbers = laser_numbers[chosen]
-        colors = LIDAR_RING_COLORS[(laser_numbers // 8) % len(LIDAR_RING_COLORS)]
-        frame_annotations = annotations[annotations["timestamp_ns"] == row.lidar_timestamp_ns].copy()
-        boxes = []
-        for ann in frame_annotations.itertuples():
-            if ann.num_interior_pts < 1 or math.hypot(ann.tx_m, ann.ty_m) > 75:
-                continue
-            corners = box_corners_ego(ann)
-            bottom = corners[np.argsort(corners[:, 2])[:4]][:, :2]
-            center = np.array([ann.tx_m, ann.ty_m], dtype=np.float64)
-            angles = np.arctan2(bottom[:, 1] - center[1], bottom[:, 0] - center[0])
-            bottom = bottom[np.argsort(angles)]
-            boxes.append(
-                {
-                    "id": f"av2_{ann.track_uuid[:8]}",
-                    "label": normalize_label(ann.category),
-                    "corners": [[round(float(x), 2), round(float(y), 2)] for x, y in bottom],
-                    "confidence": round(min(0.99, 0.7 + ann.num_interior_pts / 80.0), 2),
-                }
-            )
-        frames.append(
-            {
-                "demoFrame": demo_frame,
-                "sourceFrameIndex": int(sync_index),
-                "points": [
-                    [
-                        round(float(point[0]), 2),
-                        round(float(point[1]), 2),
-                        round(float(point[2]), 2),
-                        int(color),
-                        round(float(level) / 255.0, 2),
-                    ]
-                    for point, color, level in zip(points, colors, intensity)
-                ],
-                "boxes": boxes[:20],
-            }
-        )
-
-    write_json(output_root / "public" / "demo" / "lidar_frames.json", {"frames": frames})
-    return frames
-
-
 def main():
     repo_root = Path(__file__).resolve().parents[1]
     av2_root = Path(os.environ.get("AV2_ROOT", DEFAULT_AV2_ROOT))
@@ -547,7 +484,6 @@ def main():
     object_frames = build_objects(sync_df, annotations, origin, [0, len(sync_df) // 2, len(sync_df) - 1])
     object_sequence = build_objects(sync_df, annotations, origin, ego_indices)
     camera_manifest = export_camera_frames(sync_df, annotations, dataset_root, repo_root, ego_indices, egovehicle_se3_sensor, intrinsics)
-    lidar_frames = export_lidar_frames(sync_df, annotations, dataset_root, repo_root, ego_indices)
     points = build_point_cloud(sync_df, dataset_root, origin, path_xy)
 
     write_json(repo_root / "public" / "maps" / "lanelet_demo.json", lanelet_json)
@@ -569,8 +505,6 @@ def main():
             "exportedObjectSequenceFrames": len(object_sequence),
             "exportedCameraFrames": len(camera_manifest["frames"]),
             "exportedCameras": len(camera_manifest["cameras"]),
-            "exportedLidarFrames": len(lidar_frames),
-            "lidarFrameMaxPoints": LIDAR_FRAME_MAX_POINTS,
             "rightLaneVisualOffsetM": RIGHT_LANE_VISUAL_OFFSET_M,
             "lidarFrameStride": LIDAR_FRAME_STRIDE,
             "egoFrameStride": EGO_FRAME_STRIDE,

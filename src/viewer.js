@@ -33,10 +33,8 @@ export class Viewer {
     this.objectFrames = [];
     this.objectSequence = [];
     this.cameraManifest = null;
-    this.lidarFrames = [];
     this.activeCameraId = 'ring_front_center';
     this.activeCameraFrame = -1;
-    this.activeLidarFrame = -1;
     this.followEgo = false;
     this.clock = new THREE.Clock();
     this.frameCallbacks = new Set();
@@ -78,7 +76,7 @@ export class Viewer {
     this.setLoading('Loading point cloud, lanelets, route, trajectory, and perception frames...');
 
     try {
-      const [pointCloud, laneletMap, route, egoPath, metadata, objectSequence, cameraManifest, lidarFrames, ...objectFrames] = await Promise.all([
+      const [pointCloud, laneletMap, route, egoPath, metadata, objectSequence, cameraManifest, ...objectFrames] = await Promise.all([
         loadPointCloud(`${assetBase}maps/pointcloud_map_small.pcd`),
         loadJson(`${assetBase}maps/lanelet_demo.json`),
         loadJson(`${assetBase}demo/route.json`),
@@ -86,7 +84,6 @@ export class Viewer {
         loadJson(`${assetBase}demo/av2_metadata.json`),
         loadJson(`${assetBase}demo/objects_sequence.json`),
         loadJson(`${assetBase}demo/camera_manifest.json`),
-        loadJson(`${assetBase}demo/lidar_frames.json`),
         loadJson(`${assetBase}demo/objects_frame_000.json`),
         loadJson(`${assetBase}demo/objects_frame_001.json`),
         loadJson(`${assetBase}demo/objects_frame_002.json`)
@@ -95,7 +92,6 @@ export class Viewer {
       this.objectFrames = objectFrames;
       this.objectSequence = objectSequence.frames ?? objectFrames;
       this.cameraManifest = cameraManifest;
-      this.lidarFrames = lidarFrames.frames ?? [];
       this.activeCameraId = cameraManifest.cameras?.[0]?.id ?? this.activeCameraId;
       this.registerLayer('pointCloud', pointCloud);
       Object.entries(createLaneletLayers(laneletMap)).forEach(([name, group]) => this.registerLayer(name, group));
@@ -109,7 +105,6 @@ export class Viewer {
       this.setupViewModeControls();
       this.setupCameraTabs();
       this.syncCameraFrame();
-      this.syncLidarFrame(true);
 
       this.setLoading(`Loaded ${pointCloud.children[0].geometry.getAttribute('position').count} map points and ${laneletMap.lanelets.length} lanelets.`);
       this.setDetail('Initial Map: static point cloud with simplified Lanelet2-style road geometry.');
@@ -180,21 +175,14 @@ export class Viewer {
 
   setViewMode(mode) {
     const cameraMode = mode === 'cameras';
-    const lidarMode = mode === 'lidar';
     if (this.ui.cameraPanel) {
       this.ui.cameraPanel.hidden = !cameraMode;
-    }
-    if (this.ui.lidarPanel) {
-      this.ui.lidarPanel.hidden = !lidarMode;
     }
     this.ui.viewModeButtons?.forEach((button) => {
       button.classList.toggle('active', button.dataset.viewMode === mode);
     });
     if (cameraMode) {
       this.syncCameraFrame(true);
-    }
-    if (lidarMode) {
-      this.syncLidarFrame(true);
     }
   }
 
@@ -284,111 +272,6 @@ export class Viewer {
     });
   }
 
-  syncLidarFrame(force = false) {
-    if (!this.lidarFrames.length || !this.ego || !this.ui.lidarCanvas) {
-      return;
-    }
-    const egoSourceFrame = this.ego.currentSourceFrameIndex ?? 0;
-    let frame = this.lidarFrames.find((item) => item.sourceFrameIndex === egoSourceFrame);
-    if (!frame) {
-      frame = this.lidarFrames[Math.min(this.ego.currentFrameIndex ?? 0, this.lidarFrames.length - 1)];
-    }
-    if (!frame) {
-      return;
-    }
-    if (force || frame.sourceFrameIndex !== this.activeLidarFrame) {
-      this.activeLidarFrame = frame.sourceFrameIndex;
-      this.renderLidarFrame(frame);
-      if (this.ui.activeLidarFrame) {
-        this.ui.activeLidarFrame.textContent = `${frame.sourceFrameIndex}`;
-      }
-      if (this.ui.activeLidarPoints) {
-        this.ui.activeLidarPoints.textContent = `${frame.points?.length ?? 0}`;
-      }
-    }
-  }
-
-  renderLidarFrame(frame) {
-    const canvas = this.ui.lidarCanvas;
-    const rect = canvas.getBoundingClientRect();
-    const scaleFactor = Math.min(window.devicePixelRatio || 1, 2);
-    const width = Math.max(1, Math.round(rect.width * scaleFactor));
-    const height = Math.max(1, Math.round(rect.height * scaleFactor));
-    if (canvas.width !== width || canvas.height !== height) {
-      canvas.width = width;
-      canvas.height = height;
-    }
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#06090b';
-    ctx.fillRect(0, 0, width, height);
-    const metersPerPixel = 85 / Math.min(width, height);
-    const originX = width * 0.5;
-    const originY = height * 0.78;
-    const toCanvas = ([x, y]) => [originX - y / metersPerPixel, originY - x / metersPerPixel];
-
-    ctx.strokeStyle = 'rgba(120, 132, 142, 0.32)';
-    ctx.lineWidth = 1;
-    for (let x = -30; x <= 70; x += 10) {
-      const [x1, y1] = toCanvas([x, -40]);
-      const [x2, y2] = toCanvas([x, 40]);
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-      ctx.stroke();
-    }
-    for (let y = -40; y <= 40; y += 10) {
-      const [x1, y1] = toCanvas([-10, y]);
-      const [x2, y2] = toCanvas([75, y]);
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-      ctx.stroke();
-    }
-
-    (frame.points ?? []).forEach((point) => {
-      const [px, py] = toCanvas(point);
-      if (px < 0 || px > width || py < 0 || py > height) {
-        return;
-      }
-      const color = `#${Number(point[3]).toString(16).padStart(6, '0')}`;
-      ctx.globalAlpha = 0.45 + (point[4] ?? 0.5) * 0.45;
-      ctx.fillStyle = color;
-      ctx.fillRect(px, py, 2.2 * scaleFactor, 2.2 * scaleFactor);
-    });
-    ctx.globalAlpha = 1;
-
-    (frame.boxes ?? []).forEach((box) => {
-      const color = overlayPalette[box.label] ?? overlayPalette.unknown;
-      ctx.strokeStyle = color;
-      ctx.fillStyle = color;
-      ctx.lineWidth = 2 * scaleFactor;
-      ctx.beginPath();
-      box.corners.forEach((corner, index) => {
-        const [x, y] = toCanvas(corner);
-        if (index === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      });
-      ctx.closePath();
-      ctx.stroke();
-      const [lx, ly] = toCanvas(box.corners[0]);
-      ctx.font = `${12 * scaleFactor}px Inter, sans-serif`;
-      ctx.fillText(box.label, lx + 4, ly - 4);
-    });
-
-    const [ex, ey] = toCanvas([0, 0]);
-    ctx.fillStyle = '#38bdf8';
-    ctx.strokeStyle = '#eaf8ff';
-    ctx.lineWidth = 1.5 * scaleFactor;
-    ctx.beginPath();
-    ctx.moveTo(ex, ey - 11 * scaleFactor);
-    ctx.lineTo(ex - 7 * scaleFactor, ey + 9 * scaleFactor);
-    ctx.lineTo(ex + 7 * scaleFactor, ey + 9 * scaleFactor);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-  }
-
   playEgo() {
     this.perceptionSequenceMode = true;
     this.followEgo = true;
@@ -396,7 +279,6 @@ export class Viewer {
     this.ego?.play();
     this.syncPerceptionToPlayback();
     this.syncCameraFrame(true);
-    this.syncLidarFrame(true);
   }
 
   pauseEgo() {
@@ -410,7 +292,6 @@ export class Viewer {
     this.ego?.reset();
     this.updateScrubber();
     this.syncCameraFrame(true);
-    this.syncLidarFrame(true);
   }
 
   setEgoProgress(value) {
@@ -420,7 +301,6 @@ export class Viewer {
     this.updateScrubber();
     this.syncPerceptionToPlayback();
     this.syncCameraFrame(true);
-    this.syncLidarFrame(true);
   }
 
   setEgoGoal() {
@@ -429,7 +309,6 @@ export class Viewer {
     this.ego?.setToEnd();
     this.updateScrubber();
     this.syncCameraFrame(true);
-    this.syncLidarFrame(true);
   }
 
   setCameraPreset(name, animated = true) {
@@ -511,9 +390,6 @@ export class Viewer {
     if (this.ui.cameraCount) {
       this.ui.cameraCount.textContent = `${metadata.exportedCameras ?? this.cameraManifest?.cameras?.length ?? 0}`;
     }
-    if (this.ui.lidarFrameCount) {
-      this.ui.lidarFrameCount.textContent = `${metadata.exportedLidarFrames ?? this.lidarFrames.length}`;
-    }
   }
 
   setDetail(message) {
@@ -572,7 +448,7 @@ export class Viewer {
       this.ui.activeEgoFrame.textContent = `${this.ego.currentSourceFrameIndex ?? 0}`;
     }
     if (this.ui.speedValue) {
-      const speed = this.ego.playing ? 21.6 : this.ego.normalizedTime >= 1 ? 0 : 0;
+      const speed = this.ego.playing || this.perceptionSequenceMode ? this.ego.currentSpeedKmh : 0;
       this.ui.speedValue.textContent = `${speed.toFixed(1)} km/h`;
     }
     if (this.ui.steerValue) {
@@ -612,7 +488,6 @@ export class Viewer {
     this.updateScrubber();
     this.syncPerceptionToPlayback();
     this.syncCameraFrame();
-    this.syncLidarFrame();
     this.updateStatusOverlay();
     this.renderer.render(this.scene, this.camera);
     this.labelRenderer.render(this.scene, this.camera);

@@ -92,7 +92,6 @@
             <div class="view-tabs" role="tablist" aria-label="Viewer mode">
               <button class="view-tab active" data-view-mode="scene" type="button">3D View</button>
               <button class="view-tab" data-view-mode="cameras" type="button">Camera Views</button>
-              <button class="view-tab" data-view-mode="lidar" type="button">Lidar View</button>
             </div>
             <span id="loadingStatus">Loading static demo assets...</span>
           </div>
@@ -109,14 +108,6 @@
                   <strong id="activeCameraName">Front Center</strong>
                   <span>source frame <b id="activeCameraFrame">0</b></span>
                 </div>
-              </div>
-            </div>
-            <div id="lidarPanel" class="lidar-panel" aria-label="Synchronized lidar sensor view" hidden>
-              <canvas id="lidarCanvas" aria-label="Actual downsampled lidar frame with perception boxes"></canvas>
-              <div class="lidar-meta">
-                <strong>Lidar Sensor Frame</strong>
-                <span>source frame <b id="activeLidarFrame">0</b></span>
-                <span><b id="activeLidarPoints">0</b> points</span>
               </div>
             </div>
             <div class="rviz-overlay speed-overlay" aria-label="Vehicle overlay">
@@ -241,7 +232,6 @@
               <span>Sync frames</span><strong id="syncFrameCount">157</strong>
               <span>Object frames</span><strong id="objectFrameCount">157</strong>
               <span>Cameras</span><strong id="cameraCount">9</strong>
-              <span>Lidar frames</span><strong id="lidarFrameCount">157</strong>
               <span>Ego source frame</span><strong id="activeEgoFrame">0</strong>
               <span>Active object frame</span><strong id="activeObjectFrame">0</strong>
             </div>
